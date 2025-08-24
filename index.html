@@ -1,0 +1,1630 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sunrise Chicken Farm - Quality from Dawn</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f9fa; /* Very light subtle background */
+            min-height: 100vh; /* Ensure body takes at least full viewport height */
+            padding-top: 6rem; /* Add padding to account for fixed header height */
+        }
+        section {
+            padding: 4rem 2rem; /* Consistent padding for sections */
+        }
+        h2 {
+            font-size: 3.5rem; /* Larger section titles */
+            line-height: 1.1;
+            margin-bottom: 2.5rem; /* More space below titles */
+        }
+
+        /* Sticky Header - Now FIXED to the viewport */
+        .sticky-header {
+            position: fixed; /* Changed from sticky to fixed for viewport stickiness */
+            top: 0;
+            left: 0;
+            width: 100%; /* Ensure it spans full width when fixed */
+            z-index: 50; /* Ensure it stays above other content */
+            background-color: rgba(255, 255, 255, 0.98); /* Slightly less transparent background for better readability */
+            backdrop-filter: blur(8px); /* Frosted glass effect */
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease-in-out;
+            padding: 1rem 2rem; /* Adjust padding for navigation */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Navigation links styling */
+        .main-nav ul li a {
+            padding: 0.75rem 1rem; /* More generous padding for click area */
+            border-radius: 0.5rem; /* Slightly rounded corners for links */
+            transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+            position: relative; /* For potential future underline effect */
+        }
+        .main-nav ul li a:hover {
+            background-color: #fef3c7; /* Light yellow background on hover */
+            color: #d97706; /* Darker yellow text on hover */
+            transform: translateY(-2px); /* Subtle lift effect */
+        }
+        .main-nav ul li a.btn-primary {
+            background-image: linear-gradient(to right, #FACC15 0%, #FBBF24 100%);
+            color: white; /* Ensure text is white for button */
+            padding: 0.75rem 1.5rem; /* Adjusted padding for button */
+            border-radius: 9999px; /* Fully rounded for button */
+            margin-left: 1.5rem; /* Space from other links */
+            box-shadow: 0 4px 10px rgba(251, 191, 36, 0.4);
+        }
+        .main-nav ul li a.btn-primary:hover {
+            background-position: right center;
+            box-shadow: 0 8px 15px rgba(251, 191, 36, 0.6);
+            transform: scale(1.05); /* Slightly larger scale for button */
+        }
+
+
+        /* Hero section styling - now without background image */
+        .hero-section {
+            background-color: #fef3c7; /* Light yellow background */
+            padding: 6rem 2rem; /* Adjusted padding for hero */
+            text-align: center;
+        }
+
+        /* Testimonial background */
+        .testimonials-bg {
+            background-image: url('https://placehold.co/1920x600/C8A97A/FFFFFF?text=Grainy+Wood+Texture'); /* Placeholder: Subtle texture for testimonials */
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            z-index: 0;
+        }
+        .testimonials-bg::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.75); /* Light overlay */
+            z-index: 1;
+        }
+        .testimonials-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Gallery background */
+        .gallery-bg {
+            background-image: url('https://placehold.co/1920x600/D0D0D0/666?text=Green+Field+Pattern'); /* Placeholder: Green pattern for gallery */
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            z-index: 0;
+        }
+        .gallery-bg::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(248, 249, 250, 0.85); /* Light overlay */
+            z-index: 1;
+        }
+        .gallery-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* General section styling (no harsh borders) */
+        .card-section {
+            background-color: #ffffff;
+            border-radius: 1.5rem; /* Larger border radius */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); /* Smoother, deeper shadow */
+            padding: 3rem;
+            margin-bottom: 4rem; /* More spacing between sections */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            max-width: 1280px; /* Re-introduce a max-width for content inside sections */
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .card-section:hover {
+             transform: translateY(-5px);
+             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        /* Custom styles for FAQ accordion */
+        .faq-item input[type="checkbox"] {
+            display: none;
+        }
+        .faq-item label {
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.25rem 1.5rem;
+            background-color: #fdfdfd; /* Lighter background */
+            border-radius: 0.75rem;
+            margin-bottom: 0.75rem;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06); /* Softer shadow */
+            border: 1px solid #f0f0f0; /* Very subtle border */
+        }
+        .faq-item label:hover {
+            background-color: #eff3f6;
+            transform: translateY(-3px); /* More pronounced lift */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+        .faq-item label::after {
+            content: '+';
+            font-size: 1.8rem;
+            font-weight: 600;
+            transition: transform 0.3s ease;
+            color: #6B7280;
+        }
+        .faq-item input[type="checkbox"]:checked + label::after {
+            content: '-';
+            transform: rotate(0deg);
+        }
+        .faq-item input[type="checkbox"]:checked + label {
+            background-color: #fffaf0; /* Lightest orange for open state */
+            border-color: #ffe0b2; /* Soft orange border */
+            color: #92400E;
+        }
+        .faq-item .faq-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out, padding 0.5s ease-out;
+            padding: 0 1.5rem;
+            background-color: #ffffff;
+            border-bottom-left-radius: 0.75rem;
+            border-bottom-right-radius: 0.75rem;
+            margin-top: -0.75rem;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.04); /* Very subtle inner shadow */
+            border: 1px solid #f0f0f0;
+            border-top: none;
+        }
+        .faq-item input[type="checkbox"]:checked ~ .faq-content {
+            max-height: 300px;
+            padding: 1.5rem;
+        }
+        .product-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .product-card:hover {
+            transform: translateY(-10px); /* More pronounced lift */
+            box-shadow: 0 20px 35px rgba(0, 0, 0, 0.18); /* Stronger, smoother shadow */
+        }
+        .btn-primary {
+            background-image: linear-gradient(to right, #FACC15 0%, #FBBF24 100%); /* Brighter yellow */
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); /* Smoother transition */
+            border: none;
+        }
+        .btn-primary:hover {
+            background-position: right center; /* change the direction of the change here */
+            box-shadow: 0 12px 20px rgba(251, 191, 36, 0.6); /* More intense shadow */
+            transform: scale(1.1); /* Slightly larger scale */
+        }
+        .btn-secondary {
+            background-image: linear-gradient(to right, #10B981 0%, #34D399 100%);
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            border: none;
+        }
+        .btn-secondary:hover {
+            background-position: right center;
+            box-shadow: 0 12px 20px rgba(52, 211, 153, 0.6);
+            transform: scale(1.1);
+        }
+        .contact-info-card {
+            transition: all 0.3s ease;
+            background-color: #fcfcfc;
+            border: 1px solid #eee;
+        }
+        .contact-info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+        .modal {
+            display: none; /* Hidden by default - THIS IS CRUCIAL */
+            position: fixed; /* Stay in place */
+            z-index: 1000; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgba(0,0,0,0.6); /* Darker overlay */
+            align-items: center; /* Still align for when JS sets display:flex */
+            justify-content: center; /* Still align for when JS sets display:flex */
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 35px; /* More padding */
+            border-radius: 16px; /* More rounded */
+            box-shadow: 0 8px 25px rgba(0,0,0,0.4); /* Stronger shadow */
+            max-width: 550px; /* Slightly wider */
+            width: 90%;
+            text-align: center;
+            position: relative;
+            animation: fadeIn 0.3s ease-out; /* Fade in animation */
+        }
+        .modal-content-lg { /* For larger content modals like policies */
+            max-width: 900px; /* Wider */
+            max-height: 80vh; /* Max height to allow scrolling within modal */
+            overflow-y: auto; /* Enable scrolling for content */
+            text-align: left; /* Align text left for policy content */
+        }
+        .close-button {
+            color: #aaa;
+            position: absolute;
+            top: 15px;
+            right: 25px;
+            font-size: 36px; /* Larger close button */
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+        .close-button:hover,
+        .close-button:focus {
+            color: #555;
+            text-decoration: none;
+        }
+
+        /* Lightbox specific styles */
+        #lightboxModal {
+            background-color: rgba(0,0,0,0.9); /* Darker overlay for lightbox */
+            z-index: 1050; /* Above other modals */
+        }
+        #lightboxContent {
+            background-color: transparent; /* No background for content */
+            padding: 0;
+            box-shadow: none;
+            max-width: 90vw;
+            max-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #lightboxImage {
+            max-width: 100%;
+            max-height: 100%;
+            border-radius: 1rem;
+            object-fit: contain; /* Ensure image fits */
+        }
+        .lightbox-nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.2);
+            color: white;
+            padding: 1rem;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 2rem;
+            line-height: 1;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            z-index: 1060; /* Above image */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 3rem; /* Make buttons round */
+            height: 3rem;
+        }
+        .lightbox-nav-btn:hover {
+            background: rgba(255,255,255,0.4);
+            color: yellow;
+        }
+        #prevBtn { left: 1rem; }
+        #nextBtn { right: 1rem; }
+
+
+        /* Fade in animation for modal */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        /* New fade-in-up animation for hero text */
+        @keyframes fade-in-up {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .animate-fade-in-up {
+            animation: fade-in-up 1s ease-out forwards;
+        }
+        .animate-fade-in-up.delay-100 {
+            animation-delay: 0.1s;
+        }
+        .animate-fade-in-up.delay-200 {
+            animation-delay: 0.2s;
+        }
+
+        /* Animate on scroll (AOS-like) classes - using Intersection Observer for better performance */
+        .aos-fade-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .aos-fade-up.aos-animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Blog post card specific styles */
+        .blog-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .blog-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Mobile navigation toggle */
+        .mobile-menu-toggle {
+            display: none; /* Hidden by default on larger screens */
+            cursor: pointer;
+            font-size: 2rem;
+            color: #4a5568; /* Gray-700 */
+        }
+        .main-nav ul {
+            display: flex;
+            gap: 1.5rem; /* Increased gap for better spacing */
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: block;
+            }
+            .main-nav {
+                display: none; /* Hide navigation by default on mobile */
+                flex-direction: column;
+                width: 100%;
+                background-color: rgba(255, 255, 255, 0.98);
+                position: absolute;
+                top: 100%;
+                left: 0;
+                box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+                padding: 1rem 0;
+                border-radius: 0 0 1rem 1rem;
+                /* Added transitions for mobile menu */
+                opacity: 0;
+                transform: translateY(-10px);
+                transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+            }
+            .main-nav.active {
+                display: flex; /* Show when active */
+                opacity: 1;
+                transform: translateY(0);
+            }
+            .main-nav ul {
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+                gap: 0.5rem;
+            }
+            .main-nav ul li a {
+                padding: 0.75rem 0;
+                display: block;
+                width: 100%;
+                text-align: center;
+            }
+            .sticky-header {
+                flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+                padding: 1rem;
+            }
+            .sticky-header .site-title {
+                margin-right: auto; /* Push toggle to the right */
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 antialiased">
+
+    <!-- Header Section (FIXED to viewport) -->
+    <header class="sticky-header px-8">
+        <div class="flex items-center">
+            <!-- Logo Placeholder -->
+            <img src="images/1752899501161.jpg" alt="Sunrise Chicken Farm Logo" class="w-24 h-24 mr-4">
+            <h1 class="text-3xl font-black text-gray-800 site-title">
+                Sunrise Chicken Farm
+            </h1>
+        </div>
+
+        <div class="mobile-menu-toggle" id="mobileMenuToggle">
+            ☰ <!-- Hamburger icon -->
+        </div>
+        <nav class="main-nav" id="mainNav">
+            <ul class="text-gray-700 font-semibold text-lg">
+                <li><a href="#about-us" class="hover:text-yellow-600 transition-colors duration-200 py-2 px-3 rounded-md">About Us</a></li>
+                <li><a href="#products" class="hover:text-yellow-600 transition-colors duration-200 py-2 px-3 rounded-md">Products</a></li>
+                <li><a href="#faq-section" class="hover:text-yellow-600 transition-colors duration-200 py-2 px-3 rounded-md">FAQs</a></li>
+                <li><a href="#order-inquiry" class="btn-primary text-white py-2 px-5 rounded-full text-base shadow-md ml-4 hover:scale-105 inline-block">Order Now!</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content Container (starts below the fixed header) -->
+    <div class="w-full bg-white shadow-2xl overflow-hidden">
+        <!-- Hero Section (Now Clean Background) -->
+        <section class="hero-section text-gray-800 aos-fade-in-up">
+            <h1 class="text-7xl sm:text-8xl font-black mb-6 tracking-tight leading-tight animate-fade-in-up">
+                <span class="block">Sunrise Chicken Farm</span>
+            </h1>
+            <p class="text-3xl sm:text-4xl italic font-light mt-4 mb-10 animate-fade-in-up delay-100">
+                "Quality from Dawn – Directly to Your Table"
+            </p>
+            <div class="text-center mt-16">
+                <a href="#order-inquiry" class="btn-primary text-white font-extrabold py-5 px-12 rounded-full text-2xl shadow-xl hover:scale-105 inline-block transition duration-300 ease-in-out">
+                    Order Fresh Products Now!
+                </a>
+            </div>
+        </section>
+
+        <!-- About Us / Our Story Section (Combined & Enhanced) -->
+        <section id="about-us" class="text-center py-20 px-8 card-section aos-fade-up">
+            <h2 class="text-5xl font-extrabold text-gray-800 mb-6">Our Vision & Story</h2>
+            <div class="max-w-4xl mx-auto text-lg text-gray-700 leading-relaxed grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+                <div>
+                    <p class="mb-5">
+                        Sunrise Chicken Farm blossomed from a heartfelt desire to bring genuinely fresh, wholesome chicken and eggs to our beloved community in Kakamega. Our journey began as a humble family endeavor, fueled by a profound love for farming and an unyielding dedication to quality.
+                    </p>
+                    <p>
+                        Every single day, from the first rays of dawn, our singular focus is on cultivating a healthy, vibrant, and happy environment for our broilers and layers. We believe that well-cared-for birds naturally yield products of superior taste and nutrition – a difference you can truly savor.
+                    </p>
+                </div>
+                <div class="flex justify-center">
+                    <img src="images/Gemini_Generated_Image_n2dctjn2dctjn2dc - Copy.png" alt="Our Dedicated Team" class="rounded-xl shadow-xl w-full h-auto max-w-lg object-cover">
+                </div>
+            </div>
+        </section>
+
+        <!-- Meet the Farmers Section (UPDATED) -->
+        <section id="meet-the-farmers" class="text-center py-20 px-8 card-section bg-orange-50 aos-fade-up">
+            <h2 class="text-5xl font-extrabold text-orange-700 mb-12">Meet the Hands Behind Your Food</h2>
+            <p class="text-lg text-gray-700 max-w-3xl mx-auto mb-12">
+                At Sunrise Chicken Farm, we're more than just a business; we're a family committed to ethical farming and delivering the freshest produce. Get to know some of the dedicated individuals who make it all happen!
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+                <!-- Farmer Card 1: Luqman Yusuf -->
+                <div class="flex flex-col items-center bg-white p-8 rounded-2xl shadow-lg transform hover:scale-105 transition duration-300">
+                    <img src="images/Gemini_Generated_Image_ecwcnqecwcnqecwc.png" alt="Luqman Yusuf" class="w-36 h-36 rounded-full object-cover mb-6 border-4 border-yellow-300 shadow-md">
+                    <h3 class="font-bold text-3xl text-gray-800 mb-2">Luqman Yusuf</h3>
+                    <p class="text-yellow-700 font-semibold mb-3">Owner & Farm Manager</p>
+                    <p class="text-gray-700 text-base">With decades of experience, Luqman ensures every aspect of our farm meets the highest standards of care and quality.</p>
+                </div>
+                <!-- Farmer Card 2: Yusuf Anami (Care Specialist) -->
+                <div class="flex flex-col items-center bg-white p-8 rounded-2xl shadow-lg transform hover:scale-105 transition duration-300">
+                    <img src="images/20250321_181833.jpg" alt="Yusuf Anami" class="w-36 h-36 rounded-full object-cover mb-6 border-4 border-blue-300 shadow-md">
+                    <h3 class="font-bold text-3xl text-gray-800 mb-2">Yusuf Anami</h3>
+                    <p class="text-blue-700 font-semibold mb-3">Poultry Care Specialist</p>
+                    <p class="text-gray-700 text-base">Yusuf's passion is the well-being of our birds, ensuring they are healthy, happy, and thriving every single day.</p>
+                </div>
+                <!-- Farmer Card 3: Cheryl Adhiambo (Head of Logistics) -->
+                <div class="flex flex-col items-center bg-white p-8 rounded-2xl shadow-lg transform hover:scale-105 transition duration-300">
+                    <img src="images/Snapchat-481545965.jpg" alt="Cheryl Adhiambo" class="w-36 h-36 rounded-full object-cover mb-6 border-4 border-purple-300 shadow-md">
+                    <h3 class="font-bold text-3xl text-gray-800 mb-2">Cheryl Adhiambo</h3>
+                    <p class="text-purple-700 font-semibold mb-3">Head of Logistics</p>
+                    <p class="text-gray-700 text-base">Cheryl is dedicated to ensuring your fresh products arrive at your doorstep swiftly and in perfect condition.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Commitment Section -->
+        <section id="our-commitment" class="py-20 px-8 card-section bg-green-50 aos-fade-up">
+            <h2 class="text-5xl font-extrabold text-green-700 text-center mb-12">Our Unwavering Commitment</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 text-center">
+
+                <div class="p-8 rounded-2xl bg-white shadow-lg flex flex-col items-center transform hover:scale-105 transition duration-300">
+                    <!-- Natural Feed Icon (SVG) -->
+                    <h3 class="font-bold text-2xl text-gray-800 mb-3">Pure & Natural Feed</h3>
+                    <p class="text-gray-700 text-base">Our chickens thrive on a meticulously balanced, wholesome diet, completely free from harmful additives and growth hormones.</p>
+                </div>
+                <div class="p-8 rounded-2xl bg-white shadow-lg flex flex-col items-center transform hover:scale-105 transition duration-300">
+                    <!-- Ethical Rearing Icon (SVG) -->
+                    <h3 class="font-bold text-2xl text-gray-800 mb-3">Ethical Rearing Practices</h3>
+                    <p class="text-gray-700 text-base">We ensure spacious, clean, and compassionate environments where all our birds can flourish naturally and happily.</p>
+                </div>
+                <div class="p-8 rounded-2xl bg-white shadow-lg flex flex-col items-center transform hover:scale-105 transition duration-300">
+                    <h3 class="font-bold text-2xl text-gray-800 mb-3">Guaranteed Freshness</h3>
+                    <p class="text-gray-700 text-base">Every product is handled with meticulous care, from our farm to your doorstep, ensuring unparalleled freshness and quality.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Products Section -->
+        <section id="products" class="py-20 px-8 card-section aos-fade-up">
+            <h2 class="text-5xl font-extrabold text-gray-800 text-center mb-12">Our Farm-Fresh Products</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+                <!-- Product Card 1: Fresh Dressed Chicken (Broilers) -->
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden product-card transform-gpu">
+                    <img src="https://placehold.co/450x350/FACC15/FFF?text=Fresh+Broiler+Chicken" alt="Dressed Broiler Chicken" class="w-full h-64 object-cover">
+                    <div class="p-7">
+                        <h3 class="font-bold text-3xl text-gray-800 mb-4">Fresh Dressed Broiler Chicken</h3>
+                        <p class="text-gray-700 text-base mb-5">
+                            Our premium broiler chickens, meticulously dressed and prepared for your culinary convenience. Celebrated for their tender, succulent meat.
+                        </p>
+                        <ul class="list-disc list-inside text-gray-600 mb-5 text-sm space-y-1">
+                            <li>Available in various precise weights.</li>
+                            <li>Perfect for roasting, grilling, or rich stews.</li>
+                            <li><span class="font-semibold">Nutritional Highlight:</span> High in lean protein, essential amino acids.</li>
+                        </ul>
+                        <div class="text-center">
+                            <p class="text-yellow-700 font-extrabold text-4xl mt-6">Ksh 480 <span class="text-2xl font-semibold text-gray-500">/ per kg</span></p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product Card 2: Farm Fresh Eggs (Layers) -->
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden product-card transform-gpu">
+                    <img src="https://placehold.co/450x350/FBC02D/FFFFFF?text=Farm+Fresh+Eggs" alt="Farm Fresh Eggs" class="w-full h-64 object-cover">
+                    <div class="p-7">
+                        <h3 class="font-bold text-3xl text-gray-800 mb-4">Farm Fresh Eggs</h3>
+                        <p class="text-gray-700 text-base mb-5">
+                            Nutrient-rich, vibrantly flavored eggs laid fresh daily by our healthy layer hens. An indispensable ingredient for every kitchen.
+                        </p>
+                        <ul class="list-disc list-inside text-gray-600 mb-5 text-sm space-y-1">
+                            <li>Naturally vibrant brown and white shells.</li>
+                            <li>Ideal for baking, a wholesome breakfast, or enriching any main dish.</li>
+                            <li><span class="font-semibold text-green-600">Nutritional Highlight:</span> Excellent source of Vitamin D, B12, and brain-boosting Choline.</li>
+                        </ul>
+                        <div class="text-center">
+                            <p class="text-yellow-700 font-extrabold text-4xl mt-6">Ksh 380 <span class="text-2xl font-semibold text-gray-500">/ per tray (30 eggs)</span></p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product Card 3: Live Chicken -->
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden product-card transform-gpu">
+                    <img src="https://placehold.co/450x350/607D8B/FFFFFF?text=Live+Chicken" alt="Live Chicken" class="w-full h-64 object-cover">
+                    <div class="p-7">
+                        <h3 class="font-bold text-3xl text-gray-800 mb-4">Live Chicken</h3>
+                        <p class="text-gray-700 text-base mb-5">
+                            Healthy, active chickens available live from our farm. Perfect for those who prefer to process their poultry at home or for breeding.
+                        </p>
+                        <ul class="list-disc list-inside text-gray-600 mb-5 text-sm space-y-1">
+                            <li>Well-vaccinated and robust birds.</li>
+                            <li>Choose between broiler or layer breeds.</li>
+                            <li><span class="font-semibold text-green-600">Best for:</span> Ultimate freshness and custom processing.</li>
+                        </ul>
+                        <div class="text-center">
+                            <p class="text-yellow-700 font-extrabold text-4xl mt-6">Contact for pricing <span class="text-2xl font-semibold text-gray-500">/ per bird</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Special Offers & Seasonal Bundles Section (NEW) -->
+        <section id="special-offers" class="py-20 px-8 card-section bg-yellow-50 aos-fade-up">
+            <h2 class="text-5xl font-extrabold text-yellow-700 text-center mb-12">Special Offers & Seasonal Bundles!</h2>
+            <p class="text-lg text-gray-700 text-center mb-12 max-w-3xl mx-auto">
+                Don't miss out on our limited-time promotions and specially curated seasonal bundles! Get more farm-fresh goodness for less.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <!-- Offer Card 1: Family Feast Bundle -->
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden product-card transform-gpu border-4 border-yellow-400">
+                    <img src="https://placehold.co/450x350/FACC15/FFF?text=Family+Feast+Bundle" alt="Family Feast Bundle" class="w-full h-64 object-cover">
+                    <div class="p-7">
+                        <h3 class="font-bold text-3xl text-gray-800 mb-4">Family Feast Bundle</h3>
+                        <p class="text-gray-700 text-base mb-5">
+                            Perfect for family gatherings! Includes one 2kg Dressed Broiler Chicken and two trays of Farm Fresh Eggs.
+                        </p>
+                        <ul class="list-disc list-inside text-gray-600 mb-5 text-sm space-y-1">
+                            <li>1 x 2kg Dressed Broiler</li>
+                            <li>2 x Trays of 30 Farm Fresh Eggs</li>
+                            <li><span class="font-semibold text-red-600">Special Price:</span> Ksh 2,000 (Save Ksh 150!)</li>
+                        </ul>
+                        <div class="text-center">
+                            <a href="#order-inquiry" class="btn-primary text-white font-extrabold py-3 px-8 rounded-full text-lg shadow-lg">
+                                Order This Bundle!
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Offer Card 2: Egg-cellent Breakfast Deal -->
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden product-card transform-gpu border-4 border-yellow-400">
+                    <img src="https://placehold.co/450x350/FBC02D/FFFFFF?text=Egg-cellent+Deal" alt="Egg-cellent Breakfast Deal" class="w-full h-64 object-cover">
+                    <div class="p-7">
+                        <h3 class="font-bold text-3xl text-gray-800 mb-4">Egg-cellent Breakfast Deal</h3>
+                        <p class="text-gray-700 text-base mb-5">
+                            Stock up on your breakfast essentials! Get three trays of our Farm Fresh Eggs at an unbeatable price.
+                        </p>
+                        <ul class="list-disc list-inside text-gray-600 mb-5 text-sm space-y-1">
+                            <li>3 x Trays of 30 Farm Fresh Eggs</li>
+                            <li>Perfect for weekly breakfasts or baking needs.</li>
+                            <li><span class="font-semibold text-red-600">Special Price:</span> Ksh 1,450 (Save Ksh 50!)</li>
+                        </ul>
+                        <div class="text-center">
+                            <a href="#order-inquiry" class="btn-primary text-white font-extrabold py-3 px-8 rounded-full text-lg shadow-lg">
+                                Grab This Deal!
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p class="text-center text-gray-600 text-base italic mt-10">
+                Offers are subject to availability and may change. Contact us for the latest promotions!
+            </p>
+        </section>
+
+        <!-- Gallery Section (with Lightbox) -->
+        <section id="gallery" class="py-20 px-8 gallery-bg text-center aos-fade-up">
+            <div class="gallery-content">
+                <h2 class="text-5xl font-extrabold text-gray-800 mb-12">Glimpses of Our Farm</h2>
+                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8">
+                    <!-- Each image now has data attributes for the lightbox -->
+                    <img src="images/Gemini_Generated_Image_16di9616di9616di.png" data-lightbox-src="images/Gemini_Generated_Image_16di9616di9616di.png" alt="Farm View 1" class="w-full h-48 sm:h-64 object-cover rounded-xl shadow-xl hover:shadow-2xl transform hover:scale-105 transition duration-300 cursor-pointer" onclick="openLightbox(this)">
+                    <img src="images/Gemini_Generated_Image_b24n4fb24n4fb24n.png" data-lightbox-src="images/Gemini_Generated_Image_b24n4fb24n4fb24n.png" alt="Happy Broilers 2" class="w-full h-48 sm:h-64 object-cover rounded-xl shadow-xl hover:shadow-2xl transform hover:scale-105 transition duration-300 cursor-pointer" onclick="openLightbox(this)">
+                    <img src="images/Gemini_Generated_Image_esfn3iesfn3iesfn.png" data-lightbox-src="images/Gemini_Generated_Image_esfn3iesfn3iesfn.png" alt="Egg Collection 3" class="w-full h-48 sm:h-64 object-cover rounded-xl shadow-xl hover:shadow-2xl transform hover:scale-105 transition duration-300 cursor-pointer" onclick="openLightbox(this)">
+                    <img src="images/Gemini_Generated_Image_b24n4fb24n4fb24n.png" data-lightbox-src="images/Gemini_Generated_Image_b24n4fb24n4fb24n.png" alt="Healthy Layers 4" class="w-full h-48 sm:h-64 object-cover rounded-xl shadow-xl hover:shadow-2xl transform hover:scale-105 transition duration-300 cursor-pointer" onclick="openLightbox(this)">
+                    <img src="images/Gemini_Generated_Image_n2dctjn2dctjn2dc - Copy.png" data-lightbox-src="images/Gemini_Generated_Image_n2dctjn2dctjn2dc - Copy.png" alt="Farm Life 5" class="w-full h-48 sm:h-64 object-cover rounded-xl shadow-xl hover:shadow-2xl transform hover:scale-105 transition duration-300 cursor-pointer" onclick="openLightbox(this)">
+                    <img src="images/Gemini_Generated_Image_q9tv0uq9tv0uq9tv.png" data-lightbox-src="images/Gemini_Generated_Image_q9tv0uq9tv0uq9tv.png" alt="Caring for Birds 6" class="w-full h-48 sm:h-64 object-cover rounded-xl shadow-xl hover:shadow-2xl transform hover:scale-105 transition duration-300 cursor-pointer" onclick="openLightbox(this)">
+                    <img src="images/Gemini_Generated_Image_lvhbgzlvhbgzlvhb.png" data-lightbox-src="images/Gemini_Generated_Image_lvhbgzlvhbgzlvhb.png" alt="Fresh Produce 7" class="w-full h-48 sm:h-64 object-cover rounded-xl shadow-xl hover:shadow-2xl transform hover:scale-105 transition duration-300 cursor-pointer" onclick="openLightbox(this)">
+                    <img src="images/Gemini_Generated_Image_n2dctjn2dctjn2dc - Copy.png" data-lightbox-src="images/Gemini_Generated_Image_n2dctjn2dctjn2dc - Copy.png" alt="Sunny Farm Day 8" class="w-full h-48 sm:h-64 object-cover rounded-xl shadow-xl hover:shadow-2xl transform hover:scale-105 transition duration-300 cursor-pointer" onclick="openLightbox(this)">
+                </div>
+            </div>
+        </section>
+
+        <!-- How to Order Section -->
+        <section id="how-to-order" class="py-20 px-8 card-section bg-blue-50 aos-fade-up">
+            <h2 class="text-5xl font-extrabold text-blue-700 text-center mb-12">Your Simple Path to Freshness</h2>
+            <ol class="list-decimal list-inside text-xl text-gray-700 space-y-6">
+                <li class="p-6 bg-white rounded-xl shadow-lg transform hover:scale-102 transition duration-200">
+                    <span class="font-bold text-blue-600">Step 1: Discover Our Exceptional Products</span><br>
+                    Explore our carefully curated selection of farm-fresh dressed broiler chickens, nutritious eggs, and live chickens. Find exactly what you need for your table.
+                </li>
+                <li class="p-6 bg-white rounded-xl shadow-lg transform hover:scale-102 transition duration-200">
+                    <span class="font-bold text-blue-600">Step 2: Effortlessly Place Your Order</span><br>
+                    Reach out to us conveniently via our "Order Inquiry Form" on this page, or simply call us at <a href="tel:+254793911383" class="text-blue-600 hover:underline font-semibold">0793911383</a>, or send a quick WhatsApp message to the same number.
+                </li>
+                <li class="p-6 bg-white rounded-xl shadow-lg transform hover:scale-102 transition duration-200">
+                    <span class="font-bold text-blue-600">Step 3: Swift Confirmation & Seamless Delivery</span><br>
+                    We'll promptly confirm your order details and total cost, then arrange for our complimentary and efficient delivery directly to your doorstep within Kakamega at your preferred time.
+                </li>
+                <li class="p-6 bg-white rounded-xl shadow-lg transform hover:scale-102 transition duration-200">
+                    <span class="font-bold text-blue-600">Step 4: Savor the Unmatched Freshness!</span><br>
+                    Receive your premium, farm-fresh poultry products, and immediately experience the unparalleled taste and quality that only "Quality from Dawn" can deliver.
+                </li>
+            </ol>
+        </section>
+
+        <!-- Order Inquiry Form -->
+        <section id="order-inquiry" class="py-20 px-8 card-section bg-green-50 aos-fade-up">
+            <h2 class="text-5xl font-extrabold text-green-700 text-center mb-12">Ready to Order? Send Us Your Inquiry!</h2>
+            <p class="text-lg text-gray-700 text-center mb-12 max-w-3xl mx-auto">
+                Fill out the form below with your desired items and delivery details. We'll get back to you promptly to confirm your order and schedule your free delivery!
+            </p>
+            <form id="orderForm" class="max-w-2xl mx-auto space-y-8 p-10 bg-white rounded-2xl shadow-2xl">
+                <div>
+                    <label for="name" class="block text-gray-700 text-lg font-bold mb-3">Your Full Name:</label>
+                    <input type="text" id="name" name="Customer Name" class="shadow-inner appearance-none border border-gray-300 rounded-xl w-full py-4 px-5 text-gray-700 leading-tight focus:outline-none focus:ring-4 focus:ring-yellow-300 focus:border-yellow-500 transition duration-300" placeholder="e.g., John Doe" required>
+                </div>
+                <div>
+                    <label for="phone" class="block text-gray-700 text-lg font-bold mb-3">Your Phone Number:</label>
+                    <input type="tel" id="phone" name="Phone Number" class="shadow-inner appearance-none border border-gray-300 rounded-xl w-full py-4 px-5 text-gray-700 leading-tight focus:outline-none focus:ring-4 focus:ring-yellow-300 focus:border-yellow-500 transition duration-300" placeholder="e.g., 0793911383" required>
+                </div>
+                <!-- Email field removed as per request -->
+                <div>
+                    <label for="order_details" class="block text-gray-700 text-lg font-bold mb-3">Your Order Details (e.g., 2kg Dressed Broiler, 1 Tray Eggs, 3 Live Chickens):</label>
+                    <textarea id="order_details" name="Order Details" rows="6" class="shadow-inner appearance-none border border-gray-300 rounded-xl w-full py-4 px-5 text-gray-700 leading-tight focus:outline-none focus:ring-4 focus:ring-yellow-300 focus:border-yellow-500 transition duration-300" placeholder="Please specify items, quantities, and any special requests..." required></textarea>
+                </div>
+                <div>
+                    <label for="delivery_address" class="block text-gray-700 text-lg font-bold mb-3">Delivery Address (within Kakamega - specify landmarks if possible):</label>
+                    <textarea id="delivery_address" name="Delivery Address" rows="4" class="shadow-inner appearance-none border border-gray-300 rounded-xl w-full py-4 px-5 text-gray-700 leading-tight focus:outline-none focus:ring-4 focus:ring-yellow-300 focus:border-yellow-500 transition duration-300" placeholder="Your street, nearest landmark, estate name, etc." required></textarea>
+                </div>
+                <div class="text-center pt-6">
+                    <button type="submit" class="btn-secondary text-white font-extrabold py-4 px-10 rounded-full text-xl sm:text-2xl shadow-xl">
+                        Send Order Inquiry Now!
+                    </button>
+                </div>
+            </form>
+            <div id="formMessage" class="max-w-2xl mx-auto text-center mt-4 text-lg font-semibold flex flex-col items-center"></div>
+        </section>
+
+        <!-- Payment Methods Section -->
+        <section id="payment-methods" class="py-20 px-8 card-section bg-purple-50 aos-fade-up">
+            <h2 class="text-5xl font-extrabold text-purple-700 text-center mb-12">Seamless Payment Options</h2>
+            <p class="text-lg text-gray-700 text-center mb-12 max-w-3xl mx-auto">
+                We've made paying for your fresh products easy and secure. Choose from our convenient mobile money options:
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-10 text-lg">
+                <!-- Safaricom M-Pesa -->
+                <div class="flex flex-col items-center bg-white rounded-xl p-8 shadow-lg transform hover:scale-105 transition duration-300">
+                    <!-- M-Pesa Icon (png - stylized money transfer icon) -->
+                    <img src="images/M-pesa-logo.png" alt="M-Pesa" class="w-24 h-24 mb-6">
+                        <path d="M21 7.28l-2-2L19 3a1 1 0 00-1.707-.707l-2 2a1 1 0 000 1.414l2 2A1 1 0 0019 9a1 1 0 00.707-.293l2-2A1 1 0 0021 7.28zM14 10a4 4 0 100-8 4 4 0 000 8zM2 12h2v-2H2v2zm0 4h2v-2H2v2zm0 4h2v-2H2v2zm8 0h2v-2h-2v2zm-4 0h2v-2H6v2zm12 0h2v-2h-2v2zm-4 0h2v-2h-2v2zm-4 0h2v-2h-2v2z"/>
+                        <path d="M16 12H8v-2h8v2zM16 16H8v-2h8v2zM16 20H8v-2h8v2z"/>
+                    </svg>
+                    <h3 class="font-bold text-3xl text-gray-800 mb-4">Safaricom M-Pesa Paybill</h3>
+                    <p class="text-gray-700 text-center text-xl">Business Number: <span class="font-extrabold text-purple-600 text-3xl block mt-2">3384766</span></p>
+                    <p class="text-gray-700 text-center mt-3 text-lg">Account Name: <span class="font-semibold text-purple-600">SUNRISE CHICKEN FARM</span></p>
+                </div>
+                <!-- Airtel Money -->
+                <div class="flex flex-col items-center bg-white rounded-xl p-8 shadow-lg transform hover:scale-105 transition duration-300">
+                    <!-- Airtel Money Icon (SVG - stylized phone payment icon) -->
+                    <img src="images/airtel money .jpg" alt="Airtel Money" class="w-24 h-24 mb-6">
+                        <path d="M17 1H7c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-2-2-2zm-1 16H8v-1h8v1zm-1-3H8V7h8v7z"/>
+                    </svg>
+                    <h3 class="font-bold text-3xl text-gray-800 mb-4">Airtel Money</h3>
+                    <p class="text-gray-700 text-center text-xl">Send to Number: <span class="font-extrabold text-purple-600 text-3xl block mt-2">0793911383</span></p>
+                    <p class="text-gray-700 text-center mt-3 text-lg">Reference: <span class="font-semibold text-purple-600">Your Name / Order ID</span></p>
+                </div>
+            </div>
+            <p class="text-center text-gray-600 text-base italic mt-10">
+                For all mobile money payments, please ensure to include your name or order ID as the account/reference number for quick and accurate reconciliation.
+            </p>
+        </section>
+
+        <!-- Delivery Information -->
+        <section id="delivery-info" class="py-20 px-8 card-section bg-yellow-50 aos-fade-up">
+            <h2 class="text-5xl font-extrabold text-yellow-700 text-center mb-12">Unbeatable Delivery Promise!</h2>
+            <p class="text-xl text-gray-700 leading-relaxed max-w-3xl mx-auto">
+                We are incredibly proud to offer <span class="font-extrabold text-green-700 text-3xl">FREE deliveries</span> exclusively within Kakamega town! Experience the ultimate convenience of having your incredibly fresh chicken and eggs delivered directly to your doorstep, hassle-free and with a smile.
+            </p>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="py-20 px-8 testimonials-bg text-center text-gray-800 aos-fade-up">
+            <div class="testimonials-content">
+                <h2 class="text-5xl font-extrabold text-yellow-700 mb-12 drop-shadow-md">Hear From Our Happy Customers</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                    <!-- Testimonial 1 -->
+                    <div class="bg-white p-8 rounded-xl shadow-xl transform hover:scale-102 transition duration-300">
+                        <p class="italic text-gray-700 mb-5 leading-relaxed text-lg">"The dressed broiler chicken from Sunrise is consistently tender and delicious. Perfect for all our family meals, and the free delivery within Kakamega is an absolute lifesaver – truly convenient and reliable!"</p>
+                        <p class="font-bold text-right text-gray-800 text-xl mt-6">- Jane W., Kakamega</p>
+                    </div>
+                    <!-- Testimonial 2 -->
+                    <div class="bg-white p-8 rounded-xl shadow-xl transform hover:scale-102 transition duration-300">
+                        <p class="italic text-gray-700 mb-5 leading-relaxed text-lg">"Sunrise Chicken Farm's eggs are always fresh and vibrant. You can tell they come from healthy layers – they'sre bigger and more flavorful than anything else we've found. A definite staple in our kitchen now."</p>
+                        <p class="font-bold text-right text-gray-800 text-xl mt-6">- David K., Kakamega</p>
+                    </div>
+                    <!-- Testimonial 3 -->
+                    <div class="bg-white p-8 rounded-xl shadow-xl transform hover:scale-102 transition duration-300 md:col-span-2">
+                        <p class="italic text-gray-700 mb-5 leading-relaxed text-lg">"Their products are top-tier. Whether it's the dressed broiler or the fresh eggs, the quality is unmatched. The easy payment options and delivery make it so effortless to get fresh produce. Sunrise Chicken Farm is our go-to!"</p>
+                        <p class="font-bold text-right text-gray-800 text-xl mt-6">- Mary L., Kakamega</p>
+                    </div>
+                </div>
+                <!-- Submit Testimonial Button -->
+                <div class="text-center mt-16">
+                    <button id="openTestimonialModal" class="btn-primary text-white font-extrabold py-5 px-12 rounded-full text-2xl shadow-xl hover:scale-105 transition duration-300 ease-in-out">
+                        Share Your Experience!
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Beyond the Farm: Recipes & Nutrition Section (Updated to link to blog) -->
+        <section id="recipes-nutrition" class="py-20 px-8 card-section bg-red-50 aos-fade-up">
+            <h2 class="text-5xl font-extrabold text-red-700 text-center mb-12">Beyond the Farm: Recipes & Nutrition</h2>
+            <p class="text-lg text-gray-700 text-center mb-12 max-w-3xl mx-auto">
+                Unlock the full potential of our farm-fresh products! Explore delicious recipe ideas and learn more about the wholesome nutrition our chickens and eggs provide.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <div class="bg-white p-8 rounded-xl shadow-lg transform hover:scale-105 transition duration-300">
+                    <h3 class="font-bold text-3xl text-gray-800 mb-4">Recipe Idea: Zesty Roasted Broiler</h3>
+                    <p class="text-gray-700 text-base mb-5">
+                        Our dressed broiler chicken is exceptional when roasted with fresh lemon, fragrant herbs like rosemary and thyme, and plenty of garlic. A simple, yet incredibly flavorful and tender dish perfect for any family dinner!
+                    </p>
+                    <a href="#farm-news-section" class="text-blue-600 hover:underline font-semibold text-lg mt-4 inline-block">Read More Recipes on Our Blog →</a>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-lg transform hover:scale-105 transition duration-300">
+                    <h3 class="font-bold text-3xl text-gray-800 mb-4">The Nutritional Power of Our Eggs</h3>
+                    <p class="text-gray-700 text-base mb-5">
+                        Sunrise Chicken Farm eggs are nature's multivitamin! Each large egg provides roughly 6 grams of high-quality protein, a rich array of essential vitamins (like D, B12, E), and crucial minerals. They are also a fantastic source of Choline, vital for brain health.
+                    </p>
+                    <a href="#farm-news-section" class="text-blue-600 hover:underline font-semibold text-lg mt-4 inline-block">Discover More Nutritional Insights →</a>
+                </div>
+            </div>
+        </section>
+
+        </section>
+
+        <!-- Customer Support Section -->
+        <section id="customer-support" class="py-20 px-8 card-section bg-indigo-50 aos-fade-up">
+            <h2 class="text-5xl font-extrabold text-indigo-700 text-center mb-12">Need Assistance? We're Here to Help!</h2>
+            <p class="text-lg text-gray-700 text-center mb-12 max-w-3xl mx-auto">
+                We're dedicated to ensuring your complete satisfaction. Don't hesitate to reach out with any questions, concerns, or special requests.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <div class="flex flex-col items-center bg-white rounded-xl p-8 shadow-lg transform hover:scale-105 transition duration-300">
+                    <!-- Quick Assistance Icon (SVG) -->
+                    <img src = "images/immidiate assistance.jpg" alt = "quick assistance" class = "w-16 h-16 mb-6">
+                    <h3 class="font-bold text-3xl text-gray-800 mb-4">Immediate Assistance</h3>
+                    <p class="text-gray-700 text-center text-lg mb-5">
+                        For urgent inquiries or direct conversations, our phone and WhatsApp lines are the fastest way to get in touch.
+                    </p>
+                    <a href="tel:+254793911383" class="mt-4 text-blue-600 hover:underline font-semibold text-xl">Call Us: 0793911383</a>
+                    <a href="https://wa.me/254793911383" class="mt-2 text-green-600 hover:underline font-semibold text-xl" target="_blank">WhatsApp Us</a>
+                </div>
+                <div class="flex flex-col items-center bg-white rounded-xl p-8 shadow-lg transform hover:scale-105 transition duration-300">
+                    <!-- FAQs Icon (SVG) -->
+                    <img src = "images/FAQS.JPG" alt = "comprehesive faqs" class = "w-16 h-16 mb-6">
+                    <h3 class="font-bold text-3xl text-gray-800 mb-4">Comprehensive FAQs</h3>
+                    <p class="text-gray-700 text-center text-lg mb-5">
+                        Many common questions about our products, delivery, and services are answered in our detailed Frequently Asked Questions section.
+                    </p>
+                    <a href="#faq-section" class="mt-4 text-blue-600 hover:underline font-semibold text-xl">Explore FAQs</a>
+                    <p class="text-sm text-gray-500 mt-3 italic">
+                        (For email inquiries, we typically respond within 24 business hours.)
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq-section" class="py-20 px-8 card-section aos-fade-up">
+            <h2 class="text-5xl font-extrabold text-gray-800 text-center mb-12">Frequently Asked Questions</h2>
+            <div class="space-y-6">
+                <!-- Existing FAQ Items -->
+                <div class="faq-item">
+                    <input type="checkbox" id="faq1">
+                    <label for="faq1" class="text-xl font-semibold text-gray-800">Do you deliver outside Kakamega?</label>
+                    <div class="faq-content text-gray-700">
+                        <p>Currently, we proudly offer complimentary deliveries exclusively within Kakamega County. For orders outside this area, we kindly request you to contact us directly to discuss potential arrangements and any associated delivery fees that may apply.</p>
+
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <input type="checkbox" id="faq2">
+                    <label for="faq2" class="text-xl font-semibold text-gray-800">What types of chicken and eggs do you sell?</label>
+                    <div class="faq-content text-gray-700">
+                        <p>We specialize in farm-fresh dressed broiler chickens (offered whole), healthy live chickens (with both broiler and layer breeds available upon request), and nutrient-rich, farm-fresh eggs from our happy layer hens. Our primary focus remains on natural rearing practices and delivering superior quality in every product.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <input type="checkbox" id="faq3">
+                    <label for="faq3" class="text-xl font-semibold text-gray-800">How can I place an order?</label>
+                    <div class="faq-content text-gray-700">
+                        <p>Placing an order is designed to be simple and convenient for you! You can reach us by calling or sending a WhatsApp message to <a href="tel:+254793911383" class="text-blue-600 hover:underline font-semibold">0793911383</a>, or by utilizing the efficient "Order Inquiry Form" section available right here on our website.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <input type="checkbox" id="faq4">
+                    <label for="faq4" class="text-xl font-semibold text-gray-800">What payment methods do you accept?</label>
+                    <div class="faq-content text-gray-700">
+                        <p>For your utmost convenience, we accept payments via Safaricom M-Pesa Paybill (Business No: 3384766) and Airtel Money (using our WhatsApp number 0793911383). Additionally, Cash on Delivery is a readily available option for local deliveries.</p>
+                    </div>
+                </div>
+                 <div class="faq-item">
+                    <input type="checkbox" id="faq5">
+                    <label for="faq5" class="text-xl font-semibold text-gray-800">Do you offer bulk purchase discounts?</label>
+                    <div class="faq-content text-gray-700">
+                        <p>Yes, absolutely! We are pleased to offer special pricing and arrangements for large quantity orders, perfect for events, businesses, or personal stocking. Please contact us directly with your specific requirements, and we'd be delighted to discuss a customized solution tailored to your needs.</p>
+                    </div>
+                </div>
+
+                <!-- NEW Delivery FAQ Items -->
+                <h3 class="text-3xl font-bold text-gray-800 mt-10 mb-6 text-center">Delivery & Order Tracking</h3>
+                <div class="faq-item">
+                    <input type="checkbox" id="faq6">
+                    <label for="faq6" class="text-xl font-semibold text-gray-800">How long does delivery take after I place an order?</label>
+                    <div class="faq-content text-gray-700">
+                        <p>Once you place your order through our form, WhatsApp, or phone call, we will confirm it promptly. Deliveries within Kakamega are typically completed within **2-4 hours** during business hours, depending on your exact location and current demand. We strive for the fastest possible delivery!</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <input type="checkbox" id="faq7">
+                    <label for="faq7" class="text-xl font-semibold text-gray-800">How will I know my order is on its way?</label>
+                    <div class="faq-content text-gray-700">
+                        <p>We will send you a confirmation message via WhatsApp or SMS once your order has been dispatched for delivery. Our delivery team may also call you when they are close to your location.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <input type="checkbox" id="faq8">
+                    <label for="faq8" class="text-xl font-semibold text-gray-800">What if I'm not home when my delivery arrives?</label>
+                    <div class="faq-content text-gray-700">
+                        <p>We recommend ensuring someone is available at the delivery address during the confirmed delivery window. If you anticipate not being home, please inform us in advance when placing your order, and we can try to arrange an alternative time or a safe drop-off point if suitable.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Farm News Section -->
+        <section id="farm-news-section" class="py-20 px-8 card-section bg-gray-50 aos-fade-up">
+            <h2 class="text-5xl font-extrabold text-gray-800 mb-12 text-center">Latest From The Farm: News & Insights</h2>
+            <p class="text-lg text-gray-700 leading-relaxed mb-12 max-w-3xl mx-auto text-center">
+                Stay connected with the latest happenings at Sunrise Chicken Farm! Here, we'll share exciting news, valuable farming tips, delicious new recipes featuring our products, and behind-the-scenes glimpses of daily farm life.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <!-- Blog Post 1 -->
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden blog-card">
+                    <img src="https://placehold.co/400x250/A0D9EF/FFF?text=Happy+Chicks+Farm" alt="Happy Chicks on the Farm" class="w-full h-52 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-bold text-2xl text-gray-800 mb-3">Welcoming Our New Batch of Happy Chicks!</h3>
+                        <p class="text-gray-600 text-sm mb-4">Published on: July 1, 2025</p>
+                        <p class="text-gray-700 text-base mb-5">
+                            We're thrilled to announce the arrival of our newest batch of broiler chicks! They're settling in beautifully and growing strong, ensuring a continuous supply of the freshest chicken for your family. Learn about our care practices...
+                        </p>
+                        <a href="#" onclick="openModal('blogPost1Modal'); return false;" class="text-blue-600 hover:underline font-semibold text-md">Read More →</a>
+                    </div>
+                </div>
+                <!-- Blog Post 2 -->
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden blog-card">
+                    <img src="https://placehold.co/400x250/FACC15/FFF?text=Farm+Fresh+Recipe" alt="Roasted Chicken Dish" class="w-full h-52 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-bold text-2xl text-gray-800 mb-3">Recipe Spotlight: Easy Farmhouse Roast Chicken</h3>
+                        <p class="text-gray-600 text-sm mb-4">Published on: June 25, 2025</p>
+                        <p class="text-gray-700 text-base mb-5">
+                            Discover how to create a mouth-watering roast chicken using our fresh dressed broilers. This simple recipe brings out the natural flavors, perfect for a comforting family dinner. Get the full ingredients list and instructions...
+                        </p>
+                        <a href="#" onclick="openModal('blogPost2Modal'); return false;" class="text-blue-600 hover:underline font-semibold text-md">Read More →</a>
+                    </div>
+                </div>
+                <!-- Blog Post 3 -->
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden blog-card">
+                    <img src="https://placehold.co/400x250/10B981/FFF?text=Egg+Benefits" alt="Eggs in a basket" class="w-full h-52 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-bold text-2xl text-gray-800 mb-3">The Incredible Health Benefits of Farm-Fresh Eggs</h3>
+                        <p class="text-gray-600 text-sm mb-4">Published on: June 18, 2025</p>
+                        <p class="text-700 text-base mb-5">
+                            Our eggs aren't just delicious; they're packed with essential nutrients! Learn about the vitamins, minerals, and proteins that make our farm-fresh eggs a superfood for your daily diet. Dive into the nutritional facts...
+                        </p>
+                        <a href="#" onclick="openModal('blogPost3Modal'); return false;" class="text-blue-600 hover:underline font-semibold text-md">Read More →</a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-12">
+                <a href="#" class="btn-primary text-white font-extrabold py-4 px-10 rounded-full text-xl shadow-xl hover:scale-105 inline-block transition duration-300 ease-in-out">
+                    View All Farm News
+                </a>
+            </div>
+        </section>
+
+        <!-- Location Map Section -->
+        <section id="location" class="py-20 px-8 card-section bg-gray-50 aos-fade-up">
+            <h2 class="text-5xl font-extrabold text-gray-800 text-center mb-12">Visit Our Farm or Find Us!</h2>
+            <p class="text-lg text-gray-700 text-center mb-12 max-w-3xl mx-auto">
+                While we bring freshness directly to your door, here's our general location in Kakamega. Feel free to contact us for specific directions or appointments.
+            </p>
+            <div class="relative w-full h-96 sm:h-[500px] rounded-xl overflow-hidden shadow-2xl">
+                <!-- Google Maps Embed: Using a general Kakamega location -->
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15958.825631248967!2d34.74301540000001!3d0.2825005999999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x178229f37c35dd0b%3A0x8979a029304e84b8!2sKakamega!5e0!3m2!1sen!2ske!4v1717387200000!5m2!1sen!2ske"
+                    width="100%"
+                    height="100%"
+                    style="border:0;"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </section>
+
+        <!-- Social Media Section (Now standalone) -->
+        <section class="py-20 px-8 bg-gradient-to-br from-teal-500 to-green-500 text-white rounded-b-3xl aos-fade-up">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-5xl font-extrabold text-white mb-12 drop-shadow-md">Connect With Us!</h2>
+                <p class="text-lg mb-12 max-w-3xl mx-auto opacity-90">
+                    Join our growing farm family! Follow us on social media for daily updates and exclusive offers.
+                </p>
+                <div class="flex justify-center flex-wrap gap-6">
+                    <!-- Instagram -->
+                    <a href="https://instagram.com/sunrisechickenbarn" target="_blank" class="block bg-white p-6 rounded-xl shadow-xl text-gray-800 transform hover:scale-105 transition duration-300 flex flex-col items-center min-w-[180px]">
+                        <!-- Instagram Icon -->
+                        <img src="images/instagram.jpg" alt="Instagram" class="w-16 h-16 mb-2">
+                        <span class="font-semibold text-lg text-pink-600">Instagram</span>
+                        <span class="text-sm text-gray-500">@sunrisechickenbarn</span>
+                    </a>
+                    <!-- Facebook -->
+                    <a href="#" class="block bg-white p-6 rounded-xl shadow-xl text-gray-800 transform hover:scale-105 transition duration-300 flex flex-col items-center min-w-[180px]">
+                        <!-- Facebook Icon -->
+                        <img src="images/facebook.jpg" alt="facebook" class="w-16 h-16 mb-2">
+                        <span class="font-semibold text-lg text-blue-600">Facebook</span>
+                        <span class="text-sm text-gray-500">Coming Soon!</span>
+                    </a>
+                    <!-- WhatsApp Direct -->
+                    <a href="https://wa.me/254793911383" target="_blank" class="block bg-white p-6 rounded-xl shadow-xl text-gray-800 transform hover:scale-105 transition duration-300 flex flex-col items-center min-w-[180px]">
+                        <!-- WhatsApp Icon -->
+                        <img src="images/whatsapp.jpg" alt="whatsapp" class="w-16 h-16 mb-2">
+                        <span class="font-semibold text-lg text-green-600">Direct WhatsApp Chat</span>
+                        <span class="text-sm text-gray-500">0793911383</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final Call to Action -->
+        <section class="text-center py-20 px-8 bg-gradient-to-r from-yellow-600 to-yellow-500 text-white aos-fade-up">
+            <h2 class="text-6xl sm:text-7xl font-black mb-8 drop-shadow-md">Ready for Farm-Fresh Goodness?</h2>
+            <p class="text-xl sm:text-2xl mb-12 max-w-4xl mx-auto opacity-95">
+                Don't wait to experience the unmatched quality and flavor that comes from "Quality from Dawn." Place your order today and transform your meals!
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center space-y-8 sm:space-y-0 sm:space-x-10">
+                <a href="#order-inquiry" class="btn-primary text-white font-extrabold py-5 px-14 rounded-full text-2xl shadow-xl animate-pulse-slow">
+                    Place Your Order!
+                </a>
+                <a href="https://wa.me/254793911383" class="btn-secondary text-white font-extrabold py-5 px-14 rounded-full text-2xl shadow-xl hover:scale-110" target="_blank">
+                    WhatsApp Us Now!
+                </a>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Testimonial Modal (General Purpose Modal) -->
+    <div id="testimonialModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal('testimonialModal')">×</span>
+            <h3 class="text-3xl font-bold text-gray-800 mb-6">Share Your Experience!</h3>
+            <p class="text-lg text-gray-700 mb-6">We'd love to hear your feedback about Sunrise Chicken Farm products and service.</p>
+            <form id="testimonialForm" class="space-y-6">
+                <div>
+                    <label for="testimonial_name" class="block text-gray-700 text-base font-bold mb-2">Your Name:</label>
+                    <input type="text" id="testimonial_name" name="Testimonial Name" class="shadow-inner appearance-none border border-gray-300 rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition duration-200" placeholder="e.g., Jane D." required>
+                </div>
+                <div>
+                    <label for="testimonial_location" class="block text-gray-700 text-base font-bold mb-2">Your Location (e.g., Kakamega):</label>
+                    <input type="text" id="testimonial_location" name="Testimonial Location" class="shadow-inner appearance-none border border-gray-300 rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition duration-200" placeholder="e.g., Kakamega" required>
+                </div>
+                <div>
+                    <label for="testimonial_text" class="block text-gray-700 text-base font-bold mb-2">Your Testimonial:</label>
+                    <textarea id="testimonial_text" name="Testimonial Text" rows="5" class="shadow-inner appearance-none border border-gray-300 rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition duration-200" placeholder="Tell us about your experience..." required></textarea>
+                </div>
+                <div class="text-center pt-4">
+                    <button type="submit" class="btn-primary text-white font-extrabold py-3 px-8 rounded-full text-lg shadow-lg">
+                        Submit Review
+                    </button>
+                </div>
+                <div id="testimonialMessage" class="text-center mt-4 text-sm font-semibold"></div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Lightbox Modal (NEW) -->
+    <div id="lightboxModal" class="modal">
+        <div id="lightboxContent" class="modal-content">
+            <span class="close-button" onclick="closeModal('lightboxModal')">×</span>
+            <img id="lightboxImage" src="" alt="Gallery Image" class="rounded-xl max-w-full max-h-[80vh] object-contain">
+            <button id="prevBtn" class="lightbox-nav-btn"> < </button>
+            <button id="nextBtn" class="lightbox-nav-btn"> > </button>
+        </div>
+    </div>
+
+    <!-- Terms of Service Modal -->
+    <div id="termsModal" class="modal">
+        <div class="modal-content modal-content-lg">
+            <span class="close-button" onclick="closeModal('termsModal')">×</span>
+            <h3 class="text-3xl font-bold text-gray-800 mb-6 text-center">Terms of Service</h3>
+            <div class="text-lg text-gray-700 leading-relaxed space-y-6 px-4 py-2">
+                <p>
+                    Welcome to Sunrise Chicken Farm! These Terms of Service ("Terms") govern your use of our website and the purchase of products from us. By accessing or using our services, you agree to be bound by these Terms.
+                </p>
+                <h3>1. Acceptance of Terms</h3>
+                <p>
+                    By accessing and using this website, you accept and agree to be bound by the terms and provisions of this agreement. If you do not agree to abide by the above, please do not use this website.
+                </p>
+                <h3>2. Products and Services</h3>
+                <p>
+                    Sunrise Chicken Farm offers farm-fresh chicken and eggs for sale. All products are subject to availability. We reserve the right to discontinue any product at any time. Prices for our products are subject to change without notice.
+                </p>
+                <h3>3. Ordering and Payment</h3>
+                <p>
+                    Orders can be placed via our inquiry form, phone, or WhatsApp. Payment methods accepted include M-Pesa Paybill, Airtel Money, and Cash on Delivery. Full payment is required upon delivery unless otherwise agreed upon.
+                </p>
+                <h3>4. Delivery</h3>
+                <p>
+                    We offer free delivery within Kakamega. Delivery times are estimates and may vary. We are not liable for delays outside our control. Please ensure someone is available to receive the order.
+                </p>
+                <h3>5. Returns and Refunds</h3>
+                <p>
+                    Due to the perishable nature of our products, returns are generally not accepted. However, if you receive a product that is damaged or not as described, please contact us immediately upon receipt with photographic evidence, and we will assess the issue on a case-by-case basis.
+                </p>
+                <h3>6. User Conduct</h3>
+                <p>
+                    You agree to use our website and services only for lawful purposes. You shall not post or transmit through the site any material which violates or infringes in any way upon the rights of others, or which is unlawful, threatening, abusive, defamatory, invasive of privacy or publicity rights, vulgar, obscene, profane or otherwise objectionable.
+                </p>
+                <h3>7. Intellectual Property</h3>
+                <p>
+                    All content on this website, including text, graphics, logos, images, and software, is the property of Sunrise Chicken Farm or its content suppliers and protected by international copyright laws.
+                </p>
+                <h3>8. Limitation of Liability</h3>
+                <p>
+                    Sunrise Chicken Farm shall not be liable for any direct, indirect, incidental, special, consequential or exemplary damages, including but not limited to, damages for loss of profits, goodwill, use, data or other intangible losses resulting from the use or the inability to use the service.
+                </p>
+                <h3>9. Governing Law</h3>
+                <p>
+                    These Terms shall be governed by and construed in accordance with the laws of Kenya, without regard to its conflict of law provisions.
+                </p>
+                <h3>10. Changes to Terms</h3>
+                <p>
+                    We reserve the right to modify these Terms at any time. Your continued use of the website after any such changes constitutes your acceptance of the new Terms.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Privacy Policy Modal -->
+    <div id="privacyModal" class="modal">
+        <div class="modal-content modal-content-lg">
+            <span class="close-button" onclick="closeModal('privacyModal')">×</span>
+            <h3 class="text-3xl font-bold text-gray-800 mb-6 text-center">Privacy Policy</h3>
+            <div class="text-lg text-gray-700 leading-relaxed space-y-6 px-4 py-2">y.</p>
+                <p>
+                    Your privacy is important to us. This Privacy Policy explains how Sunrise Chicken Farm collects, uses, and protects your personal information.
+                </p>
+                <h3>1. Information We Collect</h3>
+                <p>
+                    We collect personal information that you voluntarily provide to us when you express an interest in obtaining information about us or our products, when you participate in activities on the website (such as sending an inquiry), or otherwise when you contact us. The personal information that we collect depends on the context of your interactions with us and the website, the choices you make, and the products and features you use. The personal information we collect may include the following:
+                </p>
+                <ul class="list-disc list-inside ml-6">
+                    <li>Name</li>
+                    <li>Phone number</li>
+                    <li>Delivery address</li>
+                    <li>Order details</li>
+                </ul>
+                <p>
+                    We do not collect sensitive personal information such as health data or financial account numbers (beyond what is necessary for mobile money transactions, which are handled by third-party payment providers).
+                </p>
+                <h3>2. How We Use Your Information</h3>
+                <p>
+                    We use personal information collected via our website for various business purposes described below. We process your personal information for these purposes in reliance on our legitimate business interests, in order to enter into or perform a contract with you, with your consent, and/or for compliance with our legal obligations. We use the information we collect or receive:
+                </p>
+                <ul class="list-disc list-inside ml-6">
+                    <li>To facilitate account creation and logon process.</li>
+                    <li>To send you marketing and promotional communications.</li>
+                    <li>To fulfill and manage your orders.</li>
+                    <li>To respond to your inquiries and offer support.</li>
+                    <li>To request feedback and to contact you about your use of our website.</li>
+                    <li>To protect our services (e.g., fraud monitoring and prevention).</li>
+                </ul>
+                <h3>3. Sharing Your Information</h3>
+                <p>
+                    We only share information with your consent, to comply with laws, to provide you with services, to protect your rights, or to fulfill business obligations. We may process or share your data that we hold based on the following legal basis:
+                </p>
+                <ul class="list-disc list-inside ml-6">
+                    <li><span class="font-semibold">Consent:</span> We may process your data if you have given us specific consent to use your personal information for a specific purpose.</li>
+                    <li><span class="font-semibold">Legitimate Interests:</span> We may process your data when it is reasonably necessary to achieve our legitimate business interests.</li>
+                    <li><span class="font-semibold">Performance of a Contract:</span> Where we have entered into a contract with you, we may process your personal information to fulfill the terms of our contract.</li>
+                    <li><span class="font-semibold">Legal Obligations:</span> We may disclose your information where we are legally required to do so in order to comply with applicable law, governmental requests, a judicial proceeding, court order, or legal process.</li>
+                    <li><span class="font-semibold">Vital Interests:</span> We may disclose your information where we believe it is necessary to investigate, prevent, or take action regarding potential violations of our policies, suspected fraud, situations involving potential threats to the safety of any person and illegal activities, or as evidence in litigation in which we are involved.</li>
+                </ul>
+                <h3>4. Data Retention</h3>
+                <p>
+                    We will only keep your personal information for as long as it is necessary for the purposes set out in this privacy policy, unless a longer retention period is required or permitted by law (such as tax, accounting, or other legal requirements).
+                </p>
+                <h3>5. Your Privacy Rights</h3>
+                <p>
+                    You have certain rights regarding your personal information, including the right to access, correct, or delete your data. To exercise these rights, please contact us using the contact details provided on our website.
+                </p>
+                <h3>6. Updates to This Policy</h3>
+                <p>
+                    We may update this privacy policy from time to time. The updated version will be indicated by an updated "Revised" date and the updated version will be effective as soon as it is accessible. We encourage you to review this privacy policy frequently to be informed of how we are protecting your information.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cookie Policy Modal -->
+    <div id="cookieModal" class="modal">
+        <div class="modal-content modal-content-lg">
+            <span class="close-button" onclick="closeModal('cookieModal')">×</span>
+            <h3 class="text-3xl font-bold text-gray-800 mb-6 text-center">Cookie Policy</h3>
+            <div class="text-lg text-gray-700 leading-relaxed space-y-6 px-4 py-2">
+                <p>
+                    This Cookie Policy explains what cookies are, how Sunrise Chicken Farm uses them, and your choices regarding cookies.
+                </p>
+                <h3>1. What are Cookies?</h3>
+                <p>
+                    Cookies are small text files that are placed on your computer or mobile device when you visit a website. They are widely used to make websites work, or to work more efficiently, as well as to provide reporting information.
+                </p>
+                <h3>2. How We Use Cookies</h3>
+                <p>
+                    We use cookies to enhance your browsing experience, analyze site traffic, and understand where our visitors are coming from. Specifically, we may use cookies for:
+                </p>
+                <ul class="list-disc list-inside ml-6">
+                    <li><span class="font-semibold">Essential Cookies:</span> These cookies are strictly necessary to provide you with services available through our website and to enable you to use some of its features, such as accessing secure areas.</li>
+                    <li><span class="font-semibold">Analytical/Performance Cookies:</span> These cookies allow us to recognize and count the number of visitors and to see how visitors move around our website when they are using it. This helps us to improve the way our website works.</li>
+                    <li><span class="font-semibold">Functionality Cookies:</span> These are used to recognize you when you return to our website. This enables us to personalize our content for you, greet you by name, and remember your preferences.</li>
+                </ul>
+                <h3>3. Third-Party Cookies</h3>
+                <p>
+                    In addition to our own cookies, we may also use various third-parties cookies to report usage statistics of the Service, deliver advertisements on and through the Service, and so on. For example, Google Maps embeds may use their own cookies.
+                </p>
+                <h3>4. Your Choices Regarding Cookies</h3>
+                <p>
+                    You have the right to decide whether to accept or reject cookies. You can exercise your cookie preferences by setting your browser to refuse all or some browser cookies, or to alert you when websites set or access cookies. If you disable or refuse cookies, please note that some parts of this website may become inaccessible or not function properly.
+                </p>
+                <p>
+                    Most web browsers allow some control of most cookies through the browser settings. To find out more about cookies, including how to see what cookies have been set and how to manage and delete them, visit <a href="https://www.allaboutcookies.org" target="_blank" class="text-blue-600 hover:underline">www.allaboutcookies.org</a>.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Blog Post 1 Modal -->
+    <div id="blogPost1Modal" class="modal">
+        <div class="modal-content modal-content-lg">
+            <span class="close-button" onclick="closeModal('blogPost1Modal')">×</span>
+            <img src="https://placehold.co/800x400/A0D9EF/FFF?text=Happy+Chicks+Farm" alt="Happy Chicks on the Farm" class="w-full h-64 object-cover rounded-t-xl mb-6">
+            <div class="px-4 py-2">
+                <h3 class="text-4xl font-bold text-gray-800 mb-4">Welcoming Our New Batch of Happy Chicks!</h3>
+                <p class="text-gray-500 text-sm mb-6">Published on: July 1, 2025</p>
+                <div class="text-lg text-gray-700 leading-relaxed space-y-5">
+                    <p>We're absolutely thrilled to announce the safe and healthy arrival of our newest batch of broiler chicks! This is always an exciting time at Sunrise Chicken Farm, as it marks the beginning of a new cycle of care, dedication, and the promise of the high-quality, fresh chicken our community loves.</p>
+                    <p>The first few weeks, known as the brooding period, are the most critical in a chicken's life. Our team works around the clock to ensure these tiny, fluffy newcomers have everything they need to thrive. This includes maintaining a perfect, consistent temperature in their clean, spacious brooder house, providing constant access to fresh water, and offering a specially formulated starter feed that's packed with all the essential nutrients for healthy growth.</p>
+                    <p>Our commitment to ethical and natural rearing starts from day one. By giving these chicks the best possible start in a stress-free environment, we're laying the foundation for robust, healthy adult birds. This meticulous care directly translates into the tender, flavorful, and wholesome chicken that will eventually grace your table.</p>
+                    <p>Stay tuned for more updates as they grow! We love sharing our journey with you, from our farm to your family.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Blog Post 2 Modal -->
+    <div id="blogPost2Modal" class="modal">
+        <div class="modal-content modal-content-lg">
+            <span class="close-button" onclick="closeModal('blogPost2Modal')">×</span>
+            <img src="https://placehold.co/800x400/FACC15/FFF?text=Farm+Fresh+Recipe" alt="Roasted Chicken Dish" class="w-full h-64 object-cover rounded-t-xl mb-6">
+            <div class="px-4 py-2">
+                <h3 class="text-4xl font-bold text-gray-800 mb-4">Recipe Spotlight: Easy Farmhouse Roast Chicken</h3>
+                <p class="text-gray-500 text-sm mb-6">Published on: June 25, 2025</p>
+                <div class="text-lg text-gray-700 leading-relaxed space-y-5">
+                    <p>There's nothing quite like the aroma of a perfectly roasted chicken filling the house. With a Sunrise Chicken Farm broiler, you're already halfway to a memorable meal. This simple recipe enhances the natural, succulent flavor of our chicken.</p>
+                    <h4 class="text-2xl font-bold text-gray-800 pt-4">Ingredients:</h4>
+                    <ul class="list-disc list-inside ml-6">
+                        <li>1 Sunrise Chicken Farm Dressed Broiler (approx. 1.5-2kg)</li>
+                        <li>2 tablespoons olive oil</li>
+                        <li>1 whole lemon, halved</li>
+                        <li>4-5 cloves of garlic, smashed</li>
+                        <li>A few sprigs of fresh rosemary and thyme</li>
+                        <li>Salt and freshly ground black pepper to taste</li>
+                        <li>Optional: 1 onion, quartered, and 2 carrots, chopped, for the roasting pan</li>
+                    </ul>
+                    <h4 class="text-2xl font-bold text-gray-800 pt-4">Instructions:</h4>
+                    <ol class="list-decimal list-inside ml-6 space-y-3">
+                        <li>Preheat your oven to 200°C (400°F). Pat the chicken dry inside and out with paper towels for extra crispy skin.</li>
+                        <li>Rub the entire chicken with olive oil. Season generously all over with salt and pepper.</li>
+                        <li>Stuff the cavity of the chicken with the halved lemon, smashed garlic cloves, and fresh herbs.</li>
+                        <li>If using, place the chopped onion and carrots in the bottom of a roasting pan to create a natural rack for the chicken. Place the chicken on top.</li>
+                        <li>Roast in the preheated oven for about 1 hour and 15 minutes, or until the juices run clear when a thigh is pierced and the internal temperature reaches 74°C (165°F).</li>
+                        <li>Let the chicken rest for 10-15 minutes before carving. This is crucial for a juicy result! Serve with the pan juices and your favorite sides. Enjoy!</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Blog Post 3 Modal -->
+    <div id="blogPost3Modal" class="modal">
+        <div class="modal-content modal-content-lg">
+            <span class="close-button" onclick="closeModal('blogPost3Modal')">×</span>
+            <img src="https://placehold.co/800x400/10B981/FFF?text=Egg+Benefits" alt="Eggs in a basket" class="w-full h-64 object-cover rounded-t-xl mb-6">
+            <div class="px-4 py-2">
+                <h3 class="text-4xl font-bold text-gray-800 mb-4">The Incredible Health Benefits of Farm-Fresh Eggs</h3>
+                <p class="text-gray-500 text-sm mb-6">Published on: June 18, 2025</p>
+                <div class="text-lg text-gray-700 leading-relaxed space-y-5">
+                    <p>An egg is not just an egg, especially when it comes from a happy, healthy hen. Our farm-fresh eggs are a nutritional powerhouse, offering a wide array of benefits that make them a true superfood.</p>
+                    <h4 class="text-2xl font-bold text-gray-800 pt-4">What's Inside a Sunrise Egg?</h4>
+                    <ul class="list-disc list-inside ml-6 space-y-3">
+                        <li><strong>High-Quality Protein:</strong> With about 6 grams of protein per large egg, they are a perfect source of all nine essential amino acids, the building blocks of our bodies.</li>
+                        <li><strong>Rich in Vitamins:</strong> Our eggs are an excellent source of Vitamin D (crucial for bone health and immune function), Vitamin B12 (essential for nerve function and red blood cell formation), and Vitamin A.</li>
+                        <li><strong>Brain-Boosting Choline:</strong> Eggs are one of the best dietary sources of choline, a vital nutrient that plays a key role in brain development, memory, and liver function.</li>
+                        <li><strong>Heart-Healthy Fats:</strong> The fats found in eggs are primarily unsaturated and are important for a healthy heart and overall well-being.</li>
+                    </ul>
+                    <p>When you choose Sunrise Chicken Farm eggs, you're not just getting a delicious ingredient; you're choosing a product packed with health benefits, laid by hens that are cared for ethically and fed a natural, wholesome diet. It's a difference you can see in the vibrant yolks and taste in every bite.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gradient-to-br from-gray-900 to-gray-800 text-gray-200 py-16 px-8">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
+            <!-- Column 1: Brand & About -->
+            <div>
+                <h3 class="text-3xl font-black text-white mb-4">Sunrise Chicken Farm</h3>
+                <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                    Quality from Dawn – Delivering the freshest, ethically raised chicken and eggs directly to your table in Kakamega.
+                </p>
+                <div class="flex space-x-4 mt-6">
+                    <a href="https://instagram.com/sunrisechickenbarn" target="_blank" class="text-gray-400 hover:text-yellow-400 transition-colors duration-200">
+                    <img src = "images/instagram.jpg" alt = "instagram" class = "w-8 h-8">
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-yellow-400 transition-colors duration-200">
+                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.99 3.65 9.17 8.44 9.9V15.46H8.72v-3.58h1.72V9.8c0-1.72 1.05-2.66 2.58-2.66 0.74 0 1.38.05 1.57.08v1.72h-1.02c-.85 0-1.02.4-1.02 1v1.24h2.29l-.37 2.44h-1.92v6.43C18.35 21.17 22 16.99 22 12z"></path>
+                        </svg>
+                    </a>
+                    <a href="https://wa.me/254793911383" target="_blank" class="text-gray-400 hover:text-yellow-400 transition-colors duration-200">
+                    <img src = "images/whatsapp.jpg" alt = "whatsapp" class = "w-8 h-8">
+                    </a>
+                </div>
+            </div>
+
+            <!-- Column 2: Quick Links -->
+            <div>
+                <h4 class="text-2xl font-bold text-white mb-6">Quick Links</h4>
+                <ul class="space-y-3 text-lg">
+                    <li><a href="#about-us" class="hover:text-yellow-400 transition-colors duration-200">About Us</a></li>
+                    <li><a href="#products" class="hover:text-yellow-400 transition-colors duration-200">Our Products</a></li>
+                    <li><a href="#how-to-order" class="hover:text-yellow-400 transition-colors duration-200">How to Order</a></li>
+                    <li><a href="#order-inquiry" class="hover:text-yellow-400 transition-colors duration-200">Order Now</a></li>
+                    <li><a href="#faq-section" class="hover:text-yellow-400 transition-colors duration-200">FAQs</a></li>
+                    <li><a href="#farm-news-section" class="hover:text-yellow-400 transition-colors duration-200">Farm News</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 3: Contact Info -->
+            <div>
+                <h4 class="text-2xl font-bold text-white mb-6">Get In Touch</h4>
+                <ul class="space-y-4 text-lg">
+                    <li class="flex items-center">
+                        <svg class="w-6 h-6 mr-3 text-yellow-400" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.32.57 3.55.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.23.2 2.43.57 3.55.12.35.03.75-.24 1.02l-2.2 2.2z"/>
+                        </svg>
+                        <a href="tel:+254793911383" class="hover:text-yellow-400 transition-colors duration-200">0793911383</a>
+                    </li>
+                    <li class="flex items-center">
+                        <svg class="w-6 h-6 mr-3 text-yellow-400" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12.04 2c-5.45 0-9.91 4.46-9.91 9.91 0 1.75.5 3.42 1.45 4.9L2 22l5.25-1.38c1.47.95 3.14 1.45 4.9 1.45 5.45 0 9.91-4.46 9.91-9.91S17.49 2 12.04 2zm5.5 14.88c-.25.16-.9.5-.97.53-.07.03-.13.04-.2-.02-.6-.24-2.52-1.56-2.91-1.8-1.57-1.46-1.59-1.48-1.62-1.5-.04-.03-.09-.04-.15.02-.06.05-.15.04-.2.02-.07-.02-.13-.04-.2-.04-.61-.25-1.5-1.12-1.74-1.46-.23-.33-.2-.5-.01-.52.2-.02.44-.06.63-.26.2-.2.45-.48.6-.66.15-.17.2-.29.3-.48.1-.19.05-.35-.02-.49-.07-.14-.6-.28-1.04-.62-.43-.34-.84-.81-.97-1.04-.13-.23-.02-.2-.05-.4-.03-.2-.23-.5-.32-.68-.08-.18-.17-.15-.24-.15-.07 0-.13-.02-.2-.02-.61-.01-1.1.23-1.63.75-.53.53-.78 1.25-.78 2.03 0 .78.18 1.5.87 2.2.69.7 1.34 1.05 2.02 1.4l.6.29.3.15c.9.45 1.76.9 2.58 1.24 1.03.43 2.07.72 2.89.9.82.18 1.46.13 1.8.08.34-.05.88-.36 1.02-.56.14-.2.25-.37.34-.52.09-.16.08-.29.06-.35z"/>
+                        </svg>
+                        <a href="https://wa.me/254793911383" target="_blank" class="hover:text-yellow-400 transition-colors duration-200">WhatsApp Us</a>
+                    </li>
+                    <li class="flex items-center">
+                        <svg class="w-6 h-6 mr-3 text-yellow-400" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M2.003 5.884L10.05 11.51c.92.66 2.08.66 3 0l8.046-5.626C20.61 4.57 20 4 19 4H5c-1 0-1.61.57-2.997 1.884zM22 8.77l-9.05 6.33c-.92.66-2.08.66-3 0L2 8.77V18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8.77z"></path>
+                        </svg>
+                        <a href="mailto:sunrisechickenbarn@gmail.com" class="hover:text-yellow-400 transition-colors duration-200">sunrisechickenbarn@gmail.com</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Column 4: Newsletter Signup -->
+            <div>
+                <h4 class="text-2xl font-bold text-white mb-6">Stay Fresh!</h4>
+                <p class="text-gray-400 text-sm mb-4">
+                    Get the latest farm news, special offers, and delicious recipes directly to your inbox.
+                </p>
+                <form class="flex flex-col gap-4">
+                    <input type="email" placeholder="Your email address" class="p-3 rounded-lg bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-500">
+                    <button type="submit" class="btn-primary text-white font-bold py-3 px-6 rounded-lg shadow-md hover:scale-105 transition duration-300">
+                        Subscribe
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <hr class="border-gray-700 my-12">
+
+        <!-- Bottom Row: Legal Links & Copyright -->
+        <div class="flex flex-col sm:flex-row justify-between items-center text-gray-500 text-sm">
+            <p>© 2025 Sunrise Chicken Farm. All rights reserved.</p>
+            <div class="flex space-x-6 mt-4 sm:mt-0">
+                <a href="#" onclick="openModal('termsModal'); return false;" class="hover:text-yellow-400 transition-colors duration-200">Terms of Service</a>
+                <a href="#" onclick="openModal('privacyModal'); return false;" class="hover:text-yellow-400 transition-colors duration-200">Privacy Policy</a>
+                <a href="#" onclick="openModal('cookieModal'); return false;" class="hover:text-yellow-400 transition-colors duration-200">Cookie Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Global variables for lightbox
+        let currentImageIndex = 0;
+        let galleryImages = [];
+
+        // Function to open any modal by ID
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'flex';
+            // Optional: Add a class to body to prevent scrolling when modal is open
+            document.body.classList.add('overflow-hidden');
+        }
+
+        // Function to close any modal by ID
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+            // Optional: Remove the class from body to re-enable scrolling
+            document.body.classList.remove('overflow-hidden');
+        }
+
+        // --- Order Inquiry Form Logic ---
+        document.getElementById('orderForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            const form = event.target;
+            const name = form.elements['Customer Name'].value;
+            const phone = form.elements['Phone Number'].value;
+            const orderDetails = form.elements['Order Details'].value;
+            const deliveryAddress = form.elements['Delivery Address'].value;
+            const formMessage = document.getElementById('formMessage');
+
+            // Construct WhatsApp message body with proper newlines
+            const whatsappMessageRaw =
+                `Hello Sunrise Chicken Farm, I'd like to place an order:\n\n` +
+                `Name: ${name}\n` +
+                `Phone: ${phone}\n\n` +
+                `Order: ${orderDetails}\n\n` +
+                `Delivery Address: ${deliveryAddress}\n\n` +
+                `Please confirm. Thanks!`;
+            
+            const whatsappMessage = encodeURIComponent(whatsappMessageRaw);
+            const whatsappUrl = `https://wa.me/254793911383?text=${whatsappMessage}`;
+
+            // Display success message and options
+            formMessage.innerHTML = `
+                <p class="text-green-700">✅ Thank you for your inquiry!</p>
+                <p class="text-gray-700 text-md mt-2">Please choose how you'd like to send your order:</p>
+                <div class="flex flex-col sm:flex-row gap-4 mt-6">
+                    <a href="tel:0793911383"
+                            class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-full text-lg shadow-md transition duration-300 flex items-center justify-center group">
+                       <svg class="w-5 h-5 mr-2 text-blue-200 group-hover:text-white transition-colors" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.32.57 3.55.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.23.2 2.43.57 3.55.12.35.03.75-.24 1.02l-2.2 2.2z"/></svg>
+                       Call Us Directly
+                    </a>
+                    <button type="button" id="sendWhatsAppBtn"
+                            class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-full text-lg shadow-md transition duration-300 flex items-center justify-center group">
+                       <svg class="w-5 h-5 mr-2 text-green-200 group-hover:text-white transition-colors" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12.04 2c-5.45 0-9.91 4.46-9.91 9.91 0 1.75.5 3.42 1.45 4.9L2 22l5.25-1.38c1.47.95 3.14 1.45 4.9 1.45 5.45 0 9.91-4.46 9.91-9.91S17.49 2 12.04 2zm5.5 14.88c-.25.16-.9.5-.97.53-.07.03-.13.04-.2-.02-.6-.24-2.52-1.56-2.91-1.8-1.57-1.46-1.59-1.48-1.62-1.5-.04-.03-.09-.04-.15.02-.06.05-.15.04-.2.02-.07-.02-.13-.04-.2-.04-.61-.25-1.5-1.12-1.74-1.46-.23-.33-.2-.5-.01-.52.2-.02.44-.06.63-.26.2-.2.45-.48.6-.66.15-.17.2-.29.3-.48.1-.19.05-.35-.02-.49-.07-.14-.6-.28-1.04-.62-.43-.34-.84-.81-.97-1.04-.13-.23-.02-.2-.05-.4-.03-.2-.23-.5-.32-.68-.08-.18-.17-.15-.24-.15-.07 0-.13-.02-.2-.02-.61-.01-1.1.23-1.63.75-.53.53-.78 1.25-.78 2.03 0 .78.18 1.5.87 2.2.69.7 1.34 1.05 2.02 1.4l.6.29.3.15c.9.45 1.76.9 2.58 1.24 1.03.43 2.07.72 2.89.9.82.18 1.46.13 1.8.08.34-.05.88-.36 1.02-.56.14-.2.25-.37.34-.52.09-.16.08-.29.06-.35z"/></svg>
+                       Send via WhatsApp
+                    </button>
+                </div>
+                <p class="text-gray-700 text-sm mt-4">
+                    If the WhatsApp window doesn't open automatically, you can manually copy the message and send it to: <br>
+                    <span id="whatsappNumberToCopy" class="font-bold text-green-600 cursor-pointer hover:underline">0793911383</span>
+                    <button type="button" onclick="copyToClipboard('whatsappNumberToCopy', 'whatsappNumberConfirmMessage')" class="ml-2 px-3 py-1 bg-gray-200 text-gray-800 rounded-md text-sm hover:bg-gray-300 transition-colors">Copy Number</button>
+                    <span id="whatsappNumberConfirmMessage" class="text-xs text-green-700 mt-1 hidden">Copied!</span>
+                </p>
+                <p class="text-gray-700 text-sm mt-2">
+                    And here is the message to copy: <br>
+                    <span id="whatsappMessageToCopy" class="font-bold text-gray-800 cursor-pointer text-left block p-3 bg-gray-100 rounded-md mt-2 border border-gray-200"></span>
+                    <button type="button" onclick="copyToClipboard('whatsappMessageToCopy', 'whatsappMessageConfirmMessage')" class="ml-2 px-3 py-1 bg-gray-200 text-gray-800 rounded-md text-sm hover:bg-gray-300 transition-colors">Copy Message</button>
+                    <span id="whatsappMessageConfirmMessage" class="text-xs text-green-700 mt-1 hidden">Copied!</span>
+                </p>
+            `;
+            formMessage.classList.remove('hidden');
+            formMessage.scrollIntoView({ behavior: 'smooth', block: 'center' }); // Scroll message into view
+
+            // Set the raw message for manual copy
+            document.getElementById('whatsappMessageToCopy').innerText = whatsappMessageRaw;
+
+            // Add event listener for the new WhatsApp button
+            document.getElementById('sendWhatsAppBtn').onclick = function() {
+                try {
+                    window.open(whatsappUrl, '_blank');
+                } catch (e) {
+                    console.error("Failed to open WhatsApp link:", e);
+                    // Fallback message already displayed in formMessage.innerHTML
+                }
+            };
+
+            // Clear the form after displaying message
+            form.reset();
+        });
+
+        // Generic function to copy text to clipboard
+        function copyToClipboard(elementId, confirmMessageId) {
+            const textToCopy = document.getElementById(elementId).innerText;
+            const tempInput = document.createElement('textarea'); // Use textarea for multi-line text
+            tempInput.value = textToCopy;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+
+            const copyConfirm = document.getElementById(confirmMessageId);
+            copyConfirm.classList.remove('hidden');
+            setTimeout(() => {
+                copyConfirm.classList.add('hidden');
+            }, 2000);
+        }
+
+
+        // --- Testimonial Modal Logic (Refactored to use generic open/closeModal) ---
+        document.getElementById('openTestimonialModal').addEventListener('click', () => {
+            openModal('testimonialModal');
+            testimonialMessage.innerHTML = ''; // Clear previous messages
+            testimonialForm.reset(); // Clear form fields
+        });
+
+        document.getElementById('testimonialForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const name = document.getElementById('testimonial_name').value;
+            const location = document.getElementById('testimonial_location').value;
+            const review = document.getElementById('testimonial_text').value;
+
+            const subject = encodeURIComponent(`New Testimonial from ${name} (${location})`);
+            const body = encodeURIComponent(
+                `New Testimonial Submission:\n\n` +
+                `Name: ${name}\n` +
+                `Location: ${location}\n\n` +
+                `Testimonial: "${review}"\n\n` +
+                `Thank you!`
+            );
+
+            testimonialMessage.innerHTML = `<p class="text-green-700">✅ Thank you for submitting your testimonial!</p>` +
+                                          `<p class="text-gray-700 text-sm mt-2">Please click 'Open Email Client' in the next window and then **press 'Send'** to finalize your submission.</p>`;
+            
+            testimonialForm.reset(); // Clear the form
+
+            setTimeout(() => {
+                window.location.href = `mailto:sunrisechickenbarn@gmail.com?subject=${subject}&body=${body}`;
+            }, 1500);
+        });
+
+        // --- Lightbox Logic (NEW) ---
+        function initializeGallery() {
+            galleryImages = Array.from(document.querySelectorAll('.gallery-content img'));
+        }
+
+        function openLightbox(imgElement) {
+            const lightboxModal = document.getElementById('lightboxModal');
+            const lightboxImage = document.getElementById('lightboxImage');
+            
+            currentImageIndex = galleryImages.indexOf(imgElement);
+            lightboxImage.src = imgElement.dataset.lightboxSrc || imgElement.src;
+            lightboxModal.style.display = 'flex';
+        }
+
+        function navigateLightbox(direction) {
+            currentImageIndex += direction;
+            if (currentImageIndex < 0) {
+                currentImageIndex = galleryImages.length - 1;
+            } else if (currentImageIndex >= galleryImages.length) {
+                currentImageIndex = 0;
+            }
+            document.getElementById('lightboxImage').src = galleryImages[currentImageIndex].dataset.lightboxSrc || galleryImages[currentImageIndex].src;
+        }
+
+        document.getElementById('prevBtn').addEventListener('click', () => navigateLightbox(-1));
+        document.getElementById('nextBtn').addEventListener('click', () => navigateLightbox(1));
+
+        // --- Intersection Observer for AOS-like animations ---
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('aos-animate');
+                } else {
+                    // Optional: remove class when out of view if you want animation to re-trigger
+                    // entry.target.classList.remove('aos-animate');
+                }
+            });
+        }, {
+            threshold: 0.1 // Trigger when 10% of the element is visible
+        });
+
+        document.querySelectorAll('.aos-fade-up').forEach(element => {
+            observer.observe(element);
+        });
+
+        // Mobile menu toggle logic
+        document.getElementById('mobileMenuToggle').addEventListener('click', function() {
+            const mainNav = document.getElementById('mainNav');
+            mainNav.classList.toggle('active');
+        });
+
+        // Close mobile menu when a link is clicked
+        document.querySelectorAll('.main-nav ul li a').forEach(link => {
+            link.addEventListener('click', function() {
+                const mainNav = document.getElementById('mainNav');
+                if (mainNav.classList.contains('active')) {
+                    mainNav.classList.remove('active');
+                }
+            });
+        });
+
+
+        // Initialize gallery images on window load
+        window.onload = function() {
+            initializeGallery();
+            // Ensure any initial animations that aren't scroll-triggered also run
+            document.querySelector('.animate-fade-in-up').style.animationPlayState = 'running';
+        };
+
+        // If the sticky header needs to change appearance on scroll, add a listener:
+        // window.addEventListener('scroll', () => {
+        //     const header = document.querySelector('.sticky-header');
+        //     if (window.scrollY > 50) { // Adjust scroll threshold as needed
+        //         header.classList.add('scrolled'); // Add a class for different styles
+        //     } else {
+        //         header.classList.remove('scrolled');
+        //     }
+        // });
+    </script>
+</body>
+</html>
