@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact & Order - Sunrise Chicken Farm</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Link to the central stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-50 text-gray-800 antialiased">
+
+    <!-- Header Section (FIXED to viewport) -->
+    <header class="sticky-header px-8">
+        <div class="flex items-center">
+            <!-- Logo Placeholder -->
+            <img src="images/1752899501161.jpg" alt="Sunrise Chicken Farm Logo" class="w-24 h-24 mr-4">
+            <h1 class="text-3xl font-black text-gray-800 site-title">
+                Sunrise Chicken Farm
+            </h1>
+        </div>
+
+        <div class="mobile-menu-toggle" id="mobileMenuToggle">
+            ☰ <!-- Hamburger icon -->
+        </div>
+        <nav class="main-nav" id="mainNav">
+            <ul class="text-gray-700 font-semibold text-lg">
+                <li><a href="index.html" class="hover:text-yellow-600 transition-colors duration-200 py-2 px-3 rounded-md">Home</a></li>
+                <li><a href="about.html" class="hover:text-yellow-600 transition-colors duration-200 py-2 px-3 rounded-md">About Us</a></li>
+                <li><a href="products.html" class="hover:text-yellow-600 transition-colors duration-200 py-2 px-3 rounded-md">Products</a></li>
+                <li><a href="blog.html" class="hover:text-yellow-600 transition-colors duration-200 py-2 px-3 rounded-md">Blog</a></li>
+                <li><a href="faq.html" class="hover:text-yellow-600 transition-colors duration-200 py-2 px-3 rounded-md">FAQs</a></li>
+                <li><a href="contact.html" class="btn-primary text-white py-2 px-5 rounded-full text-base shadow-md ml-4 hover:scale-105 inline-block">Order Now!</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content Container -->
+    <div class="w-full bg-white shadow-2xl overflow-hidden">
+        <!-- How to Order Section -->
+        <section id="how-to-order" class="py-20 px-8 card-section bg-blue-50 aos-fade-up">
+            <h2 class="text-5xl font-extrabold text-blue-700 text-center mb-12">Your Simple Path to Freshness</h2>
+            <ol class="list-decimal list-inside text-xl text-gray-700 space-y-6 max-w-4xl mx-auto">
+                <li class="p-6 bg-white rounded-xl shadow-lg transform hover:scale-102 transition duration-200">
+                    <span class="font-bold text-blue-600">Step 1: Discover Our Exceptional Products</span><br>
+                    Explore our carefully curated selection of farm-fresh dressed broiler chickens, nutritious eggs, and live chickens on our <a href="products.html" class="text-blue-600 hover:underline font-semibold">Products Page</a>.
+                </li>
+                <li class="p-6 bg-white rounded-xl shadow-lg transform hover:scale-102 transition duration-200">
+                    <span class="font-bold text-blue-600">Step 2: Effortlessly Place Your Order</span><br>
+                    Reach out to us conveniently via the "Order Inquiry Form" below, or simply call us at <a href="tel:+254793911383" class="text-blue-600 hover:underline font-semibold">0793911383</a>, or send a quick WhatsApp message to the same number.
+                </li>
+                <li class="p-6 bg-white rounded-xl shadow-lg transform hover:scale-102 transition duration-200">
+                    <span class="font-bold text-blue-600">Step 3: Swift Confirmation & Seamless Delivery</span><br>
+                    We'll promptly confirm your order details and total cost, then arrange for our complimentary and efficient delivery directly to your doorstep within Kakamega at your preferred time.
+                </li>
+                <li class="p-6 bg-white rounded-xl shadow-lg transform hover:scale-102 transition duration-200">
+                    <span class="font-bold text-blue-600">Step 4: Savor the Unmatched Freshness!</span><br>
+                    Receive your premium, farm-fresh poultry products, and immediately experience the unparalleled taste and quality that only "Quality from Dawn" can deliver.
+                </li>
+            </ol>
+        </section>
+
+        <!-- Order Inquiry Form -->
+        <section id="order-inquiry" class="py-20 px-8 card-section bg-green-50 aos-fade-up">
+            <h2 class="text-5xl font-extrabold text-green-700 text-center mb-12">Ready to Order? Send Us Your Inquiry!</h2>
+            <p class="text-lg text-gray-700 text-center mb-12 max-w-3xl mx-auto">
+                Fill out the form below with your desired items and delivery details. We'll get back to you promptly to confirm your order and schedule your free delivery!
+            </p>
+            <form id="orderForm" class="max-w-2xl mx-auto space-y-8 p-10 bg-white rounded-2xl shadow-2xl">
+                <div>
+                    <label for="name" class="block text-gray-700 text-lg font-bold mb-3">Your Full Name:</label>
+                    <input type="text" id="name" name="Customer Name" class="shadow-inner appearance-none border border-gray-300 rounded-xl w-full py-4 px-5 text-gray-700 leading-tight focus:outline-none focus:ring-4 focus:ring-yellow-300 focus:border-yellow-500 transition duration-300" placeholder="e.g., John Doe" required>
+                </div>
+                <div>
+                    <label for="phone" class="block text-gray-700 text-lg font-bold mb-3">Your Phone Number:</label>
+                    <input type="tel" id="phone" name="Phone Number" class="shadow-inner appearance-none border border-gray-300 rounded-xl w-full py-4 px-5 text-gray-700 leading-tight focus:outline-none focus:ring-4 focus:ring-yellow-300 focus:border-yellow-500 transition duration-300" placeholder="e.g., 0793911383" required>
+                </div>
+                <div>
+                    <label for="order_details" class="block text-gray-700 text-lg font-bold mb-3">Your Order Details (e.g., 2kg Dressed Broiler, 1 Tray Eggs):</label>
+                    <textarea id="order_details" name="Order Details" rows="6" class="shadow-inner appearance-none border border-gray-300 rounded-xl w-full py-4 px-5 text-gray-700 leading-tight focus:outline-none focus:ring-4 focus:ring-yellow-300 focus:border-yellow-500 transition duration-300" placeholder="Please specify items, quantities, and any special requests..." required></textarea>
+                </div>
+                <div>
+                    <label for="delivery_address" class="block text-gray-700 text-lg font-bold mb-3">Delivery Address (within Kakamega - specify landmarks if possible):</label>
+                    <textarea id="delivery_address" name="Delivery Address" rows="4" class="shadow-inner appearance-none border border-gray-300 rounded-xl w-full py-4 px-5 text-gray-700 leading-tight focus:outline-none focus:ring-4 focus:ring-yellow-300 focus:border-yellow-500 transition duration-300" placeholder="Your street, nearest landmark, estate name, etc." required></textarea>
+                </div>
+                <div class="text-center pt-6">
+                    <button type="submit" class="btn-secondary text-white font-extrabold py-4 px-10 rounded-full text-xl sm:text-2xl shadow-xl">
+                        Send Order Inquiry Now!
+                    </button>
+                </div>
+            </form>
+            <div id="formMessage" class="max-w-2xl mx-auto text-center mt-4 text-lg font-semibold flex-col items-center hidden"></div>
+        </section>
+
+        <!-- Payment Methods Section -->
+        <section id="payment-methods" class="py-20 px-8 card-section bg-purple-50 aos-fade-up">
+            <h2 class="text-5xl font-extrabold text-purple-700 text-center mb-12">Seamless Payment Options</h2>
+            <p class="text-lg text-gray-700 text-center mb-12 max-w-3xl mx-auto">
+                We've made paying for your fresh products easy and secure. Choose from our convenient mobile money options:
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 text-lg">
+                <!-- Safaricom M-Pesa -->
+                <div class="flex flex-col items-center bg-white rounded-xl p-8 shadow-lg transform hover:scale-105 transition duration-300">
+                    <img src="images/M-pesa-logo.png" alt="M-Pesa" class="w-24 h-24 mb-6">
+                    <h3 class="font-bold text-3xl text-gray-800 mb-4">Safaricom M-Pesa Paybill</h3>
+                    <p class="text-gray-700 text-center text-xl">Business Number: <span class="font-extrabold text-purple-600 text-3xl block mt-2">3384766</span></p>
+                    <p class="text-gray-700 text-center mt-3 text-lg">Account Name: <span class="font-semibold text-purple-600">SUNRISE CHICKEN FARM</span></p>
+                </div>
+                <!-- Airtel Money -->
+                <div class="flex flex-col items-center bg-white rounded-xl p-8 shadow-lg transform hover:scale-105 transition duration-300">
+                    <img src="images/airtel money .jpg" alt="Airtel Money" class="w-24 h-24 mb-6">
+                    <h3 class="font-bold text-3xl text-gray-800 mb-4">Airtel Money</h3>
+                    <p class="text-gray-700 text-center text-xl">Send to Number: <span class="font-extrabold text-purple-600 text-3xl block mt-2">0793911383</span></p>
+                    <p class="text-gray-700 text-center mt-3 text-lg">Reference: <span class="font-semibold text-purple-600">Your Name / Order ID</span></p>
+                </div>
+                <!-- PayPal -->
+                <div class="flex flex-col items-center bg-white rounded-xl p-8 shadow-lg transform hover:scale-105 transition duration-300 md:col-span-2 lg:col-span-1">
+                    <img src="images/paypal logo.png" alt="PayPal" class="w-32 h-auto mb-6">
+                    <h3 class="font-bold text-3xl text-gray-800 mb-4">PayPal</h3>
+                    <p class="text-gray-700 text-center text-base mb-5">
+                        For online payments, we offer a secure PayPal option. Please contact us first to finalize your order amount before paying.
+                    </p>
+                    <div id="paypal-button-container" class="w-full mt-auto"></div>
+                </div>
+            </div>
+            <p class="text-center text-gray-600 text-base italic mt-10">
+                For all mobile money payments, please ensure to include your name or order ID as the account/reference number for quick and accurate reconciliation.
+            </p>
+        </section>
+
+        <!-- Delivery Information -->
+        <section id="delivery-info" class="py-20 px-8 card-section bg-yellow-50 aos-fade-up">
+            <h2 class="text-5xl font-extrabold text-yellow-700 text-center mb-12">Unbeatable Delivery Promise!</h2>
+            <p class="text-xl text-gray-700 leading-relaxed max-w-3xl mx-auto">
+                We are incredibly proud to offer <span class="font-extrabold text-green-700 text-3xl">FREE deliveries</span> exclusively within Kakamega town! Experience the ultimate convenience of having your incredibly fresh chicken and eggs delivered directly to your doorstep, hassle-free and with a smile.
+            </p>
+        </section>
+
+        <!-- NEW "Connect With Us" Section -->
+        <section id="connect-with-us" class="py-20 px-8 bg-gradient-to-br from-teal-500 to-green-500 text-white aos-fade-up">
+            <div class="max-w-5xl mx-auto text-center">
+                <h2 class="text-5xl font-extrabold text-white mb-12 drop-shadow-md">Connect With Us!</h2>
+                <p class="text-lg mb-12 max-w-3xl mx-auto opacity-90">
+                    Join our growing farm family! Follow us on social media for daily updates, or send us an email with your questions.
+                </p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Instagram -->
+                    <a href="https://instagram.com/sunrisechickenbarn" target="_blank" class="block bg-white p-6 rounded-xl shadow-xl text-gray-800 transform hover:scale-105 transition duration-300 flex flex-col items-center">
+                        <img src="images/instagram.jpg" alt="Instagram" class="w-16 h-16 mb-2 rounded-full">
+                        <span class="font-semibold text-lg text-pink-600">Instagram</span>
+                        <span class="text-sm text-gray-500">@sunrisechickenbarn</span>
+                    </a>
+                    <!-- Facebook -->
+                    <a href="#" class="block bg-white p-6 rounded-xl shadow-xl text-gray-800 transform hover:scale-105 transition duration-300 flex flex-col items-center">
+                        <img src="images/facebook.jpg" alt="Facebook" class="w-16 h-16 mb-2 rounded-full">
+                        <span class="font-semibold text-lg text-blue-600">Facebook</span>
+                        <span class="text-sm text-gray-500">Coming Soon!</span>
+                    </a>
+                    <!-- WhatsApp -->
+                    <a href="https://wa.me/254793911383" target="_blank" class="block bg-white p-6 rounded-xl shadow-xl text-gray-800 transform hover:scale-105 transition duration-300 flex flex-col items-center">
+                        <img src="images/whatsapp.jpg" alt="WhatsApp" class="w-16 h-16 mb-2 rounded-full">
+                        <span class="font-semibold text-lg text-green-600">WhatsApp</span>
+                        <span class="text-sm text-gray-500">0793911383</span>
+                    </a>
+                    <!-- Email -->
+                    <a href="mailto:sunrisechickenbarn@gmail.com" class="block bg-white p-6 rounded-xl shadow-xl text-gray-800 transform hover:scale-105 transition duration-300 flex flex-col items-center">
+                        <svg class="w-16 h-16 mb-2 text-gray-600" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M2.003 5.884L10.05 11.51c.92.66 2.08.66 3 0l8.046-5.626C20.61 4.57 20 4 19 4H5c-1 0-1.61.57-2.997 1.884zM22 8.77l-9.05 6.33c-.92.66-2.08.66-3 0L2 8.77V18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8.77z"></path></svg>
+                        <span class="font-semibold text-lg text-gray-700">Email Us</span>
+                        <span class="text-sm text-gray-500">sunrisechickenbarn@gmail.com</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Location Map Section -->
+        <section id="location" class="py-20 px-8 card-section bg-gray-50 aos-fade-up">
+            <h2 class="text-5xl font-extrabold text-gray-800 text-center mb-12">Visit Our Farm or Find Us!</h2>
+            <p class="text-lg text-gray-700 text-center mb-12 max-w-3xl mx-auto">
+                While we bring freshness directly to your door, here's our general location in Kakamega. Feel free to contact us for specific directions or appointments.
+            </p>
+            <div class="relative w-full h-96 sm:h-[500px] rounded-xl overflow-hidden shadow-2xl">
+                <!-- Google Maps Embed: Using a general Kakamega location -->
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15958.825631248967!2d34.74301540000001!3d0.2825005999999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x178229f37c35dd0b%3A0x8979a029304e84b8!2sKakamega!5e0!3m2!1sen!2ske!4v1717387200000!5m2!1sen!2ske"
+                    width="100%"
+                    height="100%"
+                    style="border:0;"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gradient-to-br from-gray-900 to-gray-800 text-gray-200 py-16 px-8">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
+            <!-- Column 1: Brand & About -->
+            <div>
+                <h3 class="text-3xl font-black text-white mb-4">Sunrise Chicken Farm</h3>
+                <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                    Quality from Dawn – Delivering the freshest, ethically raised chicken and eggs directly to your table in Kakamega.
+                </p>
+                <div class="flex space-x-4 mt-6">
+                    <a href="https://instagram.com/sunrisechickenbarn" target="_blank" class="text-gray-400 hover:text-yellow-400 transition-colors duration-200">
+                    <img src = "images/instagram.jpg" alt = "instagram" class = "w-8 h-8">
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-yellow-400 transition-colors duration-200">
+                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.99 3.65 9.17 8.44 9.9V15.46H8.72v-3.58h1.72V9.8c0-1.72 1.05-2.66 2.58-2.66 0.74 0 1.38.05 1.57.08v1.72h-1.02c-.85 0-1.02.4-1.02 1v1.24h2.29l-.37 2.44h-1.92v6.43C18.35 21.17 22 16.99 22 12z"></path>
+                        </svg>
+                    </a>
+                    <a href="https://wa.me/254793911383" target="_blank" class="text-gray-400 hover:text-yellow-400 transition-colors duration-200">
+                    <img src = "images/whatsapp.jpg" alt = "whatsapp" class = "w-8 h-8">
+                    </a>
+                </div>
+            </div>
+
+            <!-- Column 2: Quick Links -->
+            <div>
+                <h4 class="text-2xl font-bold text-white mb-6">Quick Links</h4>
+                <ul class="space-y-3 text-lg">
+                    <li><a href="about.html" class="hover:text-yellow-400 transition-colors duration-200">About Us</a></li>
+                    <li><a href="products.html" class="hover:text-yellow-400 transition-colors duration-200">Our Products</a></li>
+                    <li><a href="contact.html#how-to-order" class="hover:text-yellow-400 transition-colors duration-200">How to Order</a></li>
+                    <li><a href="contact.html" class="hover:text-yellow-400 transition-colors duration-200">Order Now</a></li>
+                    <li><a href="faq.html" class="hover:text-yellow-400 transition-colors duration-200">FAQs</a></li>
+                    <li><a href="blog.html" class="hover:text-yellow-400 transition-colors duration-200">Farm News</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 3: Contact Info -->
+            <div>
+                <h4 class="text-2xl font-bold text-white mb-6">Get In Touch</h4>
+                <ul class="space-y-4 text-lg">
+                    <li class="flex items-center">
+                        <svg class="w-6 h-6 mr-3 text-yellow-400" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.32.57 3.55.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.23.2 2.43.57 3.55.12.35.03.75-.24 1.02l-2.2 2.2z"/>
+                        </svg>
+                        <a href="tel:+254793911383" class="hover:text-yellow-400 transition-colors duration-200">0793911383</a>
+                    </li>
+                    <li class="flex items-center">
+                        <svg class="w-6 h-6 mr-3 text-yellow-400" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12.04 2c-5.45 0-9.91 4.46-9.91 9.91 0 1.75.5 3.42 1.45 4.9L2 22l5.25-1.38c1.47.95 3.14 1.45 4.9 1.45 5.45 0 9.91-4.46 9.91-9.91S17.49 2 12.04 2zm5.5 14.88c-.25.16-.9.5-.97.53-.07.03-.13.04-.2-.02-.6-.24-2.52-1.56-2.91-1.8-1.57-1.46-1.59-1.48-1.62-1.5-.04-.03-.09-.04-.15.02-.06.05-.15.04-.2.02-.07-.02-.13-.04-.2-.04-.61-.25-1.5-1.12-1.74-1.46-.23-.33-.2-.5-.01-.52.2-.02.44-.06.63-.26.2-.2.45-.48.6-.66.15-.17.2-.29.3-.48.1-.19.05-.35-.02-.49-.07-.14-.6-.28-1.04-.62-.43-.34-.84-.81-.97-1.04-.13-.23-.02-.2-.05-.4-.03-.2-.23-.5-.32-.68-.08-.18-.17-.15-.24-.15-.07 0-.13-.02-.2-.02-.61-.01-1.1.23-1.63.75-.53.53-.78 1.25-.78 2.03 0 .78.18 1.5.87 2.2.69.7 1.34 1.05 2.02 1.4l.6.29.3.15c.9.45 1.76.9 2.58 1.24 1.03.43 2.07.72 2.89.9.82.18 1.46.13 1.8.08.34-.05.88-.36 1.02-.56.14-.2.25-.37.34-.52.09-.16.08-.29.06-.35z"/>
+                        </svg>
+                        <a href="https://wa.me/254793911383" target="_blank" class="hover:text-yellow-400 transition-colors duration-200">WhatsApp Us</a>
+                    </li>
+                    <li class="flex items-center">
+                        <svg class="w-6 h-6 mr-3 text-yellow-400" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M2.003 5.884L10.05 11.51c.92.66 2.08.66 3 0l8.046-5.626C20.61 4.57 20 4 19 4H5c-1 0-1.61.57-2.997 1.884zM22 8.77l-9.05 6.33c-.92.66-2.08.66-3 0L2 8.77V18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8.77z"></path>
+                        </svg>
+                        <a href="mailto:sunrisechickenbarn@gmail.com" class="hover:text-yellow-400 transition-colors duration-200">sunrisechickenbarn@gmail.com</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Column 4: Newsletter Signup -->
+            <div>
+                <h4 class="text-2xl font-bold text-white mb-6">Stay Fresh!</h4>
+                <p class="text-gray-400 text-sm mb-4">
+                    Get the latest farm news, special offers, and delicious recipes directly to your inbox.
+                </p>
+                <form class="flex flex-col gap-4">
+                    <input type="email" placeholder="Your email address" class="p-3 rounded-lg bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-500">
+                    <button type="submit" class="btn-primary text-white font-bold py-3 px-6 rounded-lg shadow-md hover:scale-105 transition duration-300">
+                        Subscribe
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <hr class="border-gray-700 my-12">
+
+        <!-- Bottom Row: Legal Links & Copyright -->
+        <div class="flex flex-col sm:flex-row justify-between items-center text-gray-500 text-sm">
+            <p>© 2025 Sunrise Chicken Farm. All rights reserved.</p>
+            <div class="flex space-x-6 mt-4 sm:mt-0">
+                <a href="#" onclick="openModal('termsModal'); return false;" class="hover:text-yellow-400 transition-colors duration-200">Terms of Service</a>
+                <a href="#" onclick="openModal('privacyModal'); return false;" class="hover:text-yellow-400 transition-colors duration-200">Privacy Policy</a>
+                <a href="#" onclick="openModal('cookieModal'); return false;" class="hover:text-yellow-400 transition-colors duration-200">Cookie Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Common Site Scripts -->
+    <script src="script.js" defer></script>
+
+    <!-- PayPal SDK and Button Logic -->
+    <!-- IMPORTANT: Replace YOUR_CLIENT_ID with your actual PayPal Client ID -->
+    <script src="https://www.paypal.com/sdk/js?client-id=YOUR_CLIENT_ID&currency=USD"></script>
+
+    <!-- Page-Specific Scripts for contact.html -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // --- Order Inquiry Form Logic ---
+        const orderForm = document.getElementById('orderForm');
+        if (orderForm) {
+            orderForm.addEventListener('submit', function(event) {
+                event.preventDefault(); // Prevent default form submission
+
+                const form = event.target;
+                const name = form.elements['Customer Name'].value;
+                const phone = form.elements['Phone Number'].value;
+                const orderDetails = form.elements['Order Details'].value;
+                const deliveryAddress = form.elements['Delivery Address'].value;
+                const formMessage = document.getElementById('formMessage');
+
+                // Construct WhatsApp message body
+                const whatsappMessageRaw =
+                    `Hello Sunrise Chicken Farm, I'd like to place an order:\n\n` +
+                    `Name: ${name}\n` +
+                    `Phone: ${phone}\n\n` +
+                    `Order: ${orderDetails}\n\n` +
+                    `Delivery Address: ${deliveryAddress}\n\n` +
+                    `Please confirm. Thanks!`;
+                
+                const whatsappMessage = encodeURIComponent(whatsappMessageRaw);
+                const whatsappUrl = `https://wa.me/254793911383?text=${whatsappMessage}`;
+
+                // Open WhatsApp
+                window.open(whatsappUrl, '_blank');
+
+                // Display success message
+                formMessage.innerHTML = `<p class="text-green-700">✅ Your order has been prepared for WhatsApp. Please send the message in the new tab that opened.</p>`;
+                formMessage.classList.remove('hidden');
+                formMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+                form.reset();
+            });
+        }
+
+        // --- PayPal Button Logic ---
+        if (typeof paypal !== 'undefined') {
+            try {
+                paypal.Buttons({
+                    createOrder: function(data, actions) {
+                        return actions.order.create({
+                            purchase_units: [{
+                                amount: {
+                                    // IMPORTANT: This value should be dynamic.
+                                    value: '1.00' // Placeholder
+                                }
+                            }]
+                        });
+                    },
+                    onApprove: function(data, actions) {
+                        return actions.order.capture().then(function(orderData) {
+                            alert('Transaction completed by ' + orderData.payer.name.given_name + '!');
+                            console.log(orderData);
+                        });
+                    },
+                    onError: function(err) {
+                        console.error('PayPal Error:', err);
+                        alert('An error occurred during the payment process.');
+                    }
+                }).render('#paypal-button-container');
+            } catch (error) {
+                console.error("Failed to render PayPal buttons:", error);
+                const paypalContainer = document.getElementById('paypal-button-container');
+                if(paypalContainer) {
+                    paypalContainer.innerHTML = "<p class='text-red-500 text-center'>Could not load PayPal buttons. Please try again later.</p>";
+                }
+            }
+        } else {
+            console.error("PayPal SDK not loaded.");
+        }
+    });
+    </script>
+
+    <!-- Back to top button -->
+    <a id="back-to-top" href="#"
+   class="fixed bottom-6 right-6 z-[999] p-4 bg-yellow-400 text-white rounded-full shadow-lg transition-opacity duration-300 opacity-0 invisible hover:bg-yellow-500 transform hover:scale-110">
+    <!-- SVG for an up arrow icon -->
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+    </svg>
+</a>
+
+</body>
+</html>
