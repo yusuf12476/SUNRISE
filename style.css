@@ -121,6 +121,30 @@ h2 {
     z-index: 2;
 }
 
+/* Blog Section Background */
+.blog-bg {
+    background-image: url('https://placehold.co/1920x1080/4CAF50/FFFFFF?text=Farm+View'); /* Placeholder: Farm picture */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Creates a nice parallax-like effect */
+    position: relative;
+    z-index: 0;
+}
+.blog-bg::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(248, 249, 250, 0.9); /* Light overlay to ensure text is readable */
+    z-index: 1;
+}
+.blog-content {
+    position: relative;
+    z-index: 2;
+}
+
 /* General section styling (no harsh borders) */
 .card-section {
     background-color: #ffffff;
@@ -361,13 +385,114 @@ h2 {
     transform: translateY(0);
 }
 
+/* Gallery Grid Styles */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 1rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    aspect-ratio: 4 / 3; /* Maintain a consistent aspect ratio */
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+.gallery-item::after {
+    content: '+';
+    font-family: 'Inter', sans-serif;
+    font-weight: 200;
+    font-size: 5rem;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(31, 41, 55, 0.5); /* Dark overlay */
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.gallery-item:hover::after {
+    opacity: 1;
+}
+
 /* Blog post card specific styles */
 .blog-card {
+    background-color: #ffffff;
+    border-radius: 1rem; /* Rounded corners for the card */
+    overflow: hidden; /* Ensures the image corners are clipped */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.07);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Ensure cards in a row are same height */
 }
 .blog-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+}
+
+.blog-card-img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover; /* Crop image to fit, no distortion */
+}
+
+.blog-card-content {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Allows content to fill available space */
+}
+
+.blog-card-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: #1F2937; /* Darker text for title */
+}
+
+.blog-card-excerpt {
+    color: #4B5563; /* Gray-600 */
+    margin-bottom: 1.5rem;
+    flex-grow: 1; /* Pushes the link to the bottom */
+}
+
+.blog-card-link {
+    font-weight: 600;
+    color: #D97706; /* Theme color */
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+.blog-card-link:hover {
+    color: #92400E; /* Darker on hover */
+    text-decoration: underline;
 }
 
 /* Mobile navigation toggle */
