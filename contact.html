@@ -295,6 +295,39 @@
 
     <!-- Page-Specific Scripts for contact.html -->
     <script>
+    // This function is in the global scope to be callable from onclick attributes
+    function showSentMessage(method) {
+        const formMessage = document.getElementById('formMessage');
+        if (formMessage) {
+            formMessage.innerHTML = `<p class="text-green-700">✅ Your inquiry has been prepared for ${method}. Please send the message in the new tab/app that opened.</p>`;
+        }
+        const orderForm = document.getElementById('orderForm');
+        if(orderForm) {
+            orderForm.reset();
+        }
+    }
+
+    // This function is also in the global scope for onclick
+    function copyToClipboard(elementId, button) {
+        const previewElement = document.getElementById(elementId);
+        if (!previewElement) return;
+
+        // Use innerText to get the text as it is rendered, preserving line breaks
+        const textToCopy = previewElement.innerText;
+        navigator.clipboard.writeText(textToCopy).then(() => {
+            const originalText = button.innerHTML;
+            button.innerHTML = '✅ Copied!';
+            button.disabled = true;
+            setTimeout(() => {
+                button.innerHTML = originalText;
+                button.disabled = false;
+            }, 2500);
+        }).catch(err => {
+            console.error('Failed to copy text: ', err);
+            alert('Could not copy message. Please select and copy it manually.');
+        });
+    }
+
     document.addEventListener('DOMContentLoaded', function() {
         // --- Order Inquiry Form Logic ---
         const orderForm = document.getElementById('orderForm');
@@ -309,27 +342,52 @@
                 const deliveryAddress = form.elements['Delivery Address'].value;
                 const formMessage = document.getElementById('formMessage');
 
-                // Construct WhatsApp message body
-                const whatsappMessageRaw =
+                // Construct message body for both methods
+                const commonMessageBody =
                     `Hello Sunrise Chicken Farm, I'd like to place an order:\n\n` +
                     `Name: ${name}\n` +
                     `Phone: ${phone}\n\n` +
                     `Order: ${orderDetails}\n\n` +
                     `Delivery Address: ${deliveryAddress}\n\n` +
                     `Please confirm. Thanks!`;
-                
-                const whatsappMessage = encodeURIComponent(whatsappMessageRaw);
+
+                // WhatsApp Link
+                const whatsappMessage = encodeURIComponent(commonMessageBody);
                 const whatsappUrl = `https://wa.me/254793911383?text=${whatsappMessage}`;
 
-                // Open WhatsApp
-                window.open(whatsappUrl, '_blank');
+                // Email (mailto) Link
+                const emailSubject = `New Order Inquiry from ${name}`;
+                const emailBody = encodeURIComponent(commonMessageBody);
+                const mailtoLink = `mailto:sunrisechickenbarn@gmail.com?subject=${emailSubject}&body=${emailBody}`;
 
-                // Display success message
-                formMessage.innerHTML = `<p class="text-green-700">✅ Your order has been prepared for WhatsApp. Please send the message in the new tab that opened.</p>`;
+                // Sanitize the message for safe display in HTML
+                const sanitizedMessage = commonMessageBody.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+
+                // Display message preview and choice buttons to the user
+                formMessage.innerHTML = `
+                    <p class="mb-4 text-xl font-bold text-gray-800">Your Inquiry is Ready!</p>
+                    <div class="mb-6 text-left bg-gray-100 p-4 rounded-lg border border-gray-200 relative">
+                        <p class="font-semibold text-gray-700 mb-2">Message Preview:</p>
+                        <pre id="messagePreview" class="whitespace-pre-wrap text-sm text-gray-600 font-sans">${sanitizedMessage}</pre>
+                        <button onclick="copyToClipboard('messagePreview', this)" class="absolute top-2 right-2 bg-gray-200 text-gray-700 text-xs font-semibold py-1 px-3 rounded-full hover:bg-gray-300 transition duration-300">
+                            Copy
+                        </button>
+                    </div>
+
+                    <p class="mb-6 text-xl font-bold text-gray-800">How would you like to send it?</p>
+                    <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+                        <a href="${whatsappUrl}" target="_blank" onclick="showSentMessage('WhatsApp')" class="btn-secondary text-white font-bold py-3 px-6 rounded-full shadow-md hover:scale-105 transition duration-300 inline-flex items-center w-full sm:w-auto justify-center">
+                            <svg class="w-6 h-6 mr-3" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12.04 2c-5.45 0-9.91 4.46-9.91 9.91 0 1.75.5 3.42 1.45 4.9L2 22l5.25-1.38c1.47.95 3.14 1.45 4.9 1.45 5.45 0 9.91-4.46 9.91-9.91S17.49 2 12.04 2zm5.5 14.88c-.25.16-.9.5-.97.53-.07.03-.13.04-.2-.02-.6-.24-2.52-1.56-2.91-1.8-1.57-1.46-1.59-1.48-1.62-1.5-.04-.03-.09-.04-.15.02-.06.05-.15.04-.2.02-.07-.02-.13-.04-.2-.04-.61-.25-1.5-1.12-1.74-1.46-.23-.33-.2-.5-.01-.52.2-.02.44-.06.63-.26.2-.2.45-.48.6-.66.15-.17.2-.29.3-.48.1-.19.05-.35-.02-.49-.07-.14-.6-.28-1.04-.62-.43-.34-.84-.81-.97-1.04-.13-.23-.02-.2-.05-.4-.03-.2-.23-.5-.32-.68-.08-.18-.17-.15-.24-.15-.07 0-.13-.02-.2-.02-.61-.01-1.1.23-1.63.75-.53.53-.78 1.25-.78 2.03 0 .78.18 1.5.87 2.2.69.7 1.34 1.05 2.02 1.4l.6.29.3.15c.9.45 1.76.9 2.58 1.24 1.03.43 2.07.72 2.89.9.82.18 1.46.13 1.8.08.34-.05.88-.36 1.02-.56.14-.2.25-.37.34-.52.09-.16.08-.29.06-.35z"/></svg>
+                            <span>Send via WhatsApp<br><small class="font-normal opacity-80">to 0793911383</small></span>
+                        </a>
+                        <a href="${mailtoLink}" target="_blank" onclick="showSentMessage('Email')" class="btn-primary text-white font-bold py-3 px-6 rounded-full shadow-md hover:scale-105 transition duration-300 inline-flex items-center w-full sm:w-auto justify-center">
+                            <svg class="w-6 h-6 mr-3" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M2.003 5.884L10.05 11.51c.92.66 2.08.66 3 0l8.046-5.626C20.61 4.57 20 4 19 4H5c-1 0-1.61.57-2.997 1.884zM22 8.77l-9.05 6.33c-.92.66-2.08.66-3 0L2 8.77V18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8.77z"></path></svg>
+                            <span>Send via Email<br><small class="font-normal opacity-80">to sunrisechickenbarn@gmail.com</small></span>
+                        </a>
+                    </div>
+                `;
                 formMessage.classList.remove('hidden');
                 formMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
-
-                form.reset();
             });
         }
 
@@ -380,5 +438,4 @@
     </svg>
 </a>
 
-</body>
-</html>
+</body></html>
