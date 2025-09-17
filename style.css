@@ -71,9 +71,31 @@ h2 {
 /* Hero section styling - now without background image */
 .hero-section {
     background-color: #fef3c7; /* Light yellow background */
-    padding: 6rem 2rem; /* Adjusted padding for hero */
+    padding: 10rem 2rem; /* Increased padding for a larger hero section */
     text-align: center;
 }
+
+/* Hero section with background image */
+.hero-bg {
+    background-image: url('images/istockphoto-538277671-612x612.jpg'); /* Using one of your existing images as a placeholder */
+    background-size: cover;
+    padding: 10rem 2rem; /* Increased padding for a larger hero section */
+    background-position: center;
+    position: relative;
+    z-index: 0;
+    color: white; /* Change text color to white for better contrast */
+}
+.hero-bg::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Dark overlay for text readability */
+    z-index: -1; /* Place overlay behind the content */
+}
+
 
 /* Testimonial background */
 .testimonials-bg {
