@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FAQs - Sunrise Chicken Farm</title>
+    <title>Your Cart - Sunrise Chicken Farm</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts - Inter -->
@@ -14,17 +14,19 @@
 <body class="bg-gray-50 text-gray-800 antialiased">
 
     <!-- Header Section (FIXED to viewport) -->
-    <header class="sticky-header px-8">
-        <div class="flex items-center">
+    <header class="sticky-header px-4 sm:px-8 flex items-center justify-between">
+        <a href="index.html" class="flex items-center">
             <!-- Logo Placeholder -->
-            <img src="images/1752899501161.jpg" alt="Sunrise Chicken Farm Logo" class="w-24 h-24 mr-4">
-            <h1 class="text-3xl font-black text-gray-800 site-title">
+            <img src="images/1752899501161.jpg" alt="Sunrise Chicken Farm Logo" class="w-16 h-16 sm:w-24 sm:h-24 mr-3 sm:mr-4">
+            <h1 class="text-2xl sm:text-3xl font-black text-gray-800 site-title">
                 Sunrise Chicken Farm
             </h1>
-        </div>
+        </a>
 
         <div class="mobile-menu-toggle" id="mobileMenuToggle">
-            ☰ <!-- Hamburger icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-gray-800" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
         </div>
         <nav class="main-nav" id="mainNav">
             <ul class="text-gray-700 font-semibold text-lg">
@@ -45,104 +47,61 @@
 
     <!-- Main Content Container -->
     <div class="w-full bg-white shadow-2xl overflow-hidden">
-        <!-- FAQ Section -->
-        <section id="faq-section" class="py-20 px-8 card-section aos-fade-up">
-            <h2 class="text-5xl font-extrabold text-gray-800 text-center mb-12">Frequently Asked Questions</h2>
-            <div class="space-y-6 max-w-4xl mx-auto">
-                <!-- Existing FAQ Items -->
-                <div class="faq-item">
-                    <input type="checkbox" id="faq1">
-                    <label for="faq1" class="text-xl font-semibold text-gray-800">Do you deliver outside Kakamega?</label>
-                    <div class="faq-content text-gray-700">
-                        <p>Currently, we proudly offer complimentary deliveries exclusively within Kakamega County. For orders outside this area, we kindly request you to contact us directly to discuss potential arrangements and any associated delivery fees that may apply.</p>
-
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <input type="checkbox" id="faq2">
-                    <label for="faq2" class="text-xl font-semibold text-gray-800">What types of chicken and eggs do you sell?</label>
-                    <div class="faq-content text-gray-700">
-                        <p>We specialize in farm-fresh dressed broiler chickens (offered whole), healthy live chickens (with both broiler and layer breeds available upon request), and nutrient-rich, farm-fresh eggs from our happy layer hens. Our primary focus remains on natural rearing practices and delivering superior quality in every product.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <input type="checkbox" id="faq3">
-                    <label for="faq3" class="text-xl font-semibold text-gray-800">How can I place an order?</label>
-                    <div class="faq-content text-gray-700">
-                        <p>Placing an order is designed to be simple and convenient for you! You can reach us by calling or sending a WhatsApp message to <a href="tel:+254793911383" class="text-blue-600 hover:underline font-semibold">0793911383</a>, or by utilizing the efficient "Order Inquiry Form" on our Contact page.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <input type="checkbox" id="faq4">
-                    <label for="faq4" class="text-xl font-semibold text-gray-800">What payment methods do you accept?</label>
-                    <div class="faq-content text-gray-700">
-                        <p>For your utmost convenience, we accept payments via Safaricom M-Pesa Paybill (Business No: 3384766), Airtel Money (using our WhatsApp number 0793911383), and PayPal for online orders. Additionally, Cash on Delivery is a readily available option for local deliveries.</p>
-                    </div>
-                </div>
-                 <div class="faq-item">
-                    <input type="checkbox" id="faq5">
-                    <label for="faq5" class="text-xl font-semibold text-gray-800">Do you offer bulk purchase discounts?</label>
-                    <div class="faq-content text-gray-700">
-                        <p>Yes, absolutely! We are pleased to offer special pricing and arrangements for large quantity orders, perfect for events, businesses, or personal stocking. Please contact us directly with your specific requirements, and we'd be delighted to discuss a customized solution tailored to your needs.</p>
-                    </div>
+        <!-- Cart Section -->
+        <section id="cart-section" class="py-20 px-8 card-section aos-fade-up">
+            <h2 class="text-5xl font-extrabold text-gray-800 text-center mb-12">Your Shopping Cart</h2>
+            <div class="max-w-4xl mx-auto">
+                <!-- Cart Items Container -->
+                <div id="cart-items-container" class="space-y-6">
+                    <!-- Cart items will be dynamically inserted here by script.js -->
                 </div>
 
-                <!-- Delivery FAQ Items -->
-                <h3 class="text-3xl font-bold text-gray-800 pt-10 mb-6 text-center">Delivery & Order Tracking</h3>
-                <div class="faq-item">
-                    <input type="checkbox" id="faq6">
-                    <label for="faq6" class="text-xl font-semibold text-gray-800">How long does delivery take after I place an order?</label>
-                    <div class="faq-content text-gray-700">
-                        <p>Once you place your order through our form, WhatsApp, or phone call, we will confirm it promptly. Deliveries within Kakamega are typically completed within **2-4 hours** during business hours, depending on your exact location and current demand. We strive for the fastest possible delivery!</p>
-                    </div>
+                <!-- Cart is Empty Message -->
+                <div id="cart-empty-message" class="text-center py-12 bg-gray-100 rounded-xl hidden">
+                    <p class="text-2xl text-gray-600 mb-6">Your cart is currently empty.</p>
+                    <a href="products.html" class="btn-primary text-white font-extrabold py-4 px-10 rounded-full text-xl shadow-xl hover:scale-105 inline-block transition duration-300 ease-in-out">
+                        Browse Products
+                    </a>
                 </div>
-                <div class="faq-item">
-                    <input type="checkbox" id="faq7">
-                    <label for="faq7" class="text-xl font-semibold text-gray-800">How will I know my order is on its way?</label>
-                    <div class="faq-content text-gray-700">
-                        <p>We will send you a confirmation message via WhatsApp or SMS once your order has been dispatched for delivery. Our delivery team may also call you when they are close to your location.</p>
+
+                <!-- Cart Totals -->
+                <div id="cart-totals-section" class="mt-12 pt-8 border-t-2 border-gray-200">
+                    <div class="flex justify-end items-center">
+                        <span class="text-2xl font-bold text-gray-800">Total:</span>
+                        <span id="cart-total-price" class="text-4xl font-extrabold text-yellow-700 ml-4">Ksh 0</span>
                     </div>
-                </div>
-                <div class="faq-item">
-                    <input type="checkbox" id="faq8">
-                    <label for="faq8" class="text-xl font-semibold text-gray-800">What if I'm not home when my delivery arrives?</label>
-                    <div class="faq-content text-gray-700">
-                        <p>We recommend ensuring someone is available at the delivery address during the confirmed delivery window. If you anticipate not being home, please inform us in advance when placing your order, and we can try to arrange an alternative time or a safe drop-off point if suitable.</p>
+                    <div class="flex justify-end mt-8 gap-4">
+                        <button id="clear-cart-btn" class="bg-gray-300 text-gray-700 font-bold py-3 px-6 rounded-full hover:bg-gray-400 transition">Clear Cart</button>
+                        <button id="proceed-to-checkout-btn" class="btn-primary text-white font-extrabold py-3 px-8 rounded-full text-lg shadow-lg">
+                            Proceed to Checkout
+                        </button>
+                    </div>
+                    <!-- Payment Options Highlight -->
+                    <div class="mt-10 text-center p-6 bg-gray-100 rounded-xl border border-gray-200">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-4">We Accept The Following Payment Methods:</h4>
+                        <div class="flex justify-center items-center gap-6 flex-wrap">
+                            <div class="flex flex-col items-center gap-2 bg-white p-3 rounded-lg shadow-sm w-32">
+                                <img src="images/M-pesa-logo.png" alt="M-Pesa Logo" class="h-8 w-auto">
+                                <span class="font-bold text-green-600">M-Pesa</span>
+                            </div>
+                            <div class="flex flex-col items-center gap-2 bg-white p-3 rounded-lg shadow-sm w-32">
+                                <img src="images/airtel money .jpg" alt="Airtel Money Logo" class="h-8 w-auto">
+                                <span class="font-bold text-red-600">Airtel Money</span>
+                            </div>
+                            <div class="flex flex-col items-center justify-center gap-2 bg-white p-3 rounded-lg shadow-sm w-32">
+                                <!-- No logo for Cash on Delivery -->
+                                <span class="font-bold text-gray-700">Cash on Delivery</span>
+                            </div>
+                            <div class="flex flex-col items-center gap-2 bg-white p-3 rounded-lg shadow-sm w-32">
+                                <img src="images/paypal logo.png" alt="PayPal Logo" class="h-8 w-auto">
+                                <span class="font-bold text-blue-800">PayPal</span>
+                            </div>
+                        </div>
+                        <p class="text-sm text-gray-500 mt-4">Payment details will be provided upon order confirmation.</p>
                     </div>
                 </div>
             </div>
         </section>
-
-        <!-- Testimonials Section -->
-        <section id="testimonials" class="py-20 px-8 testimonials-bg text-center text-gray-800 aos-fade-up">
-            <div class="testimonials-content">
-                <h2 class="text-5xl font-extrabold text-yellow-700 mb-12 drop-shadow-md">Hear From Our Happy Customers</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-                    <!-- Testimonial 1 -->
-                    <div class="bg-white p-8 rounded-xl shadow-xl transform hover:scale-102 transition duration-300">
-                        <p class="italic text-gray-700 mb-5 leading-relaxed text-lg">"The dressed broiler chicken from Sunrise is consistently tender and delicious. Perfect for all our family meals, and the free delivery within Kakamega is an absolute lifesaver – truly convenient and reliable!"</p>
-                        <p class="font-bold text-right text-gray-800 text-xl mt-6">- Jane W., Kakamega</p>
-                    </div>
-                    <!-- Testimonial 2 -->
-                    <div class="bg-white p-8 rounded-xl shadow-xl transform hover:scale-102 transition duration-300">
-                        <p class="italic text-gray-700 mb-5 leading-relaxed text-lg">"Sunrise Chicken Farm's eggs are always fresh and vibrant. You can tell they come from healthy layers – they'sre bigger and more flavorful than anything else we've found. A definite staple in our kitchen now."</p>
-                        <p class="font-bold text-right text-gray-800 text-xl mt-6">- David K., Kakamega</p>
-                    </div>
-                    <!-- Testimonial 3 -->
-                    <div class="bg-white p-8 rounded-xl shadow-xl transform hover:scale-102 transition duration-300 md:col-span-2">
-                        <p class="italic text-gray-700 mb-5 leading-relaxed text-lg">"Their products are top-tier. Whether it's the dressed broiler or the fresh eggs, the quality is unmatched. The easy payment options and delivery make it so effortless to get fresh produce. Sunrise Chicken Farm is our go-to!"</p>
-                        <p class="font-bold text-right text-gray-800 text-xl mt-6">- Mary L., Kakamega</p>
-                    </div>
-                </div>
-                <!-- Submit Testimonial Button -->
-                <div class="text-center mt-16">
-                    <button onclick="openModal('testimonialModal')" class="btn-primary text-white font-extrabold py-5 px-12 rounded-full text-2xl shadow-xl hover:scale-105 transition duration-300 ease-in-out">
-                        Share Your Experience!
-                    </button>
-                </div>
-            </div>
-        </section>
-
     </div>
 
     <!-- Footer -->
@@ -220,17 +179,62 @@
         </div>
     </footer>
 
+    <!-- Invoice & Checkout Modal -->
+    <div id="invoiceModal" class="modal">
+        <div class="modal-content modal-content-lg">
+            <span class="close-button" onclick="closeModal('invoiceModal')">×</span>
+            <div id="invoice-content" class="text-left">
+                <div class="text-center mb-8">
+                    <img src="images/1752899501161.jpg" alt="Sunrise Chicken Farm Logo" class="w-24 h-24 mx-auto mb-4">
+                    <h3 class="text-3xl font-bold text-gray-800">Order Summary</h3>
+                    <p class="text-gray-500">Review your order and choose how to send it to us.</p>
+                </div>
+
+                <!-- Customer Details Form -->
+                <div class="bg-gray-100 p-6 rounded-xl mb-6">
+                     <h4 class="text-xl font-bold text-gray-800 mb-4">Your Details</h4>
+                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                         <div>
+                             <label for="customer_name" class="block text-sm font-medium text-gray-700">Full Name</label>
+                             <input type="text" id="customer_name" placeholder="Enter your name" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-yellow-500 focus:border-yellow-500">
+                         </div>
+                         <div>
+                             <label for="customer_phone" class="block text-sm font-medium text-gray-700">Phone Number</label>
+                             <input type="tel" id="customer_phone" placeholder="Enter your phone number" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-yellow-500 focus:border-yellow-500">
+                         </div>
+                         <div class="md:col-span-2">
+                            <label for="customer_address" class="block text-sm font-medium text-gray-700">Delivery Address</label>
+                            <textarea id="customer_address" rows="3" placeholder="Enter your delivery address (e.g., Street, Estate, Landmark)" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-yellow-500 focus:border-yellow-500"></textarea>
+                         </div>
+                     </div>
+                </div>
+
+                <!-- Invoice Items will be injected here by JS -->
+                <div id="invoice-items-container" class="space-y-2 mb-6"></div>
+
+                <!-- Invoice Total -->
+                <div class="text-right border-t-2 pt-4">
+                    <p class="text-2xl font-bold">Total: <span id="invoice-total-price" class="text-yellow-700"></span></p>
+                </div>
+
+                <!-- Send Options -->
+                <div class="mt-10 text-center">
+                    <h4 class="text-xl font-bold text-gray-800 mb-4">Complete Your Order By Sending Us The Invoice</h4>
+                    <div class="flex justify-center gap-6">
+                        <button id="send-via-whatsapp" class="flex items-center gap-3 bg-green-500 text-white font-bold py-3 px-6 rounded-full hover:bg-green-600 transition shadow-lg">
+                            <img src="images/whatsapp.jpg" alt="whatsapp" class="w-6 h-6"> Send via WhatsApp
+                        </button>
+                        <button id="send-via-email" class="flex items-center gap-3 bg-blue-500 text-white font-bold py-3 px-6 rounded-full hover:bg-blue-600 transition shadow-lg">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M2.003 5.884L10.05 11.51c.92.66 2.08.66 3 0l8.046-5.626C20.61 4.57 20 4 19 4H5c-1 0-1.61.57-2.997 1.884zM22 8.77l-9.05 6.33c-.92.66-2.08.66-3 0L2 8.77V18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8.77z"></path></svg> Send via Email
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Common Site Scripts -->
     <script src="script.js" defer></script>
-
-    <!-- Back to top button -->
-    <a id="back-to-top" href="#"
-   class="fixed bottom-6 right-6 z-[999] p-4 bg-yellow-400 text-white rounded-full shadow-lg transition-opacity duration-300 opacity-0 invisible hover:bg-yellow-500 transform hover:scale-110">
-    <!-- SVG for an up arrow icon -->
-    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
-    </svg>
-</a>
 
 </body>
 </html>

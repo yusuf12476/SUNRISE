@@ -15,19 +15,33 @@ h2 {
 
 /* Sticky Header - Now FIXED to the viewport */
 .sticky-header {
-    position: fixed; /* Changed from sticky to fixed for viewport stickiness */
+    position: fixed;
     top: 0;
     left: 0;
-    width: 100%; /* Ensure it spans full width when fixed */
-    z-index: 50; /* Ensure it stays above other content */
-    background-color: rgba(255, 255, 255, 0.98); /* Slightly less transparent background for better readability */
-    backdrop-filter: blur(8px); /* Frosted glass effect */
-    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    z-index: 50;
+    background-color: rgba(255, 255, 255, 0.8); /* Start with a more transparent background */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); /* Safari support */
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0); /* No shadow at the top */
     transition: all 0.3s ease-in-out;
-    padding: 1rem 2rem; /* Adjust padding for navigation */
+    padding: 1.5rem 2rem; /* Start with more padding */
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.scrolled .sticky-header {
+    padding: 0.5rem 2rem; /* Less padding on scroll */
+    background-color: rgba(255, 255, 255, 0.95); /* More opaque on scroll */
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08); /* Add shadow on scroll */
+}
+
+/* Logo specific styling */
+.sticky-header img {
+    border-radius: 50%; /* Makes the logo circular */
+    border: none; /* Explicitly remove any border */
+    box-shadow: none; /* Ensure no shadow is applied to the logo */
 }
 
 /* Navigation links styling */
@@ -99,7 +113,7 @@ h2 {
 
 /* Testimonial background */
 .testimonials-bg {
-    background-image: url('https://placehold.co/1920x600/C8A97A/FFFFFF?text=Grainy+Wood+Texture'); /* Placeholder: Subtle texture for testimonials */
+    background-image: url('https://placehold.co/1920x600/C8A97A/C8A97A'); /* Placeholder: Subtle texture for testimonials */
     background-size: cover;
     background-position: center;
     position: relative;
@@ -266,15 +280,6 @@ h2 {
     box-shadow: 0 12px 20px rgba(52, 211, 153, 0.6);
     transform: scale(1.1);
 }
-.contact-info-card {
-    transition: all 0.3s ease;
-    background-color: #fcfcfc;
-    border: 1px solid #eee;
-}
-.contact-info-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-}
 .modal {
     display: none; /* Hidden by default - THIS IS CRUCIAL */
     position: fixed; /* Stay in place */
@@ -385,6 +390,17 @@ h2 {
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+/* --- Enhanced Footer Styles --- */
+.footer-link {
+    transition: color 0.2s ease-in-out, transform 0.2s ease-in-out;
+    display: inline-block; /* Ensures transform works correctly */
+}
+
+.footer-link:hover {
+    color: #FBBF24; /* Tailwind's yellow-400 */
+    transform: translateX(2px);
 }
 .animate-fade-in-up {
     animation: fade-in-up 1s ease-out forwards;

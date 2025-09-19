@@ -32,124 +32,77 @@
                 <li><a href="about.html" class="hover:text-yellow-600 transition-colors duration-200 py-2 px-3 rounded-md">About Us</a></li>
                 <li><a href="products.html" class="hover:text-yellow-600 transition-colors duration-200 py-2 px-3 rounded-md">Products</a></li>
                 <li><a href="blog.html" class="hover:text-yellow-600 transition-colors duration-200 py-2 px-3 rounded-md">Blog</a></li>
+                <li><a href="contact.html" class="hover:text-yellow-600 transition-colors duration-200 py-2 px-3 rounded-md">Contact</a></li>
                 <li><a href="faq.html" class="hover:text-yellow-600 transition-colors duration-200 py-2 px-3 rounded-md">FAQs</a></li>
-                <li><a href="contact.html" class="btn-primary text-white py-2 px-5 rounded-full text-base shadow-md ml-4 hover:scale-105 inline-block">Order Now!</a></li>
+                <li><a href="cart.html" class="relative hover:text-yellow-600 transition-colors duration-200 py-2 px-3 rounded-md">
+                    Cart
+                    <span id="cart-count-bubble" class="absolute top-0 right-0 -mt-1 -mr-1 bg-red-600 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">0</span>
+                </a></li>
+                <li><a href="products.html" class="btn-primary text-white py-2 px-5 rounded-full text-base shadow-md ml-4 hover:scale-105 inline-block">Order Now!</a></li>
             </ul>
         </nav>
     </header>
 
     <!-- Main Content Container -->
     <div class="w-full bg-white shadow-2xl overflow-hidden">
-        <!-- Order & Contact Section -->
-        <section id="order-inquiry" class="py-20 px-8 card-section bg-green-50 aos-fade-up">
-            <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-                <!-- Left Column: Order Inquiry Form -->
-                <div>
-                    <h2 class="text-5xl font-extrabold text-green-700 text-center lg:text-left mb-8">Place Your Order Inquiry</h2>
-                    <p class="text-lg text-gray-700 text-center lg:text-left mb-10">
-                        To order, please fill out the form below. We will contact you shortly via WhatsApp or phone to confirm your order details, total cost, and arrange for your free delivery within Kakamega.
+        <!-- Get in Touch Section -->
+        <section id="get-in-touch" class="py-20 px-8 card-section bg-green-50 aos-fade-up">
+            <div class="max-w-3xl mx-auto">
+                <div class="text-center">
+                    <h2 class="text-5xl font-extrabold text-green-700 mb-8">Send Us a Message</h2>
+                    <p class="text-lg text-gray-700 mb-10">
+                        Have a question or a special request? Fill out the form below, and we'll get back to you as soon as possible.
                     </p>
-                    <form id="orderForm" class="space-y-8 p-10 bg-white rounded-2xl shadow-2xl">
-                        <div>
-                            <label for="name" class="block text-gray-700 text-lg font-bold mb-3">Your Full Name:</label>
-                            <input type="text" id="name" name="Customer Name" class="shadow-inner appearance-none border border-gray-300 rounded-xl w-full py-4 px-5 text-gray-700 leading-tight focus:outline-none focus:ring-4 focus:ring-yellow-300 focus:border-yellow-500 transition duration-300" placeholder="e.g., John Doe" required>
-                        </div>
-                        <div>
-                            <label for="phone" class="block text-gray-700 text-lg font-bold mb-3">Your Phone Number:</label>
-                            <input type="tel" id="phone" name="Phone Number" class="shadow-inner appearance-none border border-gray-300 rounded-xl w-full py-4 px-5 text-gray-700 leading-tight focus:outline-none focus:ring-4 focus:ring-yellow-300 focus:border-yellow-500 transition duration-300" placeholder="e.g., 0793911383" required>
-                        </div>
-                        <div>
-                            <label for="order_details" class="block text-gray-700 text-lg font-bold mb-3">Your Order Details (e.g., 2kg Dressed Broiler, 1 Tray Eggs):</label>
-                            <textarea id="order_details" name="Order Details" rows="6" class="shadow-inner appearance-none border border-gray-300 rounded-xl w-full py-4 px-5 text-gray-700 leading-tight focus:outline-none focus:ring-4 focus:ring-yellow-300 focus:border-yellow-500 transition duration-300" placeholder="Please specify items, quantities, and any special requests..." required></textarea>
-                        </div>
-                        <div>
-                            <label for="delivery_address" class="block text-gray-700 text-lg font-bold mb-3">Delivery Address (within Kakamega - specify landmarks if possible):</label>
-                            <textarea id="delivery_address" name="Delivery Address" rows="4" class="shadow-inner appearance-none border border-gray-300 rounded-xl w-full py-4 px-5 text-gray-700 leading-tight focus:outline-none focus:ring-4 focus:ring-yellow-300 focus:border-yellow-500 transition duration-300" placeholder="Your street, nearest landmark, estate name, etc." required></textarea>
-                        </div>
-                        <div class="text-center pt-6">
-                            <button type="submit" class="btn-secondary text-white font-extrabold py-4 px-10 rounded-full text-xl sm:text-2xl shadow-xl">
-                                Send Order Inquiry Now!
-                            </button>
-                        </div>
-                    </form>
-                    <div id="formMessage" class="text-center mt-4 text-lg font-semibold flex-col items-center hidden"></div>
                 </div>
-
-                <!-- Right Column: Get in Touch -->
-                <div class="mt-12 lg:mt-0">
-                    <h2 class="text-5xl font-extrabold text-green-700 text-center lg:text-left mb-8">Get in Touch</h2>
-                    <p class="text-lg text-gray-700 text-center lg:text-left mb-10">
-                        Prefer to speak with us directly? We're here to help! Use one of the methods below for general inquiries, bulk order discussions, or any questions you may have.
-                    </p>
-                    <div class="space-y-6 bg-white p-10 rounded-2xl shadow-2xl">
-                        <a href="tel:+254793911383" class="flex items-center p-6 bg-gray-50 rounded-xl hover:bg-yellow-100 hover:shadow-lg transition duration-300 group">
-                            <svg class="w-10 h-10 mr-5 text-yellow-500 group-hover:text-yellow-600" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.32.57 3.55.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.23.2 2.43.57 3.55.12.35.03.75-.24 1.02l-2.2 2.2z"/></svg>
-                            <div>
-                                <h4 class="text-2xl font-bold text-gray-800">Call Us</h4>
-                                <p class="text-lg text-gray-600 group-hover:text-gray-800">0793911383</p>
-                            </div>
-                        </a>
-                        <a href="https://wa.me/254793911383" target="_blank" class="flex items-center p-6 bg-gray-50 rounded-xl hover:bg-green-100 hover:shadow-lg transition duration-300 group">
-                            <svg class="w-10 h-10 mr-5 text-green-500 group-hover:text-green-600" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12.04 2c-5.45 0-9.91 4.46-9.91 9.91 0 1.75.5 3.42 1.45 4.9L2 22l5.25-1.38c1.47.95 3.14 1.45 4.9 1.45 5.45 0 9.91-4.46 9.91-9.91S17.49 2 12.04 2zm5.5 14.88c-.25.16-.9.5-.97.53-.07.03-.13.04-.2-.02-.6-.24-2.52-1.56-2.91-1.8-1.57-1.46-1.59-1.48-1.62-1.5-.04-.03-.09-.04-.15.02-.06.05-.15.04-.2.02-.07-.02-.13-.04-.2-.04-.61-.25-1.5-1.12-1.74-1.46-.23-.33-.2-.5-.01-.52.2-.02.44-.06.63-.26.2-.2.45-.48.6-.66.15-.17.2-.29.3-.48.1-.19.05-.35-.02-.49-.07-.14-.6-.28-1.04-.62-.43-.34-.84-.81-.97-1.04-.13-.23-.02-.2-.05-.4-.03-.2-.23-.5-.32-.68-.08-.18-.17-.15-.24-.15-.07 0-.13-.02-.2-.02-.61-.01-1.1.23-1.63.75-.53.53-.78 1.25-.78 2.03 0 .78.18 1.5.87 2.2.69.7 1.34 1.05 2.02 1.4l.6.29.3.15c.9.45 1.76.9 2.58 1.24 1.03.43 2.07.72 2.89.9.82.18 1.46.13 1.8.08.34-.05.88-.36 1.02-.56.14-.2.25-.37.34-.52.09-.16.08-.29.06-.35z"/></svg>
-                            <div>
-                                <h4 class="text-2xl font-bold text-gray-800">WhatsApp Us</h4>
-                                <p class="text-lg text-gray-600 group-hover:text-gray-800">Quick & Easy Messaging</p>
-                            </div>
-                        </a>
-                        <a href="mailto:sunrisechickenbarn@gmail.com" class="flex items-center p-6 bg-gray-50 rounded-xl hover:bg-blue-100 hover:shadow-lg transition duration-300 group">
-                            <svg class="w-10 h-10 mr-5 text-blue-500 group-hover:text-blue-600" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M2.003 5.884L10.05 11.51c.92.66 2.08.66 3 0l8.046-5.626C20.61 4.57 20 4 19 4H5c-1 0-1.61.57-2.997 1.884zM22 8.77l-9.05 6.33c-.92.66-2.08.66-3 0L2 8.77V18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8.77z"></path></svg>
-                            <div>
-                                <h4 class="text-2xl font-bold text-gray-800">Email Us</h4>
-                                <p class="text-lg text-gray-600 group-hover:text-gray-800">sunrisechickenbarn@gmail.com</p>
-                            </div>
-                        </a>
+                <!-- New Contact Form -->
+                <form id="contactForm" class="space-y-8 p-10 bg-white rounded-2xl shadow-2xl mb-16">
+                    <div>
+                        <label for="contact_name" class="block text-gray-700 text-lg font-bold mb-3">Your Name:</label>
+                        <input type="text" id="contact_name" name="Name" class="shadow-inner appearance-none border border-gray-300 rounded-xl w-full py-4 px-5 text-gray-700 leading-tight focus:outline-none focus:ring-4 focus:ring-yellow-300 focus:border-yellow-500 transition duration-300" placeholder="e.g., John Doe" required>
                     </div>
+                    <div>
+                        <label for="contact_email" class="block text-gray-700 text-lg font-bold mb-3">Your Email Address:</label>
+                        <input type="email" id="contact_email" name="Email" class="shadow-inner appearance-none border border-gray-300 rounded-xl w-full py-4 px-5 text-gray-700 leading-tight focus:outline-none focus:ring-4 focus:ring-yellow-300 focus:border-yellow-500 transition duration-300" placeholder="e.g., john.doe@example.com" required>
+                    </div>
+                    <div>
+                        <label for="contact_message" class="block text-gray-700 text-lg font-bold mb-3">Your Message:</label>
+                        <textarea id="contact_message" name="Message" rows="6" class="shadow-inner appearance-none border border-gray-300 rounded-xl w-full py-4 px-5 text-gray-700 leading-tight focus:outline-none focus:ring-4 focus:ring-yellow-300 focus:border-yellow-500 transition duration-300" placeholder="Ask us anything about our products, delivery, or bulk orders..." required></textarea>
+                    </div>
+                    <div class="text-center pt-6">
+                        <button type="submit" class="btn-secondary text-white font-extrabold py-4 px-10 rounded-full text-xl sm:text-2xl shadow-xl">
+                            Send Message
+                        </button>
+                    </div>
+                </form>
+                <div id="formMessage" class="text-center mt-[-4rem] mb-8 text-lg font-semibold hidden"></div>
+
+                <h3 class="text-3xl font-bold text-gray-800 text-center mb-8">Or, Contact Us Directly</h3>
+                <!-- Refined Direct Contact Section -->
+                <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <a href="tel:+254793911383" class="flex flex-col items-center text-center p-8 bg-white rounded-2xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
+                        <svg class="w-12 h-12 mb-4 text-yellow-500 group-hover:text-yellow-600" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.32.57 3.55.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.23.2 2.43.57 3.55.12.35.03.75-.24 1.02l-2.2 2.2z"/></svg>
+                        <h4 class="text-2xl font-bold text-gray-800">Call Us</h4>
+                        <p class="text-lg text-gray-600 group-hover:text-gray-800">0793911383</p>
+                    </a>
+                    <a href="https://wa.me/254793911383" target="_blank" class="flex flex-col items-center text-center p-8 bg-white rounded-2xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
+                        <svg class="w-12 h-12 mb-4 text-green-500 group-hover:text-green-600" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12.04 2c-5.45 0-9.91 4.46-9.91 9.91 0 1.75.5 3.42 1.45 4.9L2 22l5.25-1.38c1.47.95 3.14 1.45 4.9 1.45 5.45 0 9.91-4.46 9.91-9.91S17.49 2 12.04 2zm5.5 14.88c-.25.16-.9.5-.97.53-.07.03-.13.04-.2-.02-.6-.24-2.52-1.56-2.91-1.8-1.57-1.46-1.59-1.48-1.62-1.5-.04-.03-.09-.04-.15.02-.06.05-.15.04-.2.02-.07-.02-.13-.04-.2-.04-.61-.25-1.5-1.12-1.74-1.46-.23-.33-.2-.5-.01-.52.2-.02.44-.06.63-.26.2-.2.45-.48.6-.66.15-.17.2-.29.3-.48.1-.19.05-.35-.02-.49-.07-.14-.6-.28-1.04-.62-.43-.34-.84-.81-.97-1.04-.13-.23-.02-.2-.05-.4-.03-.2-.23-.5-.32-.68-.08-.18-.17-.15-.24-.15-.07 0-.13-.02-.2-.02-.61-.01-1.1.23-1.63.75-.53.53-.78 1.25-.78 2.03 0 .78.18 1.5.87 2.2.69.7 1.34 1.05 2.02 1.4l.6.29.3.15c.9.45 1.76.9 2.58 1.24 1.03.43 2.07.72 2.89.9.82.18 1.46.13 1.8.08.34-.05.88-.36 1.02-.56.14-.2.25-.37.34-.52.09-.16.08-.29.06-.35z"/></svg>
+                        <h4 class="text-2xl font-bold text-gray-800">WhatsApp Us</h4>
+                        <p class="text-lg text-gray-600 group-hover:text-gray-800">Quick & Easy</p>
+                    </a>
+                    <a href="mailto:sunrisechickenbarn@gmail.com" class="flex flex-col items-center text-center p-8 bg-white rounded-2xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
+                        <svg class="w-12 h-12 mb-4 text-blue-500 group-hover:text-blue-600" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M2.003 5.884L10.05 11.51c.92.66 2.08.66 3 0l8.046-5.626C20.61 4.57 20 4 19 4H5c-1 0-1.61.57-2.997 1.884zM22 8.77l-9.05 6.33c-.92.66-2.08.66-3 0L2 8.77V18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8.77z"></path></svg>
+                        <h4 class="text-2xl font-bold text-gray-800">Email Us</h4>
+                        <p class="text-lg text-gray-600 group-hover:text-gray-800 break-all">sunrisechickenbarn@gmail.com</p>
+                    </a>
+                    <a href="tel:+254793911383" class="flex flex-col items-center text-center p-8 bg-white rounded-2xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group border-2 border-red-500">
+                        <svg class="w-12 h-12 mb-4 text-red-500 group-hover:text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <h4 class="text-2xl font-bold text-gray-800">24/7 Helpline</h4>
+                        <p class="text-lg text-gray-600 group-hover:text-gray-800">Always Available</p>
+                    </a>
                 </div>
             </div>
-        </section>
-
-        <!-- Payment Methods Section -->
-        <section id="payment-methods" class="py-20 px-8 card-section bg-purple-50 aos-fade-up">
-            <h2 class="text-5xl font-extrabold text-purple-700 text-center mb-12">Seamless Payment Options</h2>
-            <p class="text-lg text-gray-700 text-center mb-12 max-w-3xl mx-auto">
-                We've made paying for your fresh products easy and secure. Choose from our convenient mobile money options:
-            </p>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 text-lg">
-                <!-- Safaricom M-Pesa -->
-                <div class="flex flex-col items-center bg-white rounded-xl p-8 shadow-lg transform hover:scale-105 transition duration-300">
-                    <img src="images/M-pesa-logo.png" alt="M-Pesa" class="w-24 h-24 mb-6">
-                    <h3 class="font-bold text-3xl text-gray-800 mb-4">Safaricom M-Pesa Paybill</h3>
-                    <p class="text-gray-700 text-center text-xl">Business Number: <span class="font-extrabold text-purple-600 text-3xl block mt-2">3384766</span></p>
-                    <p class="text-gray-700 text-center mt-3 text-lg">Account Name: <span class="font-semibold text-purple-600">SUNRISE CHICKEN FARM</span></p>
-                </div>
-                <!-- Airtel Money -->
-                <div class="flex flex-col items-center bg-white rounded-xl p-8 shadow-lg transform hover:scale-105 transition duration-300">
-                    <img src="images/airtel money .jpg" alt="Airtel Money" class="w-24 h-24 mb-6">
-                    <h3 class="font-bold text-3xl text-gray-800 mb-4">Airtel Money</h3>
-                    <p class="text-gray-700 text-center text-xl">Send to Number: <span class="font-extrabold text-purple-600 text-3xl block mt-2">0793911383</span></p>
-                    <p class="text-gray-700 text-center mt-3 text-lg">Reference: <span class="font-semibold text-purple-600">Your Name / Order ID</span></p>
-                </div>
-                <!-- PayPal -->
-                <div class="flex flex-col items-center bg-white rounded-xl p-8 shadow-lg transform hover:scale-105 transition duration-300 md:col-span-2 lg:col-span-1">
-                    <img src="images/paypal logo.png" alt="PayPal" class="w-32 h-auto mb-6">
-                    <h3 class="font-bold text-3xl text-gray-800 mb-4">PayPal</h3>
-                    <p class="text-gray-700 text-center text-base mb-5">
-                        For online payments, we offer a secure PayPal option. Please contact us first to finalize your order amount before paying.
-                    </p>
-                    <div id="paypal-button-container" class="w-full mt-auto"></div>
-                </div>
-            </div>
-            <p class="text-center text-gray-600 text-base italic mt-10">
-                For all mobile money payments, please ensure to include your name or order ID as the account/reference number for quick and accurate reconciliation.
-            </p>
-        </section>
-
-        <!-- Delivery Information -->
-        <section id="delivery-info" class="py-20 px-8 card-section bg-yellow-50 aos-fade-up">
-            <h2 class="text-5xl font-extrabold text-yellow-700 text-center mb-12">Unbeatable Delivery Promise!</h2>
-            <p class="text-xl text-gray-700 leading-relaxed max-w-3xl mx-auto">
-                We are incredibly proud to offer <span class="font-extrabold text-green-700 text-3xl">FREE deliveries</span> exclusively within Kakamega town! Experience the ultimate convenience of having your incredibly fresh chicken and eggs delivered directly to your doorstep, hassle-free and with a smile.
-            </p>
         </section>
 
         <!-- NEW "Connect With Us" Section -->
@@ -210,91 +163,76 @@
     </div>
 
     <!-- Footer -->
-    <footer class="bg-gradient-to-br from-gray-900 to-gray-800 text-gray-200 py-16 px-8">
-        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
+    <footer class="bg-gray-900 text-gray-300 py-20 px-8">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-y-16 gap-x-8">
             <!-- Column 1: Brand & About -->
-            <div>
-                <h3 class="text-3xl font-black text-white mb-4">Sunrise Chicken Farm</h3>
-                <p class="text-gray-400 text-sm leading-relaxed mb-4">
+            <div class="md:col-span-12 lg:col-span-5">
+                <div class="flex items-center mb-4">
+                    <img src="images/1752899501161.jpg" alt="Sunrise Chicken Farm Logo" class="w-16 h-16 mr-4 rounded-full">
+                    <h3 class="text-2xl font-bold text-white">Sunrise Chicken Farm</h3>
+                </div>
+                <p class="text-gray-400 leading-relaxed mb-6">
                     Quality from Dawn – Delivering the freshest, ethically raised chicken and eggs directly to your table in Kakamega.
                 </p>
-                <div class="flex space-x-4 mt-6">
+                <div class="flex space-x-5 mt-6">
                     <a href="https://instagram.com/sunrisechickenbarn" target="_blank" class="text-gray-400 hover:text-yellow-400 transition-colors duration-200">
-                    <img src = "images/instagram.jpg" alt = "instagram" class = "w-8 h-8">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.024.06 1.378.06 3.808s-.012 2.784-.06 3.808c-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.024.048-1.378.06-3.808.06s-2.784-.012-3.808-.06c-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.048-1.024-.06-1.378-.06-3.808s.012-2.784.06-3.808c.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 016.08 2.525c.636-.247 1.363-.416 2.427-.465C9.53 2.013 9.884 2 12.315 2zM12 7.177a4.823 4.823 0 100 9.646 4.823 4.823 0 000-9.646zm0 7.662a2.839 2.839 0 110-5.678 2.839 2.839 0 010 5.678zM18.802 6.116a1.44 1.44 0 100-2.88 1.44 1.44 0 000 2.88z" clip-rule="evenodd" /></svg>
                     </a>
                     <a href="#" class="text-gray-400 hover:text-yellow-400 transition-colors duration-200">
-                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.99 3.65 9.17 8.44 9.9V15.46H8.72v-3.58h1.72V9.8c0-1.72 1.05-2.66 2.58-2.66 0.74 0 1.38.05 1.57.08v1.72h-1.02c-.85 0-1.02.4-1.02 1v1.24h2.29l-.37 2.44h-1.92v6.43C18.35 21.17 22 16.99 22 12z"></path>
-                        </svg>
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" /></svg>
                     </a>
                     <a href="https://wa.me/254793911383" target="_blank" class="text-gray-400 hover:text-yellow-400 transition-colors duration-200">
-                    <img src = "images/whatsapp.jpg" alt = "whatsapp" class = "w-8 h-8">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2c-5.45 0-9.91 4.46-9.91 9.91 0 1.75.5 3.42 1.45 4.9L2 22l5.25-1.38c1.47.95 3.14 1.45 4.9 1.45 5.45 0 9.91-4.46 9.91-9.91S17.49 2 12.04 2zm5.5 14.88c-.25.16-.9.5-.97.53-.07.03-.13.04-.2-.02-.6-.24-2.52-1.56-2.91-1.8-1.57-1.46-1.59-1.48-1.62-1.5-.04-.03-.09-.04-.15.02-.06.05-.15.04-.2.02-.07-.02-.13-.04-.2-.04-.61-.25-1.5-1.12-1.74-1.46-.23-.33-.2-.5-.01-.52.2-.02.44-.06.63-.26.2-.2.45-.48.6-.66.15-.17.2-.29.3-.48.1-.19.05-.35-.02-.49-.07-.14-.6-.28-1.04-.62-.43-.34-.84-.81-.97-1.04-.13-.23-.02-.2-.05-.4-.03-.2-.23-.5-.32-.68-.08-.18-.17-.15-.24-.15-.07 0-.13-.02-.2-.02-.61-.01-1.1.23-1.63.75-.53.53-.78 1.25-.78 2.03 0 .78.18 1.5.87 2.2.69.7 1.34 1.05 2.02 1.4l.6.29.3.15c.9.45 1.76.9 2.58 1.24 1.03.43 2.07.72 2.89.9.82.18 1.46.13 1.8.08.34-.05.88-.36 1.02-.56.14-.2.25-.37.34-.52.09-.16.08-.29.06-.35z"/></svg>
                     </a>
                 </div>
             </div>
 
             <!-- Column 2: Quick Links -->
-            <div>
-                <h4 class="text-2xl font-bold text-white mb-6">Quick Links</h4>
-                <ul class="space-y-3 text-lg">
-                    <li><a href="about.html" class="hover:text-yellow-400 transition-colors duration-200">About Us</a></li>
-                    <li><a href="products.html" class="hover:text-yellow-400 transition-colors duration-200">Our Products</a></li>
-                    <li><a href="contact.html#how-to-order" class="hover:text-yellow-400 transition-colors duration-200">How to Order</a></li>
-                    <li><a href="contact.html" class="hover:text-yellow-400 transition-colors duration-200">Order Now</a></li>
-                    <li><a href="faq.html" class="hover:text-yellow-400 transition-colors duration-200">FAQs</a></li>
-                    <li><a href="blog.html" class="hover:text-yellow-400 transition-colors duration-200">Farm News</a></li>
+            <div class="md:col-span-6 lg:col-span-2">
+                <h4 class="text-lg font-semibold text-white mb-5">Quick Links</h4>
+                <ul class="space-y-4">
+                    <li><a href="about.html" class="footer-link">About Us</a></li>
+                    <li><a href="products.html" class="footer-link">Our Products</a></li>
+                    <li><a href="faq.html" class="footer-link">FAQs</a></li>
+                    <li><a href="blog.html" class="footer-link">Farm News</a></li>
+                    <li><a href="contact.html" class="footer-link">Contact</a></li>
                 </ul>
             </div>
 
             <!-- Column 3: Contact Info -->
-            <div>
-                <h4 class="text-2xl font-bold text-white mb-6">Get In Touch</h4>
-                <ul class="space-y-4 text-lg">
-                    <li class="flex items-center">
-                        <svg class="w-6 h-6 mr-3 text-yellow-400" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.32.57 3.55.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.23.2 2.43.57 3.55.12.35.03.75-.24 1.02l-2.2 2.2z"/>
-                        </svg>
-                        <a href="tel:+254793911383" class="hover:text-yellow-400 transition-colors duration-200">0793911383</a>
-                    </li>
-                    <li class="flex items-center">
-                        <svg class="w-6 h-6 mr-3 text-yellow-400" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12.04 2c-5.45 0-9.91 4.46-9.91 9.91 0 1.75.5 3.42 1.45 4.9L2 22l5.25-1.38c1.47.95 3.14 1.45 4.9 1.45 5.45 0 9.91-4.46 9.91-9.91S17.49 2 12.04 2zm5.5 14.88c-.25.16-.9.5-.97.53-.07.03-.13.04-.2-.02-.6-.24-2.52-1.56-2.91-1.8-1.57-1.46-1.59-1.48-1.62-1.5-.04-.03-.09-.04-.15.02-.06.05-.15.04-.2.02-.07-.02-.13-.04-.2-.04-.61-.25-1.5-1.12-1.74-1.46-.23-.33-.2-.5-.01-.52.2-.02.44-.06.63-.26.2-.2.45-.48.6-.66.15-.17.2-.29.3-.48.1-.19.05-.35-.02-.49-.07-.14-.6-.28-1.04-.62-.43-.34-.84-.81-.97-1.04-.13-.23-.02-.2-.05-.4-.03-.2-.23-.5-.32-.68-.08-.18-.17-.15-.24-.15-.07 0-.13-.02-.2-.02-.61-.01-1.1.23-1.63.75-.53.53-.78 1.25-.78 2.03 0 .78.18 1.5.87 2.2.69.7 1.34 1.05 2.02 1.4l.6.29.3.15c.9.45 1.76.9 2.58 1.24 1.03.43 2.07.72 2.89.9.82.18 1.46.13 1.8.08.34-.05.88-.36 1.02-.56.14-.2.25-.37.34-.52.09-.16.08-.29.06-.35z"/>
-                        </svg>
-                        <a href="https://wa.me/254793911383" target="_blank" class="hover:text-yellow-400 transition-colors duration-200">WhatsApp Us</a>
-                    </li>
-                    <li class="flex items-center">
-                        <svg class="w-6 h-6 mr-3 text-yellow-400" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M2.003 5.884L10.05 11.51c.92.66 2.08.66 3 0l8.046-5.626C20.61 4.57 20 4 19 4H5c-1 0-1.61.57-2.997 1.884zM22 8.77l-9.05 6.33c-.92.66-2.08.66-3 0L2 8.77V18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8.77z"></path>
-                        </svg>
-                        <a href="mailto:sunrisechickenbarn@gmail.com" class="hover:text-yellow-400 transition-colors duration-200">sunrisechickenbarn@gmail.com</a>
-                    </li>
+            <div class="md:col-span-6 lg:col-span-2">
+                <h4 class="text-lg font-semibold text-white mb-5">Get In Touch</h4>
+                <ul class="space-y-4">
+                    <li><a href="tel:+254793911383" class="footer-link">0793911383</a></li>
+                    <li><a href="https://wa.me/254793911383" target="_blank" class="footer-link">Message on WhatsApp</a></li>
+                    <li><a href="mailto:sunrisechickenbarn@gmail.com" class="footer-link break-all">sunrisechickenbarn@gmail.com</a></li>
                 </ul>
             </div>
 
             <!-- Column 4: Newsletter Signup -->
-            <div>
-                <h4 class="text-2xl font-bold text-white mb-6">Stay Fresh!</h4>
+            <div class="md:col-span-12 lg:col-span-3">
+                <h4 class="text-lg font-semibold text-white mb-5">Stay Fresh!</h4>
                 <p class="text-gray-400 text-sm mb-4">
                     Get the latest farm news, special offers, and delicious recipes directly to your inbox.
                 </p>
-                <form class="flex flex-col gap-4">
-                    <input type="email" placeholder="Your email address" class="p-3 rounded-lg bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-500">
-                    <button type="submit" class="btn-primary text-white font-bold py-3 px-6 rounded-lg shadow-md hover:scale-105 transition duration-300">
+                <form class="flex flex-col sm:flex-row gap-2">
+                    <input type="email" placeholder="Your email address" class="w-full p-3 rounded-md bg-gray-800 text-white placeholder-gray-500 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-yellow-500">
+                    <button type="submit" class="btn-primary text-white font-bold py-3 px-5 rounded-md shadow-md hover:scale-105 transition duration-300">
                         Subscribe
                     </button>
                 </form>
             </div>
         </div>
 
-        <hr class="border-gray-700 my-12">
+        <hr class="border-gray-800 my-12">
 
         <!-- Bottom Row: Legal Links & Copyright -->
         <div class="flex flex-col sm:flex-row justify-between items-center text-gray-500 text-sm">
-            <p>© 2025 Sunrise Chicken Farm. All rights reserved.</p>
-            <div class="flex space-x-6 mt-4 sm:mt-0">
-                <a href="#" onclick="openModal('termsModal'); return false;" class="hover:text-yellow-400 transition-colors duration-200">Terms of Service</a>
-                <a href="#" onclick="openModal('privacyModal'); return false;" class="hover:text-yellow-400 transition-colors duration-200">Privacy Policy</a>
-                <a href="#" onclick="openModal('cookieModal'); return false;" class="hover:text-yellow-400 transition-colors duration-200">Cookie Policy</a>
+            <p class="order-2 sm:order-1 mt-4 sm:mt-0">© 2025 Sunrise Chicken Farm. All Rights Reserved.</p>
+            <div class="order-1 sm:order-2 flex space-x-6">
+                <a href="#" data-modal-id="termsModal" class="legal-link hover:text-yellow-400 transition-colors duration-200">Terms</a>
+                <a href="#" data-modal-id="privacyModal" class="legal-link hover:text-yellow-400 transition-colors duration-200">Privacy</a>
+                <a href="#" data-modal-id="cookieModal" class="legal-link hover:text-yellow-400 transition-colors duration-200">Cookies</a>
             </div>
         </div>
     </footer>
@@ -303,141 +241,39 @@
     <script src="script.js" defer></script>
 
     <!-- PayPal SDK and Button Logic -->
-    <!-- IMPORTANT: Replace YOUR_CLIENT_ID with your actual PayPal Client ID -->
-    <script src="https://www.paypal.com/sdk/js?client-id=YOUR_CLIENT_ID&currency=USD"></script>
+    <!-- IMPORTANT: PayPal logic removed as per request -->
 
     <!-- Page-Specific Scripts for contact.html -->
     <script>
-    // This function is in the global scope to be callable from onclick attributes
-    function showSentMessage(method) {
-        const formMessage = document.getElementById('formMessage');
-        if (formMessage) {
-            formMessage.innerHTML = `<p class="text-green-700">✅ Your inquiry has been prepared for ${method}. Please send the message in the new tab/app that opened.</p>`;
-        }
-        const orderForm = document.getElementById('orderForm');
-        if(orderForm) {
-            orderForm.reset();
-        }
-    }
-
-    // This function is also in the global scope for onclick
-    function copyToClipboard(elementId, button) {
-        const previewElement = document.getElementById(elementId);
-        if (!previewElement) return;
-
-        // Use innerText to get the text as it is rendered, preserving line breaks
-        const textToCopy = previewElement.innerText;
-        navigator.clipboard.writeText(textToCopy).then(() => {
-            const originalText = button.innerHTML;
-            button.innerHTML = '✅ Copied!';
-            button.disabled = true;
-            setTimeout(() => {
-                button.innerHTML = originalText;
-                button.disabled = false;
-            }, 2500);
-        }).catch(err => {
-            console.error('Failed to copy text: ', err);
-            alert('Could not copy message. Please select and copy it manually.');
-        });
-    }
-
     document.addEventListener('DOMContentLoaded', function() {
-        // --- Order Inquiry Form Logic ---
-        const orderForm = document.getElementById('orderForm');
-        if (orderForm) {
-            orderForm.addEventListener('submit', function(event) {
+        const contactForm = document.getElementById('contactForm');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(event) {
                 event.preventDefault(); // Prevent default form submission
 
                 const form = event.target;
-                const name = form.elements['Customer Name'].value;
-                const phone = form.elements['Phone Number'].value;
-                const orderDetails = form.elements['Order Details'].value;
-                const deliveryAddress = form.elements['Delivery Address'].value;
-                const formMessage = document.getElementById('formMessage');
+                const name = form.elements['Name'].value;
+                const email = form.elements['Email'].value;
+                const message = form.elements['Message'].value;
+                const formMessageDiv = document.getElementById('formMessage');
 
-                // Construct message body for both methods
-                const commonMessageBody =
-                    `Hello Sunrise Chicken Farm, I'd like to place an order:\n\n` +
-                    `Name: ${name}\n` +
-                    `Phone: ${phone}\n\n` +
-                    `Order: ${orderDetails}\n\n` +
-                    `Delivery Address: ${deliveryAddress}\n\n` +
-                    `Please confirm. Thanks!`;
+                // Construct message body for the mailto link
+                const emailSubject = `New Message from ${name} via Website`;
+                const emailBody = encodeURIComponent(
+                    `Hello Sunrise Chicken Farm,\n\n` +
+                    `You have received a new message from your website contact form:\n\n` +
+                    `From: ${name}\n` +
+                    `Email: ${email}\n\n` +
+                    `Message:\n${message}`
+                );
 
-                // WhatsApp Link
-                const whatsappMessage = encodeURIComponent(commonMessageBody);
-                const whatsappUrl = `https://wa.me/254793911383?text=${whatsappMessage}`;
-
-                // Email (mailto) Link
-                const emailSubject = `New Order Inquiry from ${name}`;
-                const emailBody = encodeURIComponent(commonMessageBody);
                 const mailtoLink = `mailto:sunrisechickenbarn@gmail.com?subject=${emailSubject}&body=${emailBody}`;
 
-                // Sanitize the message for safe display in HTML
-                const sanitizedMessage = commonMessageBody.replace(/</g, "&lt;").replace(/>/g, "&gt;");
-
-                // Display message preview and choice buttons to the user
-                formMessage.innerHTML = `
-                    <p class="mb-4 text-xl font-bold text-gray-800">Your Inquiry is Ready!</p>
-                    <div class="mb-6 text-left bg-gray-100 p-4 rounded-lg border border-gray-200 relative">
-                        <p class="font-semibold text-gray-700 mb-2">Message Preview:</p>
-                        <pre id="messagePreview" class="whitespace-pre-wrap text-sm text-gray-600 font-sans">${sanitizedMessage}</pre>
-                        <button onclick="copyToClipboard('messagePreview', this)" class="absolute top-2 right-2 bg-gray-200 text-gray-700 text-xs font-semibold py-1 px-3 rounded-full hover:bg-gray-300 transition duration-300">
-                            Copy
-                        </button>
-                    </div>
-
-                    <p class="mb-6 text-xl font-bold text-gray-800">How would you like to send it?</p>
-                    <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
-                        <a href="${whatsappUrl}" target="_blank" onclick="showSentMessage('WhatsApp')" class="btn-secondary text-white font-bold py-3 px-6 rounded-full shadow-md hover:scale-105 transition duration-300 inline-flex items-center w-full sm:w-auto justify-center">
-                            <svg class="w-6 h-6 mr-3" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12.04 2c-5.45 0-9.91 4.46-9.91 9.91 0 1.75.5 3.42 1.45 4.9L2 22l5.25-1.38c1.47.95 3.14 1.45 4.9 1.45 5.45 0 9.91-4.46 9.91-9.91S17.49 2 12.04 2zm5.5 14.88c-.25.16-.9.5-.97.53-.07.03-.13.04-.2-.02-.6-.24-2.52-1.56-2.91-1.8-1.57-1.46-1.59-1.48-1.62-1.5-.04-.03-.09-.04-.15.02-.06.05-.15.04-.2.02-.07-.02-.13-.04-.2-.04-.61-.25-1.5-1.12-1.74-1.46-.23-.33-.2-.5-.01-.52.2-.02.44-.06.63-.26.2-.2.45-.48.6-.66.15-.17.2-.29.3-.48.1-.19.05-.35-.02-.49-.07-.14-.6-.28-1.04-.62-.43-.34-.84-.81-.97-1.04-.13-.23-.02-.2-.05-.4-.03-.2-.23-.5-.32-.68-.08-.18-.17-.15-.24-.15-.07 0-.13-.02-.2-.02-.61-.01-1.1.23-1.63.75-.53.53-.78 1.25-.78 2.03 0 .78.18 1.5.87 2.2.69.7 1.34 1.05 2.02 1.4l.6.29.3.15c.9.45 1.76.9 2.58 1.24 1.03.43 2.07.72 2.89.9.82.18 1.46.13 1.8.08.34-.05.88-.36 1.02-.56.14-.2.25-.37.34-.52.09-.16.08-.29.06-.35z"/></svg>
-                            <span>Send via WhatsApp<br><small class="font-normal opacity-80">to 0793911383</small></span>
-                        </a>
-                        <a href="${mailtoLink}" target="_blank" onclick="showSentMessage('Email')" class="btn-primary text-white font-bold py-3 px-6 rounded-full shadow-md hover:scale-105 transition duration-300 inline-flex items-center w-full sm:w-auto justify-center">
-                            <svg class="w-6 h-6 mr-3" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M2.003 5.884L10.05 11.51c.92.66 2.08.66 3 0l8.046-5.626C20.61 4.57 20 4 19 4H5c-1 0-1.61.57-2.997 1.884zM22 8.77l-9.05 6.33c-.92.66-2.08.66-3 0L2 8.77V18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8.77z"></path></svg>
-                            <span>Send via Email<br><small class="font-normal opacity-80">to sunrisechickenbarn@gmail.com</small></span>
-                        </a>
-                    </div>
-                `;
-                formMessage.classList.remove('hidden');
-                formMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                // Show a success message and open the mail client
+                formMessageDiv.innerHTML = `<p class="text-green-700">✅ Thank you! Your message is ready to send. Please click 'Send' in your email app.</p>`;
+                formMessageDiv.classList.remove('hidden');
+                window.open(mailtoLink, '_blank');
             });
-        }
-
-        // --- PayPal Button Logic ---
-        if (typeof paypal !== 'undefined') {
-            try {
-                paypal.Buttons({
-                    createOrder: function(data, actions) {
-                        return actions.order.create({
-                            purchase_units: [{
-                                amount: {
-                                    // IMPORTANT: This value should be dynamic.
-                                    value: '1.00' // Placeholder
-                                }
-                            }]
-                        });
-                    },
-                    onApprove: function(data, actions) {
-                        return actions.order.capture().then(function(orderData) {
-                            alert('Transaction completed by ' + orderData.payer.name.given_name + '!');
-                            console.log(orderData);
-                        });
-                    },
-                    onError: function(err) {
-                        console.error('PayPal Error:', err);
-                        alert('An error occurred during the payment process.');
-                    }
-                }).render('#paypal-button-container');
-            } catch (error) {
-                console.error("Failed to render PayPal buttons:", error);
-                const paypalContainer = document.getElementById('paypal-button-container');
-                if(paypalContainer) {
-                    paypalContainer.innerHTML = "<p class='text-red-500 text-center'>Could not load PayPal buttons. Please try again later.</p>";
-                }
-            }
-        } else {
-            console.error("PayPal SDK not loaded.");
         }
     });
     </script>
