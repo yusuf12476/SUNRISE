@@ -161,6 +161,16 @@ document.addEventListener('DOMContentLoaded', function() {
         renderCartPage();
     };
 
+    window.clearCartAndNotify = () => {
+        cart = [];
+        saveCart();
+        updateCartCount();
+        // If on cart page, re-render to show it's empty
+        if (window.location.pathname.endsWith('cart.html')) {
+            renderCartPage();
+        }
+    };
+
     const saveCart = () => {
         localStorage.setItem('sunriseFarmCart', JSON.stringify(cart));
     };
@@ -304,18 +314,29 @@ document.addEventListener('DOMContentLoaded', function() {
     if (sendWhatsappBtn) {
         sendWhatsappBtn.addEventListener('click', () => {
             const orderText = getOrderSummaryText();
-            const whatsappUrl = `https://wa.me/254793911383?text=${encodeURIComponent(orderText)}`;
+            const businessPhoneNumber = "254793911383"; // Centralize phone number
+            const whatsappUrl = `https://wa.me/${businessPhoneNumber}?text=${encodeURIComponent(orderText)}`;
             window.open(whatsappUrl, '_blank');
+            // Close modal and clear cart after a short delay
+            setTimeout(() => {
+                closeModal('invoiceModal');
+                clearCartAndNotify();
+            }, 1500); // 1.5-second delay
         });
     }
 
     const sendEmailBtn = document.getElementById('send-via-email');
     if (sendEmailBtn) {
         sendEmailBtn.addEventListener('click', () => {
+            const businessEmail = "sunrisechickenbarn@gmail.com"; // Centralize email
             const orderText = getOrderSummaryText();
             const subject = "New Order from Sunrise Chicken Farm Website";
-            const mailtoLink = `mailto:sunrisechickenbarn@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(orderText)}`;
+            const mailtoLink = `mailto:${businessEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(orderText)}`;
             window.open(mailtoLink, '_blank');
+            setTimeout(() => {
+                closeModal('invoiceModal');
+                clearCartAndNotify();
+            }, 1500); // 1.5-second delay
         });
     }
 
