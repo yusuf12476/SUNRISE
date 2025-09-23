@@ -14,28 +14,31 @@
 <body class="bg-gray-50 text-gray-800 antialiased">
 
     <!-- Header Section (FIXED to viewport) -->
-    <header class="sticky-header px-8">
-        <div class="flex items-center">
-            <!-- Logo Placeholder -->
-            <img src="images/1752899501161.jpg" alt="Sunrise Chicken Farm Logo" class="w-24 h-24 mr-4">
-            <h1 class="text-3xl font-black text-gray-800 site-title">
+    <header class="sticky-header px-4 sm:px-8 flex items-center justify-between">
+        <a href="index.html" class="flex items-center">
+            <img src="images/1752899501161.jpg" alt="Sunrise Chicken Farm Logo" class="w-16 h-16 sm:w-24 sm:h-24 mr-3 sm:mr-4">
+            <h1 class="text-2xl sm:text-3xl font-black text-gray-800 site-title">
                 Sunrise Chicken Farm
             </h1>
-        </div>
+        </a>
 
         <div class="mobile-menu-toggle" id="mobileMenuToggle">
-            ☰ <!-- Hamburger icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-gray-800" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
         </div>
         <nav class="main-nav" id="mainNav">
-            <ul class="text-gray-700 font-semibold text-lg">
+            <ul class="flex items-center text-gray-700 font-semibold text-lg">
                 <li><a href="index.html" class="hover:text-yellow-600 transition-colors duration-200 py-2 px-3 rounded-md">Home</a></li>
                 <li><a href="about.html" class="hover:text-yellow-600 transition-colors duration-200 py-2 px-3 rounded-md">About Us</a></li>
                 <li><a href="products.html" class="hover:text-yellow-600 transition-colors duration-200 py-2 px-3 rounded-md">Products</a></li>
                 <li><a href="blog.html" class="hover:text-yellow-600 transition-colors duration-200 py-2 px-3 rounded-md">Blog</a></li>
                 <li><a href="contact.html" class="hover:text-yellow-600 transition-colors duration-200 py-2 px-3 rounded-md">Contact</a></li>
                 <li><a href="faq.html" class="hover:text-yellow-600 transition-colors duration-200 py-2 px-3 rounded-md">FAQs</a></li>
-                <li><a href="cart.html" class="relative hover:text-yellow-600 transition-colors duration-200 py-2 px-3 rounded-md">
-                    Cart
+                <li><a href="cart.html" class="relative hover:text-yellow-600 transition-colors duration-200 py-2 px-3 rounded-md" aria-label="Shopping Cart">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
                     <span id="cart-count-bubble" class="absolute top-0 right-0 -mt-1 -mr-1 bg-red-600 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">0</span>
                 </a></li>
                 <li><a href="products.html" class="btn-primary text-white py-2 px-5 rounded-full text-base shadow-md ml-4 hover:scale-105 inline-block">Order Now!</a></li>
@@ -47,102 +50,95 @@
     <div class="w-full bg-white shadow-2xl overflow-hidden">
         <!-- FAQ Section -->
         <section id="faq-section" class="py-20 px-8 card-section aos-fade-up">
-            <h2 class="text-5xl font-extrabold text-gray-800 text-center mb-12">Frequently Asked Questions</h2>
-            <div class="space-y-6 max-w-4xl mx-auto">
-                <!-- Existing FAQ Items -->
-                <div class="faq-item">
-                    <input type="checkbox" id="faq1">
-                    <label for="faq1" class="text-xl font-semibold text-gray-800">Do you deliver outside Kakamega?</label>
-                    <div class="faq-content text-gray-700">
-                        <p>Currently, we proudly offer complimentary deliveries exclusively within Kakamega County. For orders outside this area, we kindly request you to contact us directly to discuss potential arrangements and any associated delivery fees that may apply.</p>
-
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <input type="checkbox" id="faq2">
-                    <label for="faq2" class="text-xl font-semibold text-gray-800">What types of chicken and eggs do you sell?</label>
-                    <div class="faq-content text-gray-700">
-                        <p>We specialize in farm-fresh dressed broiler chickens (offered whole), healthy live chickens (with both broiler and layer breeds available upon request), and nutrient-rich, farm-fresh eggs from our happy layer hens. Our primary focus remains on natural rearing practices and delivering superior quality in every product.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <input type="checkbox" id="faq3">
-                    <label for="faq3" class="text-xl font-semibold text-gray-800">How can I place an order?</label>
-                    <div class="faq-content text-gray-700">
-                        <p>Placing an order is designed to be simple and convenient for you! You can reach us by calling or sending a WhatsApp message to <a href="tel:+254793911383" class="text-blue-600 hover:underline font-semibold">0793911383</a>, or by utilizing the efficient "Order Inquiry Form" on our Contact page.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <input type="checkbox" id="faq4">
-                    <label for="faq4" class="text-xl font-semibold text-gray-800">What payment methods do you accept?</label>
-                    <div class="faq-content text-gray-700">
-                        <p>For your utmost convenience, we accept payments via Safaricom M-Pesa Paybill (Business No: 3384766), Airtel Money (using our WhatsApp number 0793911383), and PayPal for online orders. Additionally, Cash on Delivery is a readily available option for local deliveries.</p>
-                    </div>
-                </div>
-                 <div class="faq-item">
-                    <input type="checkbox" id="faq5">
-                    <label for="faq5" class="text-xl font-semibold text-gray-800">Do you offer bulk purchase discounts?</label>
-                    <div class="faq-content text-gray-700">
-                        <p>Yes, absolutely! We are pleased to offer special pricing and arrangements for large quantity orders, perfect for events, businesses, or personal stocking. Please contact us directly with your specific requirements, and we'd be delighted to discuss a customized solution tailored to your needs.</p>
-                    </div>
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-5xl font-extrabold text-gray-800 mb-4">Frequently Asked Questions</h2>
+                    <p class="text-lg text-gray-600">Find answers to common questions about our products, ordering, and delivery.</p>
                 </div>
 
-                <!-- Delivery FAQ Items -->
-                <h3 class="text-3xl font-bold text-gray-800 pt-10 mb-6 text-center">Delivery & Order Tracking</h3>
-                <div class="faq-item">
-                    <input type="checkbox" id="faq6">
-                    <label for="faq6" class="text-xl font-semibold text-gray-800">How long does delivery take after I place an order?</label>
-                    <div class="faq-content text-gray-700">
-                        <p>Once you place your order through our form, WhatsApp, or phone call, we will confirm it promptly. Deliveries within Kakamega are typically completed within **2-4 hours** during business hours, depending on your exact location and current demand. We strive for the fastest possible delivery!</p>
+                <div class="space-y-6" id="faq-accordion">
+                    <!-- FAQ Item 1 -->
+                    <div class="faq-item bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden">
+                        <button role="button" aria-expanded="false" class="faq-question w-full text-left flex justify-between items-center p-6 font-bold text-xl text-gray-800 hover:bg-gray-50 transition-colors">
+                            <span>What makes your chicken and eggs special?</span>
+                            <svg class="faq-arrow w-6 h-6 transform transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                        </button>
+                        <div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+                            <div class="p-6 pt-0 text-gray-700 text-lg leading-relaxed">
+                                Our commitment is to quality and ethical farming. Our chickens are raised in spacious, clean environments and fed a natural, wholesome diet free from growth hormones. This results in healthier, more flavorful chicken and eggs with vibrant yolks. You can truly taste the difference!
+                            </div>
+                        </div>
                     </div>
+
+                    <!-- FAQ Item 2 -->
+                    <div class="faq-item bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden">
+                        <button role="button" aria-expanded="false" class="faq-question w-full text-left flex justify-between items-center p-6 font-bold text-xl text-gray-800 hover:bg-gray-50 transition-colors">
+                            <span>How do I place an order?</span>
+                            <svg class="faq-arrow w-6 h-6 transform transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                        </button>
+                        <div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+                            <div class="p-6 pt-0 text-gray-700 text-lg leading-relaxed">
+                                You can easily place an order through our website! Simply browse our <a href="products.html" class="text-blue-600 hover:underline">Products page</a>, add items to your cart, and proceed to checkout. At checkout, you can fill in your details and send the order to us via WhatsApp or Email. You can also call us directly at <strong>0793911383</strong> to place your order.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 3 -->
+                    <div class="faq-item bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden">
+                        <button role="button" aria-expanded="false" class="faq-question w-full text-left flex justify-between items-center p-6 font-bold text-xl text-gray-800 hover:bg-gray-50 transition-colors">
+                            <span>What are your delivery areas and charges?</span>
+                            <svg class="faq-arrow w-6 h-6 transform transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin-round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                        </button>
+                        <div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+                            <div class="p-6 pt-0 text-gray-700 text-lg leading-relaxed">
+                                We currently offer <strong>free delivery</strong> within Kakamega town and its immediate surroundings. For areas further out, a small delivery fee may apply. Please contact us with your location when placing an order, and we will confirm any delivery charges.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 4 -->
+                    <div class="faq-item bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden">
+                        <button role="button" aria-expanded="false" class="faq-question w-full text-left flex justify-between items-center p-6 font-bold text-xl text-gray-800 hover:bg-gray-50 transition-colors">
+                            <span>What payment methods do you accept?</span>
+                            <svg class="faq-arrow w-6 h-6 transform transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                        </button>
+                        <div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+                            <div class="p-6 pt-0 text-gray-700 text-lg leading-relaxed">
+                                We accept several convenient payment methods:
+                                <ul class="list-disc list-inside ml-4 mt-2 space-y-1">
+                                    <li>M-Pesa (Paybill details provided on order confirmation)</li>
+                                    <li>Airtel Money</li>
+                                    <li>Cash on Delivery</li>
+                                    <li>PayPal</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 5 -->
+                    <div class="faq-item bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden">
+                        <button role="button" aria-expanded="false" class="faq-question w-full text-left flex justify-between items-center p-6 font-bold text-xl text-gray-800 hover:bg-gray-50 transition-colors">
+                            <span>Do you offer bulk purchasing for events or businesses?</span>
+                            <svg class="faq-arrow w-6 h-6 transform transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                        </button>
+                        <div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+                            <div class="p-6 pt-0 text-gray-700 text-lg leading-relaxed">
+                                Yes, absolutely! We are happy to supply chicken and eggs for hotels, restaurants, events, and other businesses. Please visit our <a href="contact.html" class="text-blue-600 hover:underline">Contact page</a> to send us an inquiry or call us to discuss your needs and special pricing.
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
-                <div class="faq-item">
-                    <input type="checkbox" id="faq7">
-                    <label for="faq7" class="text-xl font-semibold text-gray-800">How will I know my order is on its way?</label>
-                    <div class="faq-content text-gray-700">
-                        <p>We will send you a confirmation message via WhatsApp or SMS once your order has been dispatched for delivery. Our delivery team may also call you when they are close to your location.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <input type="checkbox" id="faq8">
-                    <label for="faq8" class="text-xl font-semibold text-gray-800">What if I'm not home when my delivery arrives?</label>
-                    <div class="faq-content text-gray-700">
-                        <p>We recommend ensuring someone is available at the delivery address during the confirmed delivery window. If you anticipate not being home, please inform us in advance when placing your order, and we can try to arrange an alternative time or a safe drop-off point if suitable.</p>
-                    </div>
+
+                <div class="text-center mt-16 p-8 bg-green-50 rounded-2xl">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Still have a question?</h3>
+                    <p class="text-lg text-gray-700 mb-6">If you can't find the answer you're looking for, please don't hesitate to get in touch with us.</p>
+                    <a href="contact.html" class="btn-secondary text-white font-bold py-4 px-8 rounded-full text-lg shadow-lg hover:scale-105 transition duration-300">
+                        Contact Us
+                    </a>
                 </div>
             </div>
         </section>
-
-        <!-- Testimonials Section -->
-        <section id="testimonials" class="py-20 px-8 testimonials-bg text-center text-gray-800 aos-fade-up">
-            <div class="testimonials-content">
-                <h2 class="text-5xl font-extrabold text-yellow-700 mb-12 drop-shadow-md">Hear From Our Happy Customers</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-                    <!-- Testimonial 1 -->
-                    <div class="bg-white p-8 rounded-xl shadow-xl transform hover:scale-102 transition duration-300">
-                        <p class="italic text-gray-700 mb-5 leading-relaxed text-lg">"The dressed broiler chicken from Sunrise is consistently tender and delicious. Perfect for all our family meals, and the free delivery within Kakamega is an absolute lifesaver – truly convenient and reliable!"</p>
-                        <p class="font-bold text-right text-gray-800 text-xl mt-6">- Jane W., Kakamega</p>
-                    </div>
-                    <!-- Testimonial 2 -->
-                    <div class="bg-white p-8 rounded-xl shadow-xl transform hover:scale-102 transition duration-300">
-                        <p class="italic text-gray-700 mb-5 leading-relaxed text-lg">"Sunrise Chicken Farm's eggs are always fresh and vibrant. You can tell they come from healthy layers – they'sre bigger and more flavorful than anything else we've found. A definite staple in our kitchen now."</p>
-                        <p class="font-bold text-right text-gray-800 text-xl mt-6">- David K., Kakamega</p>
-                    </div>
-                    <!-- Testimonial 3 -->
-                    <div class="bg-white p-8 rounded-xl shadow-xl transform hover:scale-102 transition duration-300 md:col-span-2">
-                        <p class="italic text-gray-700 mb-5 leading-relaxed text-lg">"Their products are top-tier. Whether it's the dressed broiler or the fresh eggs, the quality is unmatched. The easy payment options and delivery make it so effortless to get fresh produce. Sunrise Chicken Farm is our go-to!"</p>
-                        <p class="font-bold text-right text-gray-800 text-xl mt-6">- Mary L., Kakamega</p>
-                    </div>
-                </div>
-                <!-- Submit Testimonial Button -->
-                <div class="text-center mt-16">
-                    <button onclick="openModal('testimonialModal')" class="btn-primary text-white font-extrabold py-5 px-12 rounded-full text-2xl shadow-xl hover:scale-105 transition duration-300 ease-in-out">
-                        Share Your Experience!
-                    </button>
-                </div>
-            </div>
-        </section>
-
     </div>
 
     <!-- Footer -->
@@ -213,9 +209,9 @@
         <div class="flex flex-col sm:flex-row justify-between items-center text-gray-500 text-sm">
             <p class="order-2 sm:order-1 mt-4 sm:mt-0">© 2025 Sunrise Chicken Farm. All Rights Reserved.</p>
             <div class="order-1 sm:order-2 flex space-x-6">
-                <a href="#" data-modal-id="termsModal" class="legal-link hover:text-yellow-400 transition-colors duration-200">Terms</a>
-                <a href="#" data-modal-id="privacyModal" class="legal-link hover:text-yellow-400 transition-colors duration-200">Privacy</a>
-                <a href="#" data-modal-id="cookieModal" class="legal-link hover:text-yellow-400 transition-colors duration-200">Cookies</a>
+                <a href="#" data-modal-id="termsModal" class="footer-link legal-link">Terms</a>
+                <a href="#" data-modal-id="privacyModal" class="footer-link legal-link">Privacy</a>
+                <a href="#" data-modal-id="cookieModal" class="footer-link legal-link">Cookies</a>
             </div>
         </div>
     </footer>
@@ -223,14 +219,53 @@
     <!-- Common Site Scripts -->
     <script src="script.js" defer></script>
 
-    <!-- Back to top button -->
+    <!-- Page-Specific Script for FAQ Accordion -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const accordion = document.getElementById('faq-accordion');
+            if (accordion) {
+                const faqItems = accordion.querySelectorAll('.faq-item');
+
+                faqItems.forEach(item => {
+                    const question = item.querySelector('.faq-question');
+                    const answer = item.querySelector('.faq-answer');
+                    const arrow = item.querySelector('.faq-arrow');
+
+                    question.addEventListener('click', () => {
+                        const isOpen = item.classList.contains('open');
+
+                        // Close all other items
+                        faqItems.forEach(otherItem => {
+                            if (otherItem !== item) {
+                                otherItem.classList.remove('open');
+                                otherItem.querySelector('.faq-answer').style.maxHeight = '0px';
+                                otherItem.querySelector('.faq-arrow').classList.remove('rotate-180');
+                            }
+                        });
+
+                        // Toggle the clicked item
+                        if (isOpen) {
+                            item.classList.remove('open');
+                            answer.style.maxHeight = '0px';
+                            arrow.classList.remove('rotate-180');
+                            question.setAttribute('aria-expanded', 'false');
+                        } else {
+                            item.classList.add('open');
+                            answer.style.maxHeight = answer.scrollHeight + 'px';
+                            arrow.classList.add('rotate-180');
+                        }
+                    });
+                });
+            }
+        });
+    </script>
+
     <a id="back-to-top" href="#"
-   class="fixed bottom-6 right-6 z-[999] p-4 bg-yellow-400 text-white rounded-full shadow-lg transition-opacity duration-300 opacity-0 invisible hover:bg-yellow-500 transform hover:scale-110">
-    <!-- SVG for an up arrow icon -->
-    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
-    </svg>
-</a>
+       class="fixed bottom-6 right-6 z-[999] p-4 bg-yellow-400 text-white rounded-full shadow-lg transition-opacity duration-300 opacity-0 invisible hover:bg-yellow-500 transform hover:scale-110">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+        </svg>
+    </a>
 
 </body>
 </html>

@@ -1,5 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
     
+    // --- Centralized Constants ---
+    const BUSINESS_PHONE_NUMBER = "254793911383";
+    const BUSINESS_EMAIL = "sunrisechickenbarn@gmail.com";
+
     // --- Shopping Cart State ---
     // We use localStorage to persist the cart between page loads
     let cart = JSON.parse(localStorage.getItem('sunriseFarmCart')) || [];
@@ -34,6 +38,13 @@ document.addEventListener('DOMContentLoaded', function() {
         if (modal) {
             modal.style.display = 'none';
             document.body.classList.remove('overflow-hidden');
+        }
+    }
+
+    // Close modal when clicking on the background
+    window.onclick = function(event) {
+        if (event.target.classList.contains('modal')) {
+            closeModal(event.target.id);
         }
     }
 
@@ -314,8 +325,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (sendWhatsappBtn) {
         sendWhatsappBtn.addEventListener('click', () => {
             const orderText = getOrderSummaryText();
-            const businessPhoneNumber = "254793911383"; // Centralize phone number
-            const whatsappUrl = `https://wa.me/${businessPhoneNumber}?text=${encodeURIComponent(orderText)}`;
+            const whatsappUrl = `https://wa.me/${BUSINESS_PHONE_NUMBER}?text=${encodeURIComponent(orderText)}`;
             window.open(whatsappUrl, '_blank');
             // Close modal and clear cart after a short delay
             setTimeout(() => {
@@ -328,16 +338,55 @@ document.addEventListener('DOMContentLoaded', function() {
     const sendEmailBtn = document.getElementById('send-via-email');
     if (sendEmailBtn) {
         sendEmailBtn.addEventListener('click', () => {
-            const businessEmail = "sunrisechickenbarn@gmail.com"; // Centralize email
             const orderText = getOrderSummaryText();
             const subject = "New Order from Sunrise Chicken Farm Website";
-            const mailtoLink = `mailto:${businessEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(orderText)}`;
+            const mailtoLink = `mailto:${BUSINESS_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(orderText)}`;
             window.open(mailtoLink, '_blank');
             setTimeout(() => {
                 closeModal('invoiceModal');
                 clearCartAndNotify();
             }, 1500); // 1.5-second delay
         });
+    }
+
+    // --- Gallery Lightbox Logic ---
+    const galleryImages = document.querySelectorAll('#farm-gallery img');
+    if (galleryImages.length > 0) {
+        const lightboxModal = document.getElementById('lightboxModal');
+        const lightboxImage = document.getElementById('lightboxImage');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        let currentIndex = 0;
+
+        const imageSources = Array.from(galleryImages).map(img => img.src);
+
+        const showImage = (index) => {
+            if (index < 0 || index >= imageSources.length) return;
+            lightboxImage.src = imageSources[index];
+            currentIndex = index;
+        };
+
+        galleryImages.forEach((img, index) => {
+            img.parentElement.addEventListener('click', (e) => {
+                e.preventDefault();
+                openModal('lightboxModal');
+                showImage(index);
+            });
+        });
+
+        if (prevBtn) {
+            prevBtn.addEventListener('click', () => {
+                const newIndex = (currentIndex - 1 + imageSources.length) % imageSources.length;
+                showImage(newIndex);
+            });
+        }
+
+        if (nextBtn) {
+            nextBtn.addEventListener('click', () => {
+                const newIndex = (currentIndex + 1) % imageSources.length;
+                showImage(newIndex);
+            });
+        }
     }
 
 
