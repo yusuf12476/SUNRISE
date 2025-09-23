@@ -51,63 +51,78 @@
         <!-- Products Section -->
         <section id="products" class="py-20 px-8 card-section aos-fade-up">
             <h2 class="text-5xl font-extrabold text-gray-800 text-center mb-12">Our Farm-Fresh Products</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <!-- Product Card 1: Fresh Dressed Chicken (Broilers) --> 
-                <div class="bg-white rounded-2xl shadow-xl overflow-hidden product-card transform-gpu">
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden product-card transform-gpu flex flex-col">
                     <img src="https://placehold.co/450x350/FACC15/FFF?text=Fresh+Broiler+Chicken" alt="Dressed Broiler Chicken" class="w-full h-64 object-cover">
-                    <div class="p-7">
-                        <h3 class="font-bold text-3xl text-gray-800 mb-4">Fresh Dressed Broiler Chicken</h3>
-                        <p class="text-gray-700 text-base mb-5">
-                            Our premium broiler chickens, meticulously dressed and prepared for your culinary convenience. Celebrated for their tender, succulent meat.
-                        </p>
-                        <ul class="list-disc list-inside text-gray-600 mb-5 text-sm space-y-1">
-                            <li>Available in various precise weights.</li>
-                            <li>Perfect for roasting, grilling, or rich stews.</li>
-                            <li><span class="font-semibold">Nutritional Highlight:</span> High in lean protein, essential amino acids.</li>
-                        </ul>
-                        <div class="flex justify-between items-center mt-6">
-                            <p class="text-yellow-700 font-extrabold text-3xl">Ksh 480 <span class="text-xl font-semibold text-gray-500">/ kg</span></p>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="font-bold text-xl text-gray-800 mb-2 flex-grow">Fresh Dressed Broiler Chicken</h3>
+                        <div class="flex justify-between items-center mt-4">
+                            <p class="text-yellow-700 font-extrabold text-2xl">Ksh 480 <span class="text-lg font-semibold text-gray-500">/ kg</span></p>
                             <button onclick="addToCart('prod001', 'Fresh Dressed Broiler Chicken', 480, 'https://placehold.co/100x100/FACC15/FFF?text=Broiler')" class="btn-secondary text-white font-bold py-2 px-4 rounded-full text-sm shadow-md hover:scale-105 transition">
                                 Add to Cart
                             </button>
                         </div>
                     </div>
                 </div>
-                <!-- Product Card 2: Farm Fresh Eggs (Layers) -->
-                <div class="bg-white rounded-2xl shadow-xl overflow-hidden product-card transform-gpu">
+                <!-- Product Card 2: Farm Fresh Eggs (Tray) -->
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden product-card transform-gpu flex flex-col">
                     <img src="https://placehold.co/450x350/FBC02D/FFFFFF?text=Farm+Fresh+Eggs" alt="Farm Fresh Eggs" class="w-full h-64 object-cover">
-                    <div class="p-7">
-                        <h3 class="font-bold text-3xl text-gray-800 mb-4">Farm Fresh Eggs</h3>
-                        <p class="text-gray-700 text-base mb-5">
-                            Nutrient-rich, vibrantly flavored eggs laid fresh daily by our healthy layer hens. An indispensable ingredient for every kitchen.
-                        </p>
-                        <ul class="list-disc list-inside text-gray-600 mb-5 text-sm space-y-1">
-                            <li>Naturally vibrant brown and white shells.</li>
-                            <li>Ideal for baking, a wholesome breakfast, or enriching any main dish.</li>
-                            <li><span class="font-semibold text-green-600">Nutritional Highlight:</span> Excellent source of Vitamin D, B12, and brain-boosting Choline.</li>
-                        </ul>
-                        <div class="flex justify-between items-center mt-6">
-                            <p class="text-yellow-700 font-extrabold text-3xl">Ksh 380 <span class="text-xl font-semibold text-gray-500">/ tray</span></p>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="font-bold text-xl text-gray-800 mb-2 flex-grow">Farm Fresh Eggs (Tray)</h3>
+                        <div class="flex justify-between items-center mt-4">
+                            <p class="text-yellow-700 font-extrabold text-2xl">Ksh 380 <span class="text-lg font-semibold text-gray-500">/ tray</span></p>
                              <button onclick="addToCart('prod002', 'Farm Fresh Eggs', 380, 'https://placehold.co/100x100/FBC02D/FFFFFF?text=Eggs')" class="btn-secondary text-white font-bold py-2 px-4 rounded-full text-sm shadow-md hover:scale-105 transition">
                                 Add to Cart
                             </button>
                         </div>
                     </div>
                 </div>
-                <!-- Product Card 3: Live Chicken -->
-                <div class="bg-white rounded-2xl shadow-xl overflow-hidden product-card transform-gpu">
+                <!-- Product Card 3: 15 Eggs -->
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden product-card transform-gpu flex flex-col">
+                    <img src="https://placehold.co/450x350/FDE68A/FFFFFF?text=15+Eggs" alt="15 Farm Fresh Eggs" class="w-full h-64 object-cover">
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="font-bold text-xl text-gray-800 mb-2 flex-grow">15 Farm Fresh Eggs</h3>
+                        <div class="flex justify-between items-center mt-4">
+                            <p class="text-yellow-700 font-extrabold text-2xl">Ksh 200</p>
+                             <button onclick="addToCart('prod003', '15 Farm Fresh Eggs', 200, 'https://placehold.co/100x100/FDE68A/FFFFFF?text=15+Eggs')" class="btn-secondary text-white font-bold py-2 px-4 rounded-full text-sm shadow-md hover:scale-105 transition">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product Card 4: 8 Eggs -->
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden product-card transform-gpu flex flex-col">
+                    <img src="https://placehold.co/450x350/FEF3C7/FFFFFF?text=8+Eggs" alt="8 Farm Fresh Eggs" class="w-full h-64 object-cover">
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="font-bold text-xl text-gray-800 mb-2 flex-grow">8 Farm Fresh Eggs</h3>
+                        <div class="flex justify-between items-center mt-4">
+                            <p class="text-yellow-700 font-extrabold text-2xl">Ksh 120</p>
+                             <button onclick="addToCart('prod004', '8 Farm Fresh Eggs', 120, 'https://placehold.co/100x100/FEF3C7/FFFFFF?text=8+Eggs')" class="btn-secondary text-white font-bold py-2 px-4 rounded-full text-sm shadow-md hover:scale-105 transition">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product Card 5: Live Chicken -->
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden product-card transform-gpu flex flex-col">
                     <img src="https://placehold.co/450x350/607D8B/FFFFFF?text=Live+Chicken" alt="Live Chicken" class="w-full h-64 object-cover">
-                    <div class="p-7">
-                        <h3 class="font-bold text-3xl text-gray-800 mb-4">Live Chicken</h3>
-                        <p class="text-gray-700 text-base mb-5">
-                            Healthy, active chickens available live from our farm. Perfect for those who prefer to process their poultry at home or for breeding.
-                        </p>
-                        <ul class="list-disc list-inside text-gray-600 mb-5 text-sm space-y-1">
-                            <li>Well-vaccinated and robust birds.</li>
-                            <li>Choose between broiler or layer breeds.</li>
-                            <li><span class="font-semibold text-green-600">Best for:</span> Ultimate freshness and custom processing.</li>
-                        </ul>
-                        <div class="flex justify-between items-center mt-6">
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="font-bold text-xl text-gray-800 mb-2 flex-grow">Live Chicken</h3>
+                        <div class="flex justify-between items-center mt-4">
+                             <p class="text-gray-700 font-bold text-2xl">Contact for Price</p>
+                            <a href="contact.html" class="bg-gray-200 text-gray-800 font-bold py-2 px-4 rounded-full text-sm shadow-md hover:bg-gray-300 transition">
+                                Inquire
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product Card 6: Bulk Order -->
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden product-card transform-gpu flex flex-col">
+                    <img src="https://placehold.co/450x350/38A169/FFFFFF?text=Bulk+Order" alt="Bulk Order" class="w-full h-64 object-cover">
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="font-bold text-xl text-gray-800 mb-2 flex-grow">Bulk Orders</h3>
+                        <div class="flex justify-between items-center mt-4">
                              <p class="text-gray-700 font-bold text-2xl">Contact for Price</p>
                             <a href="contact.html" class="bg-gray-200 text-gray-800 font-bold py-2 px-4 rounded-full text-sm shadow-md hover:bg-gray-300 transition">
                                 Inquire
